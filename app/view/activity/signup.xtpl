@@ -1,0 +1,110 @@
+{{extend ("../layout/default-layout") }}
+
+{{#block ("content") }}
+<ol class="breadcrumb">
+    <li><a href="/activity/list">活动</a></li>
+    <li><a href="/activity/26">第26站--渔山列岛</a></li>
+    <li class="active">报名</li>
+</ol>
+<form class="form-horizontal" >
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 报名活动</label>
+        <div class="col-sm-8">
+            <input type="text" name="activity" class="form-control" value="第26站--渔山列岛" disabled="disabled">
+            <input type="hidden" name="activityId" class="form-control" value="26">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 昵称</label>
+        <div class="col-sm-8">
+            <input type="text" name="nickName" class="form-control" placeholder="昵称/花名" data-rule-required="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 联系方式</label>
+        <div class="col-sm-8">
+            <input type="text" name="phoneNumber" class="form-control" placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 邮箱</label>
+        <div class="col-sm-8">
+            <input type="text" name="email" class="form-control" placeholder="邮箱" data-rule-required="true" data-rule-email="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 年龄</label>
+        <div class="col-sm-8">
+            <input type="text" name="age" class="form-control" data-rule-required="true" placeholder="年龄">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 性别</label>
+        <div class="col-sm-8">
+            <label class="radio-inline">
+                <input type="radio" name="sex" value="boy" data-rule-required="true"> 帅哥
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="sex" value="girl" data-rule-required="true"> 萌妹子~
+            </label>
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 是否单身</label>
+        <div class="col-sm-8">
+            <label class="radio-inline">
+                <input type="radio" name="isSingal" value="singal" data-rule-required="true"> 单身狗
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="isSingal" value="love" data-rule-required="true"> 情侣狗
+            </label>
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 上车点</label>
+        <div class="col-sm-8">
+            <select class="form-control" name="board" data-rule-required="true">
+                <option value="">请选择</option>
+                <option value="1">淘宝城</option>
+                <option value="2">崇义路</option>
+                <option value="3">武林广场</option>
+            </select>
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">才艺特长</label>
+        <div class="col-sm-8">
+            <textarea name="talent" cols="3" class="form-control">{{data.api}}</textarea>
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">是否愿意承担什么职务</label>
+        <div class="col-sm-8">
+            <select class="form-control" name="duty">
+                <option value=""></option>
+                <option value="1">领队</option>
+                <option value="2">财务官</option>
+                <option value="3">武林广场</option>
+            </select>
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8">
+            <a href="#" class="btn btn-primary" id="J_sign_up_activity">报名</a>
+        </div>
+    </div>
+</form>
+{{/block}}
+

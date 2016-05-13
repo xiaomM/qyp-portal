@@ -1,0 +1,11 @@
+{{extend ("../layout/default-layout") }}
+
+{{#block ("content") }}
+<div ng-app="list">
+  <div ng-controller="listController">list
+    {{%
+    {{list}}
+    %}}</div>
+</div>
+{{/block}}
+

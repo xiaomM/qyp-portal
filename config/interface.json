@@ -1,0 +1,19 @@
+{
+  "title": "qiongyoupai",
+  "version": "0.0.1",
+  "engine": "mockjs",
+  "rulebase": "interfaceRules",
+  "status": "prod",
+  "enablePlugins": {
+    "http": true
+  },
+  "interfaces": [ {
+    "name": "主搜索接口",
+    "id": "Search.getItems",
+    "type": "http",
+    "ssl": "ture",
+    "urls": {
+      "prod": "https://s.m.taobao.com/client/search.d"
+    }
+  } ]
+}
