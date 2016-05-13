@@ -13,7 +13,7 @@
     "type": "http",
     "ssl": "ture",
     "urls": {
-      "prod": "https://s.m.taobao.com/client/search.d"
+      "prod": "https://s.m.taobao.com/client/search.do"
     }
   } ]
 }
