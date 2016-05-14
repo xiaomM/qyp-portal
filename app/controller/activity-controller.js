@@ -11,10 +11,17 @@ exports.index = function* (next) {
     yield next
 };
 
-exports.list = function* () {
-    yield this.render('activity/list', {});
+
+exports.lists = function* () {
+    yield this.render('activity/lists', {});
+};
+exports.aboutus = function* () {
+    yield this.render('activity/aboutus', {});
 };
 
+exports.detail = function* () {
+    yield this.render('activity/detail', {});
+};
 exports.signup = function* () {
     var ctx = this;
     //for (var key in this) {
@@ -31,7 +38,7 @@ exports.signup = function* () {
                 reject(err);
             });
     });
-    console.log(data);
+    //console.log(data);
 
     yield this.render('activity/signup', {
         activeTab: 'activity',

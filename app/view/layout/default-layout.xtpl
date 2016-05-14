@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="commonApp">
+<html lang="en" >
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,7 @@
         <title>穷游派-踏足青春,我们在路上</title>
         <link rel="stylesheet" href="/public/lib/N3.css">
         <link rel="stylesheet" href="/public/css/application.css">
+        <link rel="stylesheet" href="/public/css/detail.css">
         {{{block ('page-css-links')}}}
     </head>
     <body>
@@ -41,9 +42,10 @@
         </div>
         <script type="text/javascript" src="/public/lib/jquery.min.js"></script>
         <script type="text/javascript" src="/public/lib/N3.js"></script>
-        <!--<script type="text/javascript" src="/public/lib/angular/angular.min.js"></script>-->
+        <script type="text/javascript" src="/public/lib/angular/angular.min.js"></script>
         <!--<script type="text/javascript" src="/public/lib/angular/angular-ui-router.min.js"></script>-->
         <script type="text/javascript" src="/public/js/qyp.js"></script>
+        <script type="text/javascript" src="/public/js/detail.js"></script>
         {{{block ('page-js-links')}}}
     </body>
 </html>
