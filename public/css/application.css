@@ -1,6 +1,12 @@
 .color-red {
   color: #e74c3c;
 }
+.color-success {
+  color: #1abc9c;
+}
+.color-danger {
+  color: #e74c3c;
+}
 body {
   background-size: cover;
   background-color: #f9f7f6;
@@ -54,6 +60,10 @@ body {
 }
 .qyp-content {
   padding-top: 90px;
+}
+.qyp-content .content-wrap {
+  padding: 20px;
+  background-color: white;
 }
 .qyp-content .carousel img {
   width: 100%;
@@ -155,4 +165,13 @@ body {
   margin-top: 20px;
   background-color: white;
   padding: 20px;
+}
+.qyp-content .status-label {
+  font-size: 120px;
+}
+.qyp-content .status-page {
+  padding-bottom: 60px;
+}
+.qyp-content .status-page > div {
+  margin-bottom: 10px;
 }

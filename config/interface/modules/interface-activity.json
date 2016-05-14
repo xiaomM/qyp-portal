@@ -1,0 +1,20 @@
+[
+  {
+    "name": "主搜索接口",
+    "id": "Search.getItems",
+    "type": "http",
+    "ssl": "ture",
+    "urls": {
+      "prod": "https://s.m.taobao.com/client/search.do"
+    }
+  },
+  {
+    "name": "活动-创建",
+    "id": "Activity.new",
+    "type": "http",
+    "ssl": "ture",
+    "urls": {
+      "prod": "/activity/create"
+    }
+  }
+]

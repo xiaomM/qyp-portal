@@ -21,8 +21,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="{{#if(activeTab==='index'||!activeTab)}}active{{/if}}"><a href="/">首页</a></li>
-                    <li class="{{#if(activeTab==='activity')}}active{{/if}}"><a href="/activity/signup">行程</a></li>
-                    <li><a href="#">图片</a></li>
+                    <li class="{{#if(activeTab==='activity')}}active{{/if}}"><a href="/activity/list">活动</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -43,7 +42,7 @@
         <script type="text/javascript" src="/public/lib/N3.js"></script>
         <!--<script type="text/javascript" src="/public/lib/angular/angular.min.js"></script>-->
         <!--<script type="text/javascript" src="/public/lib/angular/angular-ui-router.min.js"></script>-->
-        <script type="text/javascript" src="/public/js/qyp.js"></script>
         {{{block ('page-js-links')}}}
+        <script type="text/javascript" src="/public/js/qyp.js"></script>
     </body>
 </html>

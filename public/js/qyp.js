@@ -32,28 +32,74 @@ $.fn.serializeObject = function()
 
 
 
-$(document).on('click', '#J_sign_up_activity', function (e) {
-    e.preventDefault();
-    var $target = $(this);
-    var $form = $target.closest('form');
+$(document)
+    .on('click', '#J_sign_up_activity', function (e) {
+        e.preventDefault();
+        var $target = $(this);
+        var $form = $target.closest('form');
 
-    $form.validate();
+        $form.validate();
 
-    if (!$form.valid()) {
-        return false;
-    }
-
-    var params = $form.serializeObject();
-
-    $.ajax({
-        url: '/ajax/activity/signup',
-        type: 'POST',
-        data: params,
-        success: function (result) {
-            if (!result.successful) {
-                Qyp.alertDanger('报名失败');
-            }
-            Qyp.alertSuccess('报名成功')
+        if (!$form.valid()) {
+            return false;
         }
+
+        var params = $form.serializeObject();
+
+        $.ajax({
+            url: '/ajax/activity/signup',
+            type: 'POST',
+            data: params,
+            success: function (result) {
+                //location.href = '/activity/signup/success'
+            }
+        });
+    })
+    .on('click', '#J_new_activity', function (e) {
+        e.preventDefault();
+        var $target = $(this);
+        var $form = $target.closest('form');
+
+        $form.validate();
+
+        if (!$form.valid()) {
+            return false;
+        }
+
+        var params = $form.serializeObject();
+        params.activityDescription = editor.html()
+        $.ajax({
+            url: '/ajax/activity/new',
+            type: 'POST',
+            data: params,
+            success: function (result) {
+                //location.href = '/activity/new/success'
+            }
+        });
+    })
+
+
+$('input[data-init="datepicker"]').datepicker({
+    timepicker: {
+        hasHour: true,
+        hasMinute: true,
+        hasSecond: true,
+    }
+});
+
+
+
+var editor;
+if ($('textarea[name="activityDescription"]').length) {
+    KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="activityDescription"]', {
+            resizeType : 1,
+            allowPreviewEmoticons : false,
+            allowImageUpload : false,
+            items : [
+                'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+                'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+                'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+        });
     });
-})
+}

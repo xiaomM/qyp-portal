@@ -3,10 +3,18 @@
 @color-red: #e74c3c;
 @color-border: #ddd;
 @color-bg: #f9f7f6;
+@color-green: #1abc9c;
 
 .color-red {
   color: @color-red;
 }
+.color-success {
+  color: @color-green;
+}
+.color-danger {
+  color: @color-red;
+}
+
 
 body {
   //background: url(/public/img/bg.JPG);
@@ -76,6 +84,12 @@ body {
 
 .qyp-content {
   padding-top: 90px;
+
+  .content-wrap {
+    padding: 20px;
+    background-color: white;
+  }
+
   .carousel {
     //margin: -15px;
     img {
@@ -199,5 +213,16 @@ body {
     margin-top: 20px;
     background-color: white;
     padding: 20px;
+  }
+
+  .status-label {
+    font-size: 120px;
+  }
+
+  .status-page {
+    padding-bottom: 60px;
+    &>div {
+      margin-bottom: 10px;
+    }
   }
 }

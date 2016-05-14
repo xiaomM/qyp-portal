@@ -14,8 +14,10 @@ var config = {
     //log所在的目录
     "logDir": path.join(__dirname,'..', 'log'),
     //静态文件所在的目录
-    "staticDir": path.join(__dirname,'..', 'public')
-    
+    "staticDir": path.join(__dirname,'..', 'public'),
+
+    // 后端域名
+    "backendHost": 'http://10.0.10.128:8080',
 
 };
 

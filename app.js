@@ -1,7 +1,13 @@
 var debug = require('debug')('book');
 var koa = require('koa');
+var _ = require('lodash');
+
 //配置文件
 var config = require('./config/config');
+
+var interfacePlus = require('./app/utils/interface-plus');
+interfacePlus.init();
+
 
 var app = koa();
 app.use(function *(next){
@@ -25,10 +31,15 @@ app.context.logger = logger;
 var onerror = require('koa-onerror');
 onerror(app);
 
+app.context.locals = {};
+
 //xtemplate对koa的适配
-var xtplApp = require('xtpl/lib/koa');
+//var xtplApp = require('xtpl/lib/koa');
+var xtplApp = require('./app/utils/koa-xtpl-plus');
+
 //xtemplate模板渲染
 xtplApp(app,{
+
     //配置模板目录
     views: config.viewDir
 });
@@ -37,7 +48,7 @@ xtplApp(app,{
 var DataProxy = require( 'ali-data-proxy-lite' );
 
 // interface配置文件的绝对路径
-var path = require('path').resolve( __dirname, './config/interface.json' );
+var path = require('path').resolve( __dirname, './config/interface/interface.json' );
 
 // 初始化引入接口配置文件  （注意：初始化工作有且只有一次）
 DataProxy.init( path );

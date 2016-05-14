@@ -1,17 +1,19 @@
 {{extend ("../layout/default-layout") }}
 
 {{#block ("content") }}
+<input type="hidden" id="J_activity_id" value="{{activityDetail.id}}">
+
 <ol class="breadcrumb">
     <li><a href="/activity/list">活动</a></li>
-    <li><a href="/activity/26">第26站--渔山列岛</a></li>
+    <li><a href="/activity/{{activityDetail.id}}">{{activityDetail.title}}</a></li>
     <li class="active">报名</li>
 </ol>
 <form class="form-horizontal" >
     <div class="form-group">
         <label class="col-sm-2 control-label"><b class="text-danger">*</b> 报名活动</label>
         <div class="col-sm-8">
-            <input type="text" name="activity" class="form-control" value="第26站--渔山列岛" disabled="disabled">
-            <input type="hidden" name="activityId" class="form-control" value="26">
+            <input type="text" name="activity" class="form-control" value="{{activityDetail.title}}" disabled="disabled">
+            <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.id}}">
         </div>
         <div class="col-sm-2 error-container"></div>
     </div>

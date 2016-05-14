@@ -1,0 +1,131 @@
+{{extend ("../layout/default-layout") }}
+
+{{#block ("content") }}
+<ol class="breadcrumb">
+    <li><a href="/activity/list">活动</a></li>
+    <li class="active">创建活动</li>
+</ol>
+<form class="form-horizontal" >
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 报名标题</label>
+        <div class="col-sm-8">
+            <input type="text" name="title" class="form-control" value="第xx站--" data-rule-required="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 目的地</label>
+        <div class="col-sm-8">
+            <input type="text" name="destination" class="form-control" value="" data-rule-required="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 活动开始时间</label>
+        <div class="col-sm-8">
+            <input type="text" name="startTime" class="form-control" data-init="datepicker" data-rule-required="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 活动结束时间</label>
+        <div class="col-sm-8">
+            <input type="text" name="endTime" class="form-control" data-init="datepicker" data-rule-required="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 组织者</label>
+        <div class="col-sm-8">
+            <input type="text" name="creator" class="form-control" value="" data-rule-required="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 组织者联系方式</label>
+        <div class="col-sm-8">
+            <input type="text" name="creatorPhoneNumber" class="form-control" placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 最少人数</label>
+        <div class="col-sm-8">
+            <input type="text" name="minPeopleSize" class="form-control" data-rule-required="true" data-rule-digits="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 最多人数</label>
+        <div class="col-sm-8">
+            <input type="text" name="maxPeopleSize" class="form-control" data-rule-required="true" data-rule-digits="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 预算金额</label>
+        <div class="col-sm-8">
+            <input type="text" name="budget" class="form-control" data-rule-required="true" data-rule-digits="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 订金金额</label>
+        <div class="col-sm-8">
+            <input type="text" name="deposit" class="form-control" data-rule-required="true" data-rule-digits="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 自愿参加活动职务list</label>
+        <div class="col-sm-8">
+            <input type="text" name="dutyList" class="form-control" data-rule-required="true" placeholder="以逗号分隔">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 上车点</label>
+        <div class="col-sm-8">
+            <input type="text" name="boardList" class="form-control" data-rule-required="true" placeholder="以逗号分隔">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 缴费二维码链接</label>
+        <div class="col-sm-8">
+            <input type="text" name="paymentUrl" class="form-control" data-rule-required="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 活动图片</label>
+        <div class="col-sm-8">
+            <input type="text" name="activityPhotoUrl" class="form-control" data-rule-required="true">
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 活动说明</label>
+        <div class="col-sm-8">
+            <textarea class="" name="activityDescription" data-rule-required="true"></textarea>
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8">
+            <a href="#" class="btn btn-primary" id="J_new_activity">创建活动</a>
+        </div>
+    </div>
+</form>
+{{/block}}
+
+{{#block ("page-css-links") }}
+<link rel="stylesheet" href="/public/lib/kindeditor/themes/default/default.css">
+{{/block}}
+
+{{#block ("page-js-links") }}
+<script type="text/javascript" src="/public/lib/kindeditor/kindeditor-all-min.js"></script>
+{{/block}}

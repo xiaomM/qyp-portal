@@ -1,0 +1,11 @@
+{
+    "title": "qiongyoupai",
+    "version": "0.0.1",
+    "engine": "mockjs",
+    "rulebase": "interfaceRules",
+    "status": "prod",
+    "enablePlugins": {
+        "http": true
+    },
+    "interfaces":""
+}
