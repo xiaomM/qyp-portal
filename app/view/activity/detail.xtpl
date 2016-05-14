@@ -1,0 +1,47 @@
+{{extend ("../layout/default-layout") }}
+
+{{#block ("content") }}
+<div class="detail container" ng-app="detailApp">
+ <form  class="form-horizontal" ng-controller="detailController">
+      <div class="form-group">
+         <label class="col-sm-5 control-label">活动领队：</label>
+         <div class="col-sm-7 control-detail">
+          {{%
+		    {{detail.creator}}
+		    %}}
+         </div>        
+  	</div>
+  	 <div class="form-group">
+         <label  class="col-sm-5 control-label">活动时间：</label>
+         <div class="col-sm-7 control-detail">
+          {{detail.startTime}}-{{detail.endTime}}
+         </div>        
+  	</div>
+  	<div class="form-group">
+         <label class="col-sm-5 control-label">活动人数：</label>
+         <div class="col-sm-7 control-detail">
+          {{detail.minPeopleSize}}-{{detail.maxPeopleSize}}
+         </div>        
+  	</div>
+  	<div class="form-group">
+         <label class="col-sm-5 control-label">预算金额：</label>
+         <div class="col-sm-7 control-detail">
+          {{detail.budget}}
+         </div>        
+  	</div>
+  	<div class="form-group">
+         <label  class="col-sm-5 control-label">预付定金：</label>
+         <div class="col-sm-7 control-detail">
+          {{detail.deposit}}
+         </div>        
+  	</div>
+  	<div class="form-group">
+         
+         <div class="col-sm-7 col-md-offset-5">
+          {{detail.activityDescription}}
+         </div>        
+  	</div>
+</form>
+</div>
+{{/block}}
+

@@ -16,5 +16,14 @@
     "urls": {
       "prod": "/activity/create"
     }
+  },
+  {
+    "name": "活动-详情",
+    "id": "Activity.summary",
+    "type": "http",
+    "ssl": "ture",
+    "urls": {
+      "prod": "/activity/summary"
+    }
   }
 ]

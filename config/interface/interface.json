@@ -25,6 +25,15 @@
             "urls": {
                 "prod": "http://10.0.10.128:8080/activity/create"
             }
+        },
+        {
+            "name": "活动-详情",
+            "id": "Activity.summary",
+            "type": "http",
+            "ssl": "ture",
+            "urls": {
+                "prod": "http://10.0.10.128:8080/activity/summary"
+            }
         }
     ]
 }

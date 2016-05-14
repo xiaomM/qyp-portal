@@ -5,6 +5,7 @@ var DataProxy = require( 'ali-data-proxy-lite' );
 var qypProxy = new DataProxy({
     getItems: 'Search.getItems',
     createActivity: 'Activity.new',
+    getDetail: 'Activity.summary',
     //signupActivity: 'Activity.signup',
 });
 
@@ -32,10 +33,10 @@ var commonJson = function* (ctx, name, params) {
 
 exports.index = function* (next) {
     var ctx = this;
-    for (var key in ctx) {
-        console.log(key)
-    }
-    console.log('index')
+    //for (var key in ctx) {
+    //    console.log(key)
+    //}
+    //console.log('index')
     ctx.locals.activeTab = 'activity';
     yield next
 };
@@ -43,17 +44,35 @@ exports.index = function* (next) {
 exports.getDetail = function* (next) {
     var ctx = this;
     var activityId = ctx.params.activityId;
-    ctx.locals.activityDetail = {
-        id: activityId,
-        title: '第26站--渔山列岛2'
-    };
+    var params = {
+        activityId: activityId,
+    }
+    var data = yield new Promise(function(resolve, reject){
+        qypProxy.getDetail(params)
+            .done(function(data){
+                resolve(data);
+            })
+            .error(function(err){
+                ctx.logger.error(err)
+                reject(err);
+            });
+    });
+    console.log(data)
+    ctx.locals.activityDetail = data;
     yield next
 };
 
-exports.list = function* () {
-    yield this.render('activity/list', {});
+
+exports.lists = function* () {
+    yield this.render('activity/lists', {});
+};
+exports.aboutus = function* () {
+    yield this.render('activity/aboutus', {});
 };
 
+exports.detail = function* () {
+    yield this.render('activity/detail', {});
+};
 exports.signup = function* () {
     var ctx = this;
 
@@ -86,7 +105,7 @@ exports.new = function* () {
     var ctx = this;
 
     yield ctx.render('activity/new', {
-
+    //console.log(data);
     });
 };
 
