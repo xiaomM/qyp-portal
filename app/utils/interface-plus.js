@@ -8,6 +8,7 @@ var path = require("path");
 var walk = require('walk');
 var extend = require('node.extend');
 var jsonfile = require('jsonfile');
+var config = require('../../config/config');
 jsonfile.spaces = 4;
 function init() {
     var filePath = path.join(__dirname, '../../config/interface/modules');
@@ -31,7 +32,7 @@ function init() {
                 console.log('[INFO]' + fileStats.name + '加载完成，接口有' + json.length + '个')
                 json.forEach(function (val, index) {
                     var exist = false;
-                    val.urls.prod = 'http://10.0.10.128:8080' + val.urls.prod;
+                    val.urls.prod = config.backendHost + val.urls.prod;
 
                     // 以ID为标识符，后来者为准
                     interfaces.forEach(function (val1, index1) {

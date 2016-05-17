@@ -17,7 +17,7 @@ var config = {
     "staticDir": path.join(__dirname,'..', 'public'),
 
     // 后端域名
-    "backendHost": 'http://10.0.10.128:8080',
+    "backendHost": 'http://127.0.0.1:8080',
 
 };
 

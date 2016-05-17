@@ -5,14 +5,14 @@
 
 <ol class="breadcrumb">
     <li><a href="/activity/list">活动</a></li>
-    <li><a href="/activity/{{activityDetail.id}}">{{activityDetail.title}}</a></li>
+    <li><a href="/activity/{{activityDetail.id}}">{{activityDetail.activityTitle}}</a></li>
     <li class="active">报名</li>
 </ol>
 <form class="form-horizontal" >
     <div class="form-group">
         <label class="col-sm-2 control-label"><b class="text-danger">*</b> 报名活动</label>
         <div class="col-sm-8">
-            <input type="text" name="activity" class="form-control" value="{{activityDetail.title}}" disabled="disabled">
+            <input type="text" name="activity" class="form-control" value="{{activityDetail.activityTitle}}" disabled="disabled">
             <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.id}}">
         </div>
         <div class="col-sm-2 error-container"></div>
@@ -61,10 +61,10 @@
         <label class="col-sm-2 control-label"><b class="text-danger">*</b> 是否单身</label>
         <div class="col-sm-8">
             <label class="radio-inline">
-                <input type="radio" name="isSingal" value="singal" data-rule-required="true"> 单身狗
+                <input type="radio" name="isSingle" value="singal" data-rule-required="true"> 单身狗
             </label>
             <label class="radio-inline">
-                <input type="radio" name="isSingal" value="love" data-rule-required="true"> 情侣狗
+                <input type="radio" name="isSingle" value="love" data-rule-required="true"> 情侣狗
             </label>
         </div>
         <div class="col-sm-2 error-container"></div>
@@ -84,7 +84,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">才艺特长</label>
         <div class="col-sm-8">
-            <textarea name="talent" cols="3" class="form-control">{{data.api}}</textarea>
+            <textarea name="talent" cols="3" class="form-control"></textarea>
         </div>
         <div class="col-sm-2 error-container"></div>
     </div>
@@ -97,6 +97,13 @@
                 <option value="2">财务官</option>
                 <option value="3">武林广场</option>
             </select>
+        </div>
+        <div class="col-sm-2 error-container"></div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">备注</label>
+        <div class="col-sm-8">
+            <textarea class="form-control" name="remarks"></textarea>
         </div>
         <div class="col-sm-2 error-container"></div>
     </div>

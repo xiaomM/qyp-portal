@@ -6,24 +6,38 @@
     "ssl": "ture",
     "urls": {
       "prod": "https://s.m.taobao.com/client/search.do"
-    }
+    },
+    "encoding": "utf8"
   },
   {
     "name": "活动-创建",
     "id": "Activity.new",
     "type": "http",
-    "ssl": "ture",
+    "method": "post",
+    "contentType": "application/json",
     "urls": {
       "prod": "/activity/create"
-    }
+    },
+    "encoding": "utf8"
   },
   {
     "name": "活动-详情",
     "id": "Activity.summary",
     "type": "http",
-    "ssl": "ture",
     "urls": {
       "prod": "/activity/summary"
-    }
+    },
+    "encoding": "utf8"
+  },
+  {
+    "name": "活动-报名",
+    "id": "Activity.signup",
+    "type": "http",
+    "method": "post",
+    "contentType": "application/json",
+    "urls": {
+      "prod": "/activity/signUp"
+    },
+    "encoding": "utf8"
   }
 ]

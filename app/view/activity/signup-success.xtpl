@@ -5,14 +5,14 @@
 
 <ol class="breadcrumb">
     <li><a href="/activity/list">活动</a></li>
-    <li><a href="/activity/{{activityDetail.id}}">{{activityDetail.title}}</a></li>
+    <li><a href="/activity/{{activityDetail.id}}">{{activityDetail.activityTitle}}</a></li>
     <li class="active">报名信息提交成功</li>
 </ol>
 <div class="content-wrap text-center status-page">
     <div class="status-label color-success"><i class="fa fa-check-circle-o"></i></div>
     <div>报名信息提交成功,请耐心等待管理员审核</div>
     <div>审核时间1~2个工作日,通过会有邮件通知,请注意查收邮件</div>
-    <div>查看活动详情,<a href="/activity/{{activityDetail.id}}">{{activityDetail.title}}</a></div>
+    <div>查看活动详情,<a href="/activity/{{activityDetail.id}}">{{activityDetail.activityTitle}}</a></div>
 </div>
 {{/block}}
 

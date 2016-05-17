@@ -51,7 +51,7 @@ $(document)
             type: 'POST',
             data: params,
             success: function (result) {
-                //location.href = '/activity/signup/success'
+                location.href = '/activity/' + params.activityId + '/signup/success'
             }
         });
     })
@@ -73,7 +73,12 @@ $(document)
             type: 'POST',
             data: params,
             success: function (result) {
-                //location.href = '/activity/new/success'
+                if (result.success) {
+                    Qyp.alertSuccess('创建活动成功');
+                    location.href = '/activity/' + result.data.activityId + '/detail';
+                } else {
+                    Qyp.alertDanger(result.errorMsg || '创建活动失败');
+                }
             }
         });
     })

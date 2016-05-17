@@ -11,10 +11,10 @@ var qypProxy = new DataProxy({
 
 var commonJson = function* (ctx, name, params) {
     var errorJson = {
-        susccessful: false,
+        susccess: false,
         errorCode: -1,
         errorMsg: '未知错误',
-        object: null,
+        data: null,
     }
     console.log(params)
     var data = yield new Promise(function(resolve, reject){
@@ -50,7 +50,7 @@ exports.getDetail = function* (next) {
     var data = yield new Promise(function(resolve, reject){
         qypProxy.getDetail(params)
             .done(function(data){
-                resolve(data);
+                resolve(data.data);
             })
             .error(function(err){
                 ctx.logger.error(err)
