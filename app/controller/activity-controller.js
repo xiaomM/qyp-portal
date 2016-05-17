@@ -5,7 +5,8 @@ var DataProxy = require( 'ali-data-proxy-lite' );
 var qypProxy = new DataProxy({
     getItems: 'Search.getItems',
     createActivity: 'Activity.new',
-    getDetail: 'Activity.summary',
+    getDetail: 'Activity.summary'
+    
     //signupActivity: 'Activity.signup',
 });
 
@@ -16,7 +17,7 @@ var commonJson = function* (ctx, name, params) {
         errorMsg: '未知错误',
         data: null,
     }
-    console.log(params)
+    //console.log(params)
     var data = yield new Promise(function(resolve, reject){
         qypProxy[name](params)
             .done(function(data){
@@ -65,6 +66,9 @@ exports.getDetail = function* (next) {
 
 exports.lists = function* () {
     yield this.render('activity/lists', {});
+};
+exports.check = function* () {
+    yield this.render('activity/check', {});
 };
 exports.aboutus = function* () {
     yield this.render('activity/aboutus', {});
@@ -116,4 +120,8 @@ exports.createActivity = function* () {
 exports.signupActivity = function* () {
     var ctx = this;
     yield commonJson(ctx, 'signupActivity', ctx.request.body);
+}
+exports.detailActivity = function* () {
+    var ctx = this;
+    yield commonJson(ctx, 'getDetail', ctx.request.query);
 }

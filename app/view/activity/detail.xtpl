@@ -14,31 +14,33 @@
   	 <div class="form-group">
          <label  class="col-sm-5 control-label">活动时间：</label>
          <div class="col-sm-7 control-detail">
-          {{detail.startTime}}-{{detail.endTime}}
+          <p>{{%{{detail.startTime|date:"yyyy-MM-dd"}}</p>
+
+          <p>{{detail.endTime|date:"yyyy-MM-dd"}}%}}</p>
          </div>        
   	</div>
   	<div class="form-group">
          <label class="col-sm-5 control-label">活动人数：</label>
          <div class="col-sm-7 control-detail">
-          {{detail.minPeopleSize}}-{{detail.maxPeopleSize}}
+          {{% {{detail.minPeopleSize}}-{{detail.maxPeopleSize}}%}}
          </div>        
   	</div>
   	<div class="form-group">
          <label class="col-sm-5 control-label">预算金额：</label>
          <div class="col-sm-7 control-detail">
-          {{detail.budget}}
+          {{% {{detail.budget}}%}}
          </div>        
   	</div>
   	<div class="form-group">
          <label  class="col-sm-5 control-label">预付定金：</label>
          <div class="col-sm-7 control-detail">
-          {{detail.deposit}}
+         {{%  {{detail.deposit}}%}}
          </div>        
   	</div>
   	<div class="form-group">
          
-         <div class="col-sm-7 col-md-offset-5">
-          {{detail.activityDescription}}
+         <div class="col-sm-7 col-md-offset-5" id="activityDescription">
+         
          </div>        
   	</div>
 </form>
