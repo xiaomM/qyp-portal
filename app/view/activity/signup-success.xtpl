@@ -1,11 +1,11 @@
 {{extend ("../layout/default-layout") }}
 
 {{#block ("content") }}
-<input type="hidden" id="J_activity_id" value="{{activityDetail.id}}">
+<input type="hidden" id="J_activity_id" value="{{activityDetail.activityId}}">
 
 <ol class="breadcrumb">
-    <li><a href="/activity/list">活动</a></li>
-    <li><a href="/activity/{{activityDetail.id}}">{{activityDetail.activityTitle}}</a></li>
+    <li>活动</li>
+    <li><a href="/activity/{{activityDetail.activityId}}/detail">{{activityDetail.activityTitle}}</a></li>
     <li class="active">报名信息提交成功</li>
 </ol>
 <div class="content-wrap text-center status-page">

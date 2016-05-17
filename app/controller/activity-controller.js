@@ -4,9 +4,8 @@ var _ = require('lodash');
 var DataProxy = require( 'ali-data-proxy-lite' );
 var qypProxy = new DataProxy({
     createActivity: 'Activity.new',
-    getDetail: 'Activity.summary'
-    
-    //signupActivity: 'Activity.signup',
+    getDetail: 'Activity.summary',
+    signupActivity: 'Activity.signup',
 });
 
 var commonJson = function* (ctx, name, params) {
@@ -16,13 +15,14 @@ var commonJson = function* (ctx, name, params) {
         errorMsg: '未知错误',
         data: null,
     }
-    //console.log(params)
+    console.log(params)
     var data = yield new Promise(function(resolve, reject){
         qypProxy[name](params)
             .done(function(data){
                 resolve(data);
             })
             .error(function(err){
+                console.log(err)
                 ctx.logger.error(err)
                 resolve(errorJson);
             });
@@ -58,6 +58,14 @@ exports.getDetail = function* (next) {
             });
     });
     console.log(data)
+    var dutyList = data.dutyList;
+    if (dutyList) {
+        data.dutyList = dutyList.split('|');
+    }
+    var boardList = data.boardList;
+    if (boardList) {
+        data.boardList = boardList.split('|');
+    }
     ctx.locals.activityDetail = data;
     yield next
 };
@@ -78,19 +86,6 @@ exports.detail = function* () {
 };
 exports.signup = function* () {
     var ctx = this;
-
-    //var data = yield new Promise(function(resolve, reject){
-    //    qypProxy.getItems({ keyword: 'iphone6' })
-    //        .done(function(data){
-    //            resolve(data);
-    //        })
-    //        .error(function(err){
-    //            ctx.logger.error(err)
-    //            reject(err);
-    //        });
-    //});
-    //console.log(data);
-
     yield ctx.render('activity/signup', {
         //data: data,
     });

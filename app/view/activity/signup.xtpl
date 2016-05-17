@@ -1,11 +1,11 @@
 {{extend ("../layout/default-layout") }}
 
 {{#block ("content") }}
-<input type="hidden" id="J_activity_id" value="{{activityDetail.id}}">
+<input type="hidden" id="J_activity_id" value="{{activityDetail.activityId}}">
 
 <ol class="breadcrumb">
-    <li><a href="/activity/list">活动</a></li>
-    <li><a href="/activity/{{activityDetail.id}}">{{activityDetail.activityTitle}}</a></li>
+    <li>活动</li>
+    <li><a href="/activity/{{activityDetail.activityId}}/detail">{{activityDetail.activityTitle}}</a></li>
     <li class="active">报名</li>
 </ol>
 <form class="form-horizontal" >
@@ -13,7 +13,7 @@
         <label class="col-sm-2 control-label"><b class="text-danger">*</b> 报名活动</label>
         <div class="col-sm-8">
             <input type="text" name="activity" class="form-control" value="{{activityDetail.activityTitle}}" disabled="disabled">
-            <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.id}}">
+            <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.activityId}}">
         </div>
         <div class="col-sm-2 error-container"></div>
     </div>
@@ -61,10 +61,10 @@
         <label class="col-sm-2 control-label"><b class="text-danger">*</b> 是否单身</label>
         <div class="col-sm-8">
             <label class="radio-inline">
-                <input type="radio" name="isSingle" value="singal" data-rule-required="true"> 单身狗
+                <input type="radio" name="isSingle" value="true" data-rule-required="true"> 单身狗
             </label>
             <label class="radio-inline">
-                <input type="radio" name="isSingle" value="love" data-rule-required="true"> 情侣狗
+                <input type="radio" name="isSingle" value="false" data-rule-required="true"> 情侣狗
             </label>
         </div>
         <div class="col-sm-2 error-container"></div>
@@ -74,9 +74,9 @@
         <div class="col-sm-8">
             <select class="form-control" name="board" data-rule-required="true">
                 <option value="">请选择</option>
-                <option value="1">淘宝城</option>
-                <option value="2">崇义路</option>
-                <option value="3">武林广场</option>
+                {{#each(activityDetail.boardList)}}
+                <option>{{this}}</option>
+                {{/each}}
             </select>
         </div>
         <div class="col-sm-2 error-container"></div>
@@ -92,10 +92,10 @@
         <label class="col-sm-2 control-label">是否愿意承担什么职务</label>
         <div class="col-sm-8">
             <select class="form-control" name="duty">
-                <option value=""></option>
-                <option value="1">领队</option>
-                <option value="2">财务官</option>
-                <option value="3">武林广场</option>
+                <option value="">无</option>
+                {{#each(activityDetail.dutyList)}}
+                <option>{{this}}</option>
+                {{/each}}
             </select>
         </div>
         <div class="col-sm-2 error-container"></div>
@@ -111,7 +111,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-8">
-            <a href="#" class="btn btn-primary" id="J_sign_up_activity">报名</a>
+            <a href="#" class="btn qyp-btn btn-sm" id="J_sign_up_activity">报名</a>
         </div>
     </div>
 </form>

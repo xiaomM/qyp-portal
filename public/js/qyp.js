@@ -51,7 +51,11 @@ $(document)
             type: 'POST',
             data: params,
             success: function (result) {
-                location.href = '/activity/' + params.activityId + '/signup/success'
+                if (result.success) {
+                    location.href = '/activity/' + params.activityId + '/signup/success'
+                } else {
+                    Qyp.alertDanger(result.errorMsg || '报名失败')
+                }
             }
         });
     })

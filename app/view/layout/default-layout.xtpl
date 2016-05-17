@@ -41,11 +41,11 @@
         </div>
         <script type="text/javascript" src="/public/lib/jquery.min.js"></script>
         <script type="text/javascript" src="/public/lib/N3.js"></script>
-        <script type="text/javascript" src="/public/lib/angular/angular.min.js"></script>
+        <!--<script type="text/javascript" src="/public/lib/angular/angular.min.js"></script>-->
         <!--<script type="text/javascript" src="/public/lib/angular/angular-ui-router.min.js"></script>-->
 
         {{{block ('page-js-links')}}}
         <script type="text/javascript" src="/public/js/qyp.js"></script>
-        <script type="text/javascript" src="/public/js/detail.js"></script>
+        <!--<script type="text/javascript" src="/public/js/detail.js"></script>-->
     </body>
 </html>

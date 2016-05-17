@@ -175,3 +175,12 @@ body {
 .qyp-content .status-page > div {
   margin-bottom: 10px;
 }
+.qyp-content .qyp-btn {
+  background-color: #FDDE62;
+  color: #333;
+}
+.qyp-content .btn-sign {
+  position: fixed;
+  bottom: 20px;
+  right: 60px;
+}
