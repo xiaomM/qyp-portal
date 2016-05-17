@@ -84,8 +84,7 @@ var activityRouter = require('./app/router/activity-router');
 homeRouter(app);
 activityRouter(app);
 
-app.listen(config.port);
-console.log('listening on port %s',config.port);
+
 
 module.exports = app;
 

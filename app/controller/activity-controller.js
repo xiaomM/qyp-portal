@@ -57,7 +57,7 @@ exports.getDetail = function* (next) {
                 reject(err);
             });
     });
-    console.log(data)
+    //console.log(data)
     var dutyList = data.dutyList;
     if (dutyList) {
         data.dutyList = dutyList.split('|');
