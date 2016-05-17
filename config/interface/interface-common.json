@@ -7,5 +7,10 @@
     "enablePlugins": {
         "http": true
     },
+    "http": {
+        "responseTimeout": 50000,
+        "keepAliveMsecs": 50000,
+        "timeout": 5000000
+    },
     "interfaces":""
 }

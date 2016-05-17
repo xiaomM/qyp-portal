@@ -3,7 +3,6 @@
 var _ = require('lodash');
 var DataProxy = require( 'ali-data-proxy-lite' );
 var qypProxy = new DataProxy({
-    getItems: 'Search.getItems',
     createActivity: 'Activity.new',
     getDetail: 'Activity.summary'
     

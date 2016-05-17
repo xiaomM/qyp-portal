@@ -8,7 +8,7 @@ var config = {
     "env":"production",
     "appName": "book",
     //端口号配置
-    "port": 3000,
+    "port": 3002,
     //模板所在的目录
     "viewDir": path.join(__dirname,'..','app/view'),
     //log所在的目录
@@ -17,7 +17,7 @@ var config = {
     "staticDir": path.join(__dirname,'..', 'public'),
 
     // 后端域名
-    "backendHost": 'http://127.0.0.1:8080',
+    "backendHost": 'http://127.0.0.1:8091',
 
 };
 
