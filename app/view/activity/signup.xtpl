@@ -61,10 +61,10 @@
         <label class="col-sm-2 control-label"><b class="text-danger">*</b> 是否单身</label>
         <div class="col-sm-8">
             <label class="radio-inline">
-                <input type="radio" name="isSingle" value="true" data-rule-required="true"> 单身狗
+                <input type="radio" name="isSingle" value="1" data-rule-required="true"> 单身狗
             </label>
             <label class="radio-inline">
-                <input type="radio" name="isSingle" value="false" data-rule-required="true"> 情侣狗
+                <input type="radio" name="isSingle" value="0" data-rule-required="true"> 情侣狗
             </label>
         </div>
         <div class="col-sm-2 error-container"></div>

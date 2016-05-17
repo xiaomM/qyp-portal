@@ -1,3 +1,6 @@
+.detail {
+  position: relative;
+}
 .detail .control-detail {
   margin-top: 1px;
   float: left;

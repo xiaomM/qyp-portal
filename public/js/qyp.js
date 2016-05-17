@@ -45,7 +45,7 @@ $(document)
         }
 
         var params = $form.serializeObject();
-
+        params.memberId = params.phoneNumber;
         $.ajax({
             url: '/ajax/activity/signup',
             type: 'POST',
