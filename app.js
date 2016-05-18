@@ -31,7 +31,9 @@ app.context.logger = logger;
 var onerror = require('koa-onerror');
 onerror(app);
 
-app.context.locals = {};
+app.context.locals = {
+    config: config,
+};
 
 //xtemplate对koa的适配
 //var xtplApp = require('xtpl/lib/koa');
@@ -84,7 +86,8 @@ var activityRouter = require('./app/router/activity-router');
 homeRouter(app);
 activityRouter(app);
 
-
+//app.listen(config.port);
+//console.log('[INFO] Server listening on port ' + config.port);
 
 module.exports = app;
 

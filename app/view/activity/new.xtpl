@@ -123,9 +123,9 @@
 {{/block}}
 
 {{#block ("page-css-links") }}
-<link rel="stylesheet" href="/public/lib/kindeditor/themes/default/default.css">
+<link rel="stylesheet" href="{{config.staticHost}}/public/lib/kindeditor/themes/default/default.css">
 {{/block}}
 
 {{#block ("page-js-links") }}
-<script type="text/javascript" src="/public/lib/kindeditor/kindeditor-all-min.js"></script>
+<script type="text/javascript" src="{{config.staticHost}}/public/lib/kindeditor/kindeditor-all-min.js"></script>
 {{/block}}

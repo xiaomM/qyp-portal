@@ -11,4 +11,4 @@ process.on('SIGUSR2', function() {
     cluster.reload();
 });
 
-logger.warn('spawned cluster, kill -s SIGUSR2 ' + process.pid + ' to reload');
+console.warn('spawned cluster, kill -s SIGUSR2 ' + process.pid + ' to reload');

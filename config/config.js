@@ -18,6 +18,7 @@ var config = {
 
     // 后端域名
     "backendHost": 'http://127.0.0.1:8091',
+    "staticHost": 'http://www.dream623.com',
 
 };
 

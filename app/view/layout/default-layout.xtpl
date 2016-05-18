@@ -5,9 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>穷游派-踏足青春,我们在路上</title>
-        <link rel="stylesheet" href="/public/lib/N3.css">
-        <link rel="stylesheet" href="/public/css/application.css">
-        <link rel="stylesheet" href="/public/css/detail.css">
+        <link rel="stylesheet" href="{{config.staticHost}}/public/lib/N3.css">
+        <link rel="stylesheet" href="{{config.staticHost}}/public/css/application.css">
+        <link rel="stylesheet" href="{{config.staticHost}}/public/css/detail.css">
         {{{block ('page-css-links')}}}
     </head>
     <body>
@@ -39,13 +39,13 @@
         <div class="content container qyp-content">
             {{{block ("content") }}}
         </div>
-        <script type="text/javascript" src="/public/lib/jquery.min.js"></script>
-        <script type="text/javascript" src="/public/lib/N3.js"></script>
+        <script type="text/javascript" src="{{config.staticHost}}/public/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="{{config.staticHost}}/public/lib/N3.js"></script>
         <!--<script type="text/javascript" src="/public/lib/angular/angular.min.js"></script>-->
         <!--<script type="text/javascript" src="/public/lib/angular/angular-ui-router.min.js"></script>-->
 
         {{{block ('page-js-links')}}}
-        <script type="text/javascript" src="/public/js/qyp.js"></script>
+        <script type="text/javascript" src="{{config.staticHost}}/public/js/qyp.js"></script>
         <!--<script type="text/javascript" src="/public/js/detail.js"></script>-->
     </body>
 </html>
