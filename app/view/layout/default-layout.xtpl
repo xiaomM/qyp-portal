@@ -24,6 +24,7 @@
                     <li class="{{#if(activeTab==='index'||!activeTab)}}active{{/if}}"><a href="/">首页</a></li>
                     <li class="{{#if(activeTab==='activity')}}active{{/if}}"><a href="/activity/list">活动</a></li>
                 </ul>
+                {{#if(0)}}
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">二凢 <span class="caret"></span></a>
@@ -33,6 +34,7 @@
                         </ul>
                     </li>
                 </ul>
+                {{/if}}
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
     </nav>
