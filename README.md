@@ -23,7 +23,7 @@ source ~/.bashrc
 安装node5.0.0版本
 
 ~~~
-nvm i v5.0.0
+nvm install v5.0.0
 ~~~
 
 
