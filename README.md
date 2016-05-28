@@ -44,3 +44,8 @@ NODE_ENV=local node --harmony bin/app.js
 
 
 127.0.0.1:3002
+
+
+### 3.资料
+
+- [koa教程](http://koa.bootcss.com/)
