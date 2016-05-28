@@ -39,7 +39,7 @@ npm install
 应用程序启动
 
 ~~~
-NODE_ENV=local node --harmony app.js
+NODE_ENV=local node --harmony bin/app.js
 ~~~
 
 
