@@ -1,5 +1,6 @@
 # qyp-portal 穷游派前端
 
+
 ### 1.使用nvm进行 node 版本管理
 
 首先clone nvm的代码库
