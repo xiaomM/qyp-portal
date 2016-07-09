@@ -30,6 +30,9 @@ var commonJson = function* (ctx, name, params) {
     yield ctx.body = data;
 };
 
+exports.testMongo = function* (next) {
+    
+};
 
 exports.index = function* (next) {
     var ctx = this;

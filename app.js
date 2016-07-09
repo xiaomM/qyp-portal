@@ -2,6 +2,9 @@ var debug = require('debug')('book');
 var koa = require('koa');
 var _ = require('lodash');
 
+
+var _ = require('./app/model/activity');
+
 //配置文件
 var config = require('./config/config');
 
