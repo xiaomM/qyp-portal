@@ -8,9 +8,6 @@ var _ = require('./app/model/activity');
 //配置文件
 var config = require('./config/config');
 
-var interfacePlus = require('./app/utils/interface-plus');
-interfacePlus.init();
-
 
 var app = koa();
 app.use(function *(next){
@@ -49,14 +46,6 @@ xtplApp(app,{
     views: config.viewDir
 });
 
-
-var DataProxy = require( 'ali-data-proxy-lite' );
-
-// interface配置文件的绝对路径
-var path = require('path').resolve( __dirname, './config/interface/interface.json' );
-
-// 初始化引入接口配置文件  （注意：初始化工作有且只有一次）
-DataProxy.init( path );
 
 var session = require('koa-session');
 app.use(session(app));

@@ -64,8 +64,10 @@ module.exports.createUnifiedOrder = function *(signup) {
 };
 
 module.exports.getTokenByCode = function *(code) {
-    let url='https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxaedc01e46d43b9ba&secret=9dccfeb60d96bf823b435d14a0fc6937' +
-        'code='+code+'&grant_type=authorization_code';
+    let url='https://api.weixin.qq.com/sns/oauth2/access_token?' +
+        'appid=wxaedc01e46d43b9ba' +
+        '&secret=9dccfeb60d96bf823b435d14a0fc6937' +
+        '&code='+code+'&grant_type=authorization_code';
     return yield getHttps(url);
 }
 
