@@ -92,6 +92,9 @@ ActivitySchema.statics.getActivityByActivityId = function* (id) {
 
 ActivitySchema.statics.maxActivityId = function* () {
     let maxActivity =  (yield ActivityModel.findOne().sort({activityId:-1}).limit(1).exec());
+    if(maxActivity == undefined){
+        return 1;
+    }
     // let maxActivity = new ActivityModel(maxActivity);
     if(maxActivity.activityId == undefined){
             return 1;
