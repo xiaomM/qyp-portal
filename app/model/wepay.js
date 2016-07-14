@@ -20,7 +20,7 @@ let getHttps = function *(url) {
             console.log('headers: ', res.headers);
 
             res.on('data', (d) => {
-                resolve(new String(d));
+                resolve(JSON.parse(new String(d)));
             });
         }).on('error', (e) => {
             errorJson.data = e;

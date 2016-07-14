@@ -98,7 +98,7 @@ exports.detailActivity = function* () {
     ctx.body = wrapResult(result,result != undefined);
 }
 
-exports.oAuth2 = function* () {
+exports.oAuth2 = function* (next) {
     let ctx = this;
     if(ctx.locals.userInfo == undefined){
         let code = ctx.request.query.code;
@@ -125,4 +125,5 @@ exports.oAuth2 = function* () {
             ctx.locals.userInfo = userInfo;
         }
     }
+    yield next;
 }
