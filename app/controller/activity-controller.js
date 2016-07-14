@@ -9,7 +9,7 @@ let url =require('url');
 
 let wrapResult = function (data,sucess) {
     return  {
-        susccess: sucess,
+        success: sucess,
         errorCode:sucess ? undefined: -1,
         errorMsg: sucess ? undefined:'未知错误',
         data:data
