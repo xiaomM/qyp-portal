@@ -1,45 +1,12 @@
 'use strict';
 
 var _ = require('lodash');
-var DataProxy = require( 'ali-data-proxy-lite' );
-var qypProxy = new DataProxy({
-    createActivity: 'Activity.new',
-    getDetail: 'Activity.summary',
-    signupActivity: 'Activity.signup',
-});
+let wepay = require('../model/wepay');
 
-var commonJson = function* (ctx, name, params) {
-    var errorJson = {
-        susccess: false,
-        errorCode: -1,
-        errorMsg: '未知错误',
-        data: null,
-    }
-    console.log(params)
-    var data = yield new Promise(function(resolve, reject){
-        qypProxy[name](params)
-            .done(function(data){
-                resolve(data);
-            })
-            .error(function(err){
-                console.log(err)
-                ctx.logger.error(err)
-                resolve(errorJson);
-            });
-    });
-    yield ctx.body = data;
-};
 
-exports.testMongo = function* (next) {
-    
-};
 
 exports.index = function* (next) {
     var ctx = this;
-    //for (var key in ctx) {
-    //    console.log(key)
-    //}
-    //console.log('index')
     ctx.locals.activeTab = 'activity';
     yield next
 };
@@ -47,29 +14,18 @@ exports.index = function* (next) {
 exports.getDetail = function* (next) {
     var ctx = this;
     var activityId = ctx.params.activityId;
-    var params = {
-        activityId: activityId,
-    }
-    var data = yield new Promise(function(resolve, reject){
-        qypProxy.getDetail(params)
-            .done(function(data){
-                resolve(data.data);
-            })
-            .error(function(err){
-                ctx.logger.error(err)
-                reject(err);
-            });
-    });
+
+    var activityEntity = yield ActivityModel.getActivityByActivityId(activityId);
     //console.log(data)
-    var dutyList = data.dutyList;
+    var dutyList = activityEntity.dutyList;
     if (dutyList) {
-        data.dutyList = dutyList.split('|');
+        activityEntity.dutyList = dutyList.split('|');
     }
-    var boardList = data.boardList;
+    var boardList = activityEntity.boardList;
     if (boardList) {
-        data.boardList = boardList.split('|');
+        activityEntity.boardList = boardList.split('|');
     }
-    ctx.locals.activityDetail = data;
+    ctx.locals.activityDetail = activityEntity;
     yield next
 };
 
@@ -96,7 +52,6 @@ exports.signup = function* () {
 
 exports.signupSuccess = function* () {
     var ctx = this;
-
     yield ctx.render('activity/signup-success', {
 
     });
@@ -112,13 +67,44 @@ exports.new = function* () {
 
 exports.createActivity = function* () {
     var ctx = this;
-    yield commonJson(ctx, 'createActivity', ctx.request.body);
+    console.log(ctx.request.body);
+    let activityEntity = new ActivityModel(ctx.request.body);
+    let result = yield ActivityModel.saveActivity(activityEntity);
+    ctx.body = wrapResult(result,result != undefined);
 }
 exports.signupActivity = function* () {
     var ctx = this;
-    yield commonJson(ctx, 'signupActivity', ctx.request.body);
+    console.log(ctx.request.body);
+    let signUpEntity = new SignUpModel(ctx.request.body);
+    let result = yield SignUpModel.saveSignUp(signUpEntity);
+    console.log("result = "+result);
+    ctx.body = wrapResult(result,result != undefined);
 }
+
 exports.detailActivity = function* () {
     var ctx = this;
-    yield commonJson(ctx, 'getDetail', ctx.request.query);
+    var activityId = ctx.params.activityId;
+    var activityEntity = yield ActivityModel.getActivityByActivityId(activityId);
+    ctx.body = wrapResult(result,result != undefined);
+}
+
+exports.oAuth2 = function* () {
+    let ctx = this;
+    if(ctx.userInfo == undefined){
+        let code = ctx.request.query.code;
+        if(code == undefined){
+            const  redirect_uri= ctx.req.url;
+            let urlTemplate = 'https://open.weixin.qq.com/connect/oauth2/authorize?' +
+                'appid=APPID&redirect_uri='+redirect_uri+'&response_type=code&' +
+                'scope=snsapi_userinfo&state=1#wechat_redirect';
+            ctx.response.redirect(urlTemplate);
+        }else{
+            console.log('code='+code);
+            let tokenResult = yield wepay.getTokenByCode(code);
+            console.log('result = '+result);
+            let userInfo = yield wepay.getUserInfo(tokenResult.access_token,tokenResult.openid);
+            console.log('userInfo='+userInfo);
+            ctx.userInfo = userInfo;
+        }
+    }
 }

@@ -15,6 +15,17 @@
     "interfaces": [
         {
             "name": "活动-创建",
+            "id": "wepay.token",
+            "type": "http",
+            "method": "get",
+            "contentType": "application/json",
+            "urls": {
+                "prod": "http://182.92.105.100:8091https://api.weixin.qq.com/sns/oauth2/access_token"
+            },
+            "encoding": "utf8"
+        },
+        {
+            "name": "活动-创建",
             "id": "Activity.new",
             "type": "http",
             "method": "post",

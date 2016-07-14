@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uri = 'mongodb://localhost:27017/qyp';
+const uri = 'mongodb://127.0.0.1:27017/qyp';
 const options = { promiseLibrary: require('bluebird') ,server: { socketOptions: { keepAlive: 1 } } };
 var connection = undefined;
 

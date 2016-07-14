@@ -1,5 +1,27 @@
 [
   {
+    "name": "微信-获取用户信息",
+    "id": "wepay.userinfo",
+    "type": "http",
+    "method": "get",
+    "contentType": "application/json",
+    "urls": {
+      "prod": "https://api.weixin.qq.com/sns/userinfo"
+    },
+    "encoding": "utf8"
+  },
+  {
+    "name": "微信-获取token",
+    "id": "wepay.token",
+    "type": "http",
+    "method": "get",
+    "contentType": "application/json",
+      "urls": {
+      "prod": "https://api.weixin.qq.com/sns/oauth2/access_token"
+    },
+    "encoding": "utf8"
+  },
+  {
     "name": "活动-创建",
     "id": "Activity.new",
     "type": "http",

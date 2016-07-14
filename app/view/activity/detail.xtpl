@@ -56,14 +56,33 @@
             <div class="col-md-10 col-sm-7">
             </div>
         </div>
+        {{{#if (activityDetail.wxPageUrl)}}}
+            <div class="form-group">
+                    <label  class="col-md-2 col-sm-5 control-label"></label>
+                    <div class="col-md-10 col-sm-7" id="activityDescription">
+                        <a href="{{{activityDetail.wxPageUrl}}}">图文详情点这里</a>
+                    </div>
+                </div>
+        {{{/if}}}
         <div class="form-group">
             <label  class="col-md-2 col-sm-5 control-label"></label>
             <div class="col-md-10 col-sm-7" id="activityDescription">
                 {{{activityDetail.activityDescription}}}
             </div>
         </div>
+
     </form>
     <a href="/activity/{{activityDetail.activityId}}/signup" class="btn btn-sm btn-sign qyp-btn">我要报名</a>
 </div>
 {{/block}}
 
+<script type="text/javascript" language="javascript">
+function iFrameHeight() {
+var ifm= document.getElementById("iframepage");
+var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;
+if(ifm != null && subWeb != null) {
+   ifm.height = subWeb.body.scrollHeight;
+   ifm.width = subWeb.body.scrollWidth;
+}
+}
+</script>
