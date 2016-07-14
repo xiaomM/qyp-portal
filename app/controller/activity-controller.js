@@ -2,8 +2,18 @@
 
 var _ = require('lodash');
 let wepay = require('../model/wepay');
+let ActivityModel = require('../model/activity');
+let url =require('url');
 
 
+let wrapResult = function (data,sucess) {
+    return  {
+        susccess: sucess,
+        errorCode: -1,
+        errorMsg: '未知错误',
+        data:data
+    };
+}
 
 exports.index = function* (next) {
     var ctx = this;
@@ -90,21 +100,29 @@ exports.detailActivity = function* () {
 
 exports.oAuth2 = function* () {
     let ctx = this;
-    if(ctx.userInfo == undefined){
+    if(ctx.locals.userInfo == undefined){
         let code = ctx.request.query.code;
         if(code == undefined){
-            const  redirect_uri= ctx.req.url;
+            console.log(ctx.request);
+            const redirect_uri = url.format({
+                protocol: 'http',
+                host: ctx.request.header.host,
+                pathname: ctx.request.url,
+                search: ''
+            });
+
             let urlTemplate = 'https://open.weixin.qq.com/connect/oauth2/authorize?' +
-                'appid=APPID&redirect_uri='+redirect_uri+'&response_type=code&' +
+                'appid='+ctx.config.wepay.appid+'&redirect_uri='+redirect_uri+'&response_type=code&' +
                 'scope=snsapi_userinfo&state=1#wechat_redirect';
+            console.log('redirectTo:'+urlTemplate);
             ctx.response.redirect(urlTemplate);
         }else{
             console.log('code='+code);
             let tokenResult = yield wepay.getTokenByCode(code);
-            console.log('result = '+result);
+            console.log('result = '+JSON.stringify(tokenResult));
             let userInfo = yield wepay.getUserInfo(tokenResult.access_token,tokenResult.openid);
-            console.log('userInfo='+userInfo);
-            ctx.userInfo = userInfo;
+            console.log('userInfo='+JSON.stringify(userInfo));
+            ctx.locals.userInfo = userInfo;
         }
     }
 }

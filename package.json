@@ -33,6 +33,7 @@
     "node.extend": "^1.1.5",
     "recluster": "^0.4.5",
     "underscore": "1.7.0",
+    "url": "^0.11.0",
     "walk": "^2.3.9",
     "weixin-pay": "^1.1.7",
     "weui": "^0.4.3",

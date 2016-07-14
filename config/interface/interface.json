@@ -14,13 +14,24 @@
     },
     "interfaces": [
         {
-            "name": "活动-创建",
-            "id": "wepay.token",
-            "type": "http",
+            "name": "微信-获取用户信息",
+            "id": "wepay.userinfo",
+            "type": "https",
             "method": "get",
             "contentType": "application/json",
             "urls": {
-                "prod": "http://182.92.105.100:8091https://api.weixin.qq.com/sns/oauth2/access_token"
+                "prod": "https://api.weixin.qq.com/sns/userinfo"
+            },
+            "encoding": "utf8"
+        },
+        {
+            "name": "微信-获取token",
+            "id": "wepay.token",
+            "type": "https",
+            "method": "get",
+            "contentType": "application/json",
+            "urls": {
+                "prod": "https://api.weixin.qq.com/sns/oauth2/access_token"
             },
             "encoding": "utf8"
         },
@@ -31,7 +42,7 @@
             "method": "post",
             "contentType": "application/json",
             "urls": {
-                "prod": "http://182.92.105.100:8091/activity/create"
+                "prod": "/activity/create"
             },
             "encoding": "utf8"
         },
@@ -40,7 +51,7 @@
             "id": "Activity.summary",
             "type": "http",
             "urls": {
-                "prod": "http://182.92.105.100:8091/activity/summary"
+                "prod": "/activity/summary"
             },
             "encoding": "utf8"
         },
@@ -51,7 +62,7 @@
             "method": "post",
             "contentType": "application/json",
             "urls": {
-                "prod": "http://182.92.105.100:8091/activity/signUp"
+                "prod": "/activity/signUp"
             },
             "encoding": "utf8"
         }

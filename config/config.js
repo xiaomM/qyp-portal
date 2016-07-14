@@ -20,6 +20,13 @@ var config = {
     "backendHost": 'http://127.0.0.1:8091',
     "staticHost": 'http://g.tbcdn.cn/platform/static',
 
+    wepay:{
+        appid: 'wxaedc01e46d43b9ba',
+        mch_id: '1357284002',
+        partner_key: 'D9A79001650CBA0D826614E6EB38832E', //微信商户平台API密钥
+        pfxPath: './apiclient_cert.p12' //微信商户平台证书
+    }
+
 };
 
 //当NODE_ENV环境变量值为local时

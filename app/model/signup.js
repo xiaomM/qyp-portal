@@ -17,7 +17,7 @@ var mockJson = {
     "success": true,
     "data": {
         activityId: '3',
-        nickName: 'sdf',
+        nickname: 'sdf',
         phoneNumber: '18626888086',
         email: '305301818@qq.com',
         age: '12',
@@ -39,22 +39,26 @@ var mockJson = {
 var SignUpSchema = new Schema({
     activityObjId:{type:Schema.Types.ObjectId},
     activityId: {type:Number},
-    nickName: {type:String},
+    nickname: {type:String},// nickname	用户昵称
     phoneNumber: {type:String},
     email: {type:String},
     age: {type:Number},
-    sex: {type:String},
+    sex: {type:String},//sex	用户的性别，值为1时是男性，值为2时是女性，值为0时是未知
     isSingle: {type:Boolean},
     board: {type:String},
     talent: {type:String},
     duty: {type:String},
     deposit: {type:Number},
     remarks: {type:String},
-    memberId: {type:String},
+    memberId: {type:String},//openid	用户的唯一标识
     remoteIp:{type:String,default:"127.0.0.1"},
     payOrderId:{type:String},
-    openid:{type:String},
-    gmtCreate:{type:Date,default:new Date()}
+    gmtCreate:{type:Date,default:new Date()},
+    province:{type:String},
+    city:{type:String},
+    country:{type:String},
+    headimgurl:{type:String},
+    unionid:{type:String}
 });
 
 /**
@@ -78,7 +82,6 @@ SignUpSchema.statics.saveSignUp = function* (signup) {
     let activity = yield ActivityModel.getActivityByActivityId(signup.activityId);
     //console.log("ctx="+ctx);
     signup.deposit = activity.deposit;
-    signup.openid = '123456';
     let payOrder = yield wepay.createUnifiedOrder(signup);
     console.log(payOrder.return_msg == "OK");
     if(payOrder.return_code == "SUCCESS" && payOrder.return_msg == "OK"){
