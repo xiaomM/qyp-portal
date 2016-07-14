@@ -65,12 +65,12 @@ module.exports.createUnifiedOrder = function *(signup) {
 
 module.exports.getTokenByCode = function *(code) {
     let url='https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxaedc01e46d43b9ba&secret=9dccfeb60d96bf823b435d14a0fc6937' +
-        'code='+code+'grant_type=authorization_code';
+        'code='+code+'&grant_type=authorization_code';
     return yield getHttps(url);
 }
 
 module.exports.getUserInfo = function *(token,openid) {
-    let url = 'https://api.weixin.qq.com/sns/userinfo?access_token='+token+'openid='+openid+'lang=zh_CN';
+    let url = 'https://api.weixin.qq.com/sns/userinfo?access_token='+token+'&openid='+openid+'&lang=zh_CN';
     //https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN
     //let parmas = {'access_token':token,'openid':openid,'lang':'zh_CN'};
     return yield getHttps(url);
