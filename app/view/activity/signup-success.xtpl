@@ -1,18 +1,39 @@
-{{extend ("../layout/default-layout") }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <title>WeUI</title>
+        <link rel="stylesheet" href="/node_modules//weui/dist/style/weui.min.css"/>
+    </head>
+    <body>
 
-{{#block ("content") }}
-<input type="hidden" id="J_activity_id" value="{{activityDetail.activityId}}">
+    <div class="weui_msg">
+        <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
+        <div class="weui_text_area">
+            <h2 class="weui_msg_title">报名已经提交</h2>
+            <p class="weui_msg_desc">报名信息提交成功,请耐心等待管理员审核</p>
+            <p class="weui_msg_desc">审核时间1~2个工作日,通过会有邮件通知,请注意查收邮件</p>
+        </div>
+        <div class="weui_opr_area">
+            <p class="weui_btn_area">
+                <a href="javascript:;" class="weui_btn weui_btn_primary">现在进行支付</a>
+                <a href="javascript:;" class="weui_btn weui_btn_default">取消</a>
+            </p>
+        </div>
+        <div class="weui_extra_area">
+            <a href="/activity/{{activityDetail.activityId}}/detail">查看活动详情</a>
+        </div>
+    </div>
 
-<ol class="breadcrumb">
-    <li>活动</li>
-    <li><a href="/activity/{{activityDetail.activityId}}/detail">{{activityDetail.activityTitle}}</a></li>
-    <li class="active">报名信息提交成功</li>
-</ol>
-<div class="content-wrap text-center status-page">
-    <div class="status-label color-success"><i class="fa fa-check-circle-o"></i></div>
-    <div>报名信息提交成功,请耐心等待管理员审核</div>
-    <div>审核时间1~2个工作日,通过会有邮件通知,请注意查收邮件</div>
-    <div>查看活动详情,<a href="/activity/{{activityDetail.activityId}}/detail">{{activityDetail.activityTitle}}</a></div>
-</div>
-{{/block}}
+    </body>
+</html>
 
+<script type="text/javascript" language="javascript">
+WeixinJSBridge.invoke(
+    "getBrandWCPayRequest", {{payargs}}, function(res){
+        if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+            // success
+        }
+});
+</script>

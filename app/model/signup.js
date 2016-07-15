@@ -90,7 +90,13 @@ SignUpSchema.statics.saveSignUp = function* (signup) {
     }else{
         return undefined;
     }
-}
+};
+
+SignUpSchema.statics.getSignUp = function* (signupId) {
+    let signupEntity =  (yield SignUpModel.findOne({_id:id}).exec());
+    console.log('signupEntity = '+signupEntity);
+    return signupEntity;
+};
 
 /**
  * Statics

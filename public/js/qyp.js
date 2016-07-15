@@ -51,7 +51,7 @@ $(document)
             data: params,
             success: function (result) {
                 if (result.success) {
-                    location.href = '/activity/' + params.activityId + '/signup/success'
+                    location.href = '/activity/' + params.activityId + '/'+params._id+'/success'
                 } else {
                     Qyp.alertDanger(result.errorMsg || '报名失败')
                 }

@@ -40,6 +40,14 @@ exports.getDetail = function* (next) {
     yield next
 };
 
+exports.getSignUp = function* (next) {
+    var ctx = this;
+    var signupId = ctx.params.signupId;
+    var signupEntity = yield SignUpModel.getSignUp(signupId);
+    ctx.locals.signup = signupEntity;
+    yield next
+};
+
 
 exports.lists = function* () {
     yield this.render('activity/lists', {});
@@ -63,6 +71,7 @@ exports.signup = function* () {
 
 exports.signupSuccess = function* () {
     var ctx = this;
+    ctx.locals.payargs = yield wepay.getJsApiParams();
     yield ctx.render('activity/signup-success', {
 
     });

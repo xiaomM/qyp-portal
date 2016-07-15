@@ -77,3 +77,24 @@ module.exports.getUserInfo = function *(token,openid) {
     //let parmas = {'access_token':token,'openid':openid,'lang':'zh_CN'};
     return yield getHttps(url);
 }
+
+module.exports.getJsApiParams = function *(signup) {
+    return yield new Promise(function (resolve, reject) {
+        wxpay.getBrandWCPayRequestParams({
+            openid: signup.memberId,
+            body: signup.nickname+'支付活动费用',
+            detail: signup.nickname+'支付活动费用',
+            out_trade_no: signup._id.toString(),
+            total_fee: signup.deposit,
+            spbill_create_ip: signup.remoteIp,
+            notify_url: 'http://www.dream623.com/jspay/notify_url'
+        }, function(err, result){
+            if(err){
+                reject(err);
+            }else{
+                resolve(result);
+            }
+        });
+    });
+
+}
