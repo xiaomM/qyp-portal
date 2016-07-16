@@ -79,7 +79,7 @@ module.exports.getUserInfo = function *(token,openid) {
 }
 
 module.exports.getJsApiParams = function *(signup) {
-    return yield new Promise(function (resolve, reject) {
+    let params = yield new Promise(function (resolve, reject) {
         wxpay.getBrandWCPayRequestParams({
             openid: signup.memberId,
             body: signup.nickname+'支付活动费用',
@@ -96,5 +96,6 @@ module.exports.getJsApiParams = function *(signup) {
             }
         });
     });
+    return JSON.stringify(params);
 
 }

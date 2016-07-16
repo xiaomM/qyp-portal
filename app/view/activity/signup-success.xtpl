@@ -5,6 +5,28 @@
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
         <title>WeUI</title>
         <link rel="stylesheet" href="/node_modules//weui/dist/style/weui.min.css"/>
+        <script type="text/javascript" language="javascript">
+        function onBridgeReady(){
+            WeixinJSBridge.invoke(
+                "getBrandWCPayRequest", {{payargs}}, function(res){
+                    if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                    // success
+                    }
+            });
+        }
+
+        if (typeof WeixinJSBridge == "undefined"){
+           if( document.addEventListener ){
+               document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+           }else if (document.attachEvent){
+               document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+               document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+           }
+        }else{
+           onBridgeReady();
+        }
+
+        </script>
     </head>
     <body>
 
@@ -17,7 +39,7 @@
         </div>
         <div class="weui_opr_area">
             <p class="weui_btn_area">
-                <a href="javascript:callPay();" class="weui_btn weui_btn_primary">现在进行支付</a>
+                <a href="javascript:onBridgeReady();" class="weui_btn weui_btn_primary">现在进行支付</a>
                 <a href="javascript:;" class="weui_btn weui_btn_default">取消</a>
             </p>
         </div>
@@ -29,13 +51,4 @@
     </body>
 </html>
 
-<script type="text/javascript" language="javascript">
-function callPay(){
-    WeixinJSBridge.invoke(
-        "getBrandWCPayRequest", {{payargs}}, function(res){
-            if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-            // success
-            }
-    });
-}
-</script>
+
