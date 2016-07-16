@@ -17,7 +17,7 @@
         </div>
         <div class="weui_opr_area">
             <p class="weui_btn_area">
-                <a href="javascript:;" class="weui_btn weui_btn_primary">现在进行支付</a>
+                <a href="javascript:callPay();" class="weui_btn weui_btn_primary">现在进行支付</a>
                 <a href="javascript:;" class="weui_btn weui_btn_default">取消</a>
             </p>
         </div>
@@ -30,10 +30,12 @@
 </html>
 
 <script type="text/javascript" language="javascript">
-WeixinJSBridge.invoke(
-    "getBrandWCPayRequest", {{payargs}}, function(res){
-        if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+function callPay(){
+    WeixinJSBridge.invoke(
+        "getBrandWCPayRequest", {{payargs}}, function(res){
+            if(res.err_msg == "get_brand_wcpay_request:ok" ) {
             // success
-        }
-});
+            }
+    });
+}
 </script>
