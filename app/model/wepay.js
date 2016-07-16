@@ -87,7 +87,7 @@ module.exports.getJsApiParams = function *(signup) {
             out_trade_no: signup._id.toString(),
             total_fee: signup.deposit,
             spbill_create_ip: signup.remoteIp,
-            notify_url: 'http://www.dream623.com/jspay/notify_url'
+            notify_url: 'http://www.dream623.com/jspay/notify_url',
         }, function(err, result){
             if(err){
                 reject(err);

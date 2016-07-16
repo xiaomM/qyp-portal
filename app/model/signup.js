@@ -83,14 +83,14 @@ SignUpSchema.statics.saveSignUp = function* (signup) {
     //console.log("ctx="+ctx);
     signup.deposit = activity.deposit;
     console.log('signup = ' + JSON.stringify(signup));
-    let payOrder = yield wepay.createUnifiedOrder(signup);
-    console.log(payOrder.return_msg == "OK");
-    if(payOrder.return_code == "SUCCESS" && payOrder.return_msg == "OK"){
-        signup.payOrderId = payOrder.prepay_id;
+    // let payOrder = yield wepay.createUnifiedOrder(signup);
+    // console.log(payOrder.return_msg == "OK");
+    // if(payOrder.return_code == "SUCCESS" && payOrder.return_msg == "OK"){
+    //     signup.payOrderId = payOrder.prepay_id;
         return yield signup.save();
-    }else{
-        return undefined;
-    }
+    // }else{
+    //     return undefined;
+    // }
 };
 
 SignUpSchema.statics.getSignUp = function* (signupId) {
