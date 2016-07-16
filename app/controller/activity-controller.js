@@ -71,7 +71,7 @@ exports.signup = function* () {
 
 exports.signupSuccess = function* () {
     var ctx = this;
-    ctx.locals.payargs = yield wepay.getJsApiParams();
+    ctx.locals.payargs = yield wepay.getJsApiParams(ctx.locals.signup);
     yield ctx.render('activity/signup-success', {
 
     });
