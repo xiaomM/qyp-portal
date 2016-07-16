@@ -96,6 +96,6 @@ module.exports.getJsApiParams = function *(signup) {
             }
         });
     });
-    return JSON.stringify(params);
+    return params;
 
 }
