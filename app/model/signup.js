@@ -93,7 +93,7 @@ SignUpSchema.statics.saveSignUp = function* (signup) {
 };
 
 SignUpSchema.statics.getSignUp = function* (signupId) {
-    let signupEntity =  (yield SignUpModel.findOne({_id:id}).exec());
+    let signupEntity =  (yield SignUpModel.findOne({_id:signupId}).exec());
     console.log('signupEntity = '+signupEntity);
     return signupEntity;
 };
