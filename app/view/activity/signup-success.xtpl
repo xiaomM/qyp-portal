@@ -15,6 +15,8 @@
             });
         }
 
+                {{#if (signup.status === "NOTPAY")}}
+
         if (typeof WeixinJSBridge == "undefined"){
            if( document.addEventListener ){
                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
@@ -26,6 +28,8 @@
            onBridgeReady();
         }
 
+        {{/if}}
+
         </script>
     </head>
     <body>
@@ -33,25 +37,25 @@
     <div class="weui_msg">
         <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
         <div class="weui_text_area">
-        {{{#if (signup.status === "NOTPAY")}}}
+        {{#if (signup.status === "NOTPAY")}}
             <h2 class="weui_msg_title">报名已经提交,尚未支付</h2>
-        {{{elseif (signup.status === "SUCCESS")}}}
+        {{elseif (signup.status === "SUCCESS")}}
             <p class="weui_msg_desc">报名信息提交成功,请耐心等待管理员审核</p>
             <p class="weui_msg_desc">审核时间1~2个工作日,通过会有邮件通知,请注意查收邮件</p>
-        {{{elseif (signup.status === "USERPAYING")}}}
+        {{elseif (signup.status === "USERPAYING")}}
             <p class="weui_msg_desc">支付进度处理中....请稍后查看</p>
-        {{{else}}}
-            <p class="weui_msg_desc">已经关闭,具体请联系领队</p>
-        {{{/if}}}}
+        {{else}}
+            <p class="weui_msg_desc">订单已经关闭,具体请联系领队</p>
+        {{/if}}}
 
         </div>
-        {{{#if (signup.status === "NOTPAY")}}}
+        {{#if (signup.status === "NOTPAY")}}
         <div class="weui_opr_area">
             <p class="weui_btn_area">
                 <a href="javascript:onBridgeReady();" class="weui_btn weui_btn_primary">现在进行支付</a>
             </p>
         </div>
-        {{{/if}}}
+        {{/if}}
         <div class="weui_extra_area">
             <a href="/activity/{{activityDetail.activityId}}/detail">查看活动详情</a>
         </div>
