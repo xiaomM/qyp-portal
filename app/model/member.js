@@ -10,6 +10,19 @@ var Schema = mongoose.Schema;
  * User schema
  */
 
+var mockJson = {
+    "openid": "oNhOfwaLwXzNsKv880bBc9ZccpLo",
+    "nickname": "晓明",
+    "sex": "1",
+    "city": "杭州",
+    "province": "浙江",
+    "country": "中国",
+    "headimgurl": "http://wx.qlogo.cn/mmopen/7LzWYoyhZTsUkYKsNgnMDVmqXD6zdVGX403MaKSxvz2NCic0vFeXEicmf84IacNXqxKy5wCKbftggRsFAezjGicfg/0",
+    "_id": "578aecc040112a331154a93a",
+    "gmtCreate": "2016-07-17T02:25:58.921Z",
+    "remoteIp": "127.0.0.1"
+}
+
 var MemberSchema = new Schema({
     nickname: {type:String},// nickname	用户昵称
     phoneNumber: {type:String},
