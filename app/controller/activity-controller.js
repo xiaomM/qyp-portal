@@ -59,7 +59,7 @@ exports.getPayOrder = function* (next) {
         signUpEntity.status = "NOTPAY";
     }else{
         signUpEntity.status = payOrder.trade_state;
-        ctx.locals.signup = yield SignUpModel.save(signUpEntity);
+        ctx.locals.signup = yield SignUpModel.saveSignUp(signUpEntity);
     }
     yield next
 };
