@@ -6,8 +6,8 @@
         <title>穷游派</title>
         <link rel="stylesheet" href="/node_modules/weui/dist/style/weui.css"/>
         <link rel="stylesheet" href="/node_modules/weui/dist/example/example.css"/>
-        <script type="text/javascript" src="{{config.staticHost}}/js/qyp.js"></script>
         <script type="text/javascript" src="http://g.tbcdn.cn/platform/static/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="{{config.staticHost}}/js/qyp.js"></script>
     </head>
     <body>
 <div class="container" id="container">
