@@ -107,3 +107,16 @@ module.exports.notifyHandler = function (ctx) {
     });
     return handler;
 };
+
+module.exports.queryOrder = function *(outTradeNo){
+    let result = yield new Promise(function (resolve, reject) {
+        wxpay.queryOrder({out_trade_no: outTradeNo}, function (err, order) {
+            if(err){
+                reject(err);
+            }else{
+                resolve(order);
+            }
+        });
+    });
+    return result;
+};

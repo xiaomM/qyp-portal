@@ -9,7 +9,8 @@ var ajaxPerfix = '/ajax' + prefix;
 module.exports = function(app){
 
     app.get(prefix + '/:activityId/signup',MemberController.oAuth2, Controller.index, Controller.getDetail, Controller.signup);
-    app.get(prefix + '/success/:signupId', MemberController.oAuth2,Controller.index, Controller.getSignUp,Controller.getDetail, Controller.signupSuccess);
+    app.get(prefix + '/success/:signupId', MemberController.oAuth2,Controller.index, Controller.getSignUp,
+        Controller.getDetail,Controller.getPayOrder, Controller.signupSuccess);
     app.get(prefix + '/new', Controller.index, Controller.new);
     app.get(prefix + '/:activityId/detail', Controller.index, Controller.getDetail, Controller.detail);
     app.get(prefix + '/lists',MemberController.oAuth2, Controller.lists);

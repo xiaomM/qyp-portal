@@ -58,7 +58,8 @@ var SignUpSchema = new Schema({
     city:{type:String},
     country:{type:String},
     headimgurl:{type:String},
-    unionid:{type:String}
+    unionid:{type:String},
+    status:{type:String,default:"NOTPAY"}
 });
 
 /**

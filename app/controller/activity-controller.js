@@ -50,6 +50,20 @@ exports.getSignUp = function* (next) {
     yield next
 };
 
+exports.getPayOrder = function* (next) {
+    var ctx = this;
+    var signupId = ctx.params.signupId;
+    let signUpEntity  = ctx.locals.signup;
+    var payOrder = yield wepay.queryOrder(signupId);
+    if(payOrder.return_code != "SUCCESS"){
+        signUpEntity.status = "NOTPAY";
+    }else{
+        signUpEntity.status = payOrder.trade_state;
+        ctx.locals.signup = yield SignUpModel.save(signUpEntity);
+    }
+    yield next
+};
+
 
 exports.lists = function* () {
     yield this.render('activity/lists', {});
@@ -82,7 +96,6 @@ exports.signupSuccess = function* () {
     var ctx = this;
     ctx.locals.payargs = yield wepay.getJsApiParams(ctx.locals.signup);
     yield ctx.render('activity/signup-success', {
-
     });
 };
 
