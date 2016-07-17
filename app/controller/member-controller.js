@@ -3,6 +3,7 @@
 var _ = require('../model/activity');
 let MemberModel = require('../model/member');
 let url =require('url');
+let wepay = require('../model/wepay');
 
 exports.readyMember = function* (next) {
     let ctx = this;
