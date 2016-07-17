@@ -1,8 +1,5 @@
-{{extend ("../layout/default-layout") }}
-
-{{#block ("content") }}
-<link rel="stylesheet" href="../node_modules/weui/dist/style/weui.css"/>
-<link rel="stylesheet" href="../node_modules/weui/dist/example/example.css"/>
+<link rel="stylesheet" href="/node_modules/weui/dist/style/weui.css"/>
+<link rel="stylesheet" href="/node_modules/weui/dist/example/example.css"/>
 <div class="container" id="container">
 
             <div class="bd">
@@ -168,5 +165,4 @@
                 </div>
               </div>
     </div>
-{{/block}}
 
