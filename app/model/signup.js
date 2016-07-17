@@ -27,7 +27,7 @@ var mockJson = {
         talent: 'sdf',
         duty: '电',
         remarks: 'sdf',
-        memberId: '18626888086'
+        openid: '18626888086'
     }
 };
 */
@@ -50,7 +50,7 @@ var SignUpSchema = new Schema({
     duty: {type:String},
     deposit: {type:Number},
     remarks: {type:String},
-    memberId: {type:String},//openid	用户的唯一标识
+    openid: {type:String},//openid	用户的唯一标识
     remoteIp:{type:String,default:"127.0.0.1"},
     payOrderId:{type:String},
     gmtCreate:{type:Date,default:new Date()},
@@ -97,6 +97,12 @@ SignUpSchema.statics.getSignUp = function* (signupId) {
     let signupEntity =  (yield SignUpModel.findOne({_id:signupId}).exec());
     console.log('signupEntity = '+signupEntity);
     return signupEntity;
+};
+
+SignUpSchema.statics.getSignUpListByOpenId = function* (openid) {
+    let signUpList =  (yield SignUpModel.find({openid:openid}).exec());
+    console.log('signUpList = '+signUpList);
+    return signUpList;
 };
 
 /**

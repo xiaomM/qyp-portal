@@ -45,6 +45,7 @@ exports.getSignUp = function* (next) {
     var ctx = this;
     var signupId = ctx.params.signupId;
     var signupEntity = yield SignUpModel.getSignUp(signupId);
+    ctx.params.activityId = signupEntity.activityId;
     ctx.locals.signup = signupEntity;
     yield next
 };
@@ -53,6 +54,13 @@ exports.getSignUp = function* (next) {
 exports.lists = function* () {
     yield this.render('activity/lists', {});
 };
+
+exports.mylists = function* () {
+    var ctx = this;
+    yield SignUpModel.getSignUpListByOpenId(ctx.locals.userInfo.openid);
+    yield this.render('activity/mylists', {});
+};
+
 exports.check = function* () {
     yield this.render('activity/check', {});
 };
@@ -98,6 +106,17 @@ exports.signupActivity = function* () {
     console.log(ctx.request.body);
     let signUpEntity = new SignUpModel(ctx.request.body);
     let result = yield SignUpModel.saveSignUp(signUpEntity);
+    if(result != undefined) {
+        if (ctx.request.body.saveAsDefault != undefined) {
+            let openId = result.openid;
+            let dbMemberEntity = yield MemberModel.getMember(openId);
+            if (dbMemberEntity != undefined) {
+                let memberEntity = new MemberModel(ctx.request.body);
+                memberEntity._id = dbMemberEntity._id;
+                yield MemberModel.saveMember(memberEntity);
+            }
+        }
+    }
     console.log("result = "+result);
     ctx.body = wrapResult(result,result != undefined);
 }
@@ -109,32 +128,3 @@ exports.detailActivity = function* () {
     ctx.body = wrapResult(result,result != undefined);
 }
 
-exports.oAuth2 = function* (next) {
-    let ctx = this;
-    if(ctx.locals.userInfo == undefined){
-        let code = ctx.request.query.code;
-        if(code == undefined){
-            console.log(ctx.request);
-            const redirect_uri = url.format({
-                protocol: 'http',
-                host: ctx.request.header.host,
-                pathname: ctx.request.url,
-                search: ''
-            });
-
-            let urlTemplate = 'https://open.weixin.qq.com/connect/oauth2/authorize?' +
-                'appid='+ctx.config.wepay.appid+'&redirect_uri='+redirect_uri+'&response_type=code&' +
-                'scope=snsapi_userinfo&state=1#wechat_redirect';
-            console.log('redirectTo:'+urlTemplate);
-            ctx.response.redirect(urlTemplate);
-        }else{
-            console.log('code='+code);
-            let tokenResult = yield wepay.getTokenByCode(code);
-            console.log('result = '+JSON.stringify(tokenResult));
-            let userInfo = yield wepay.getUserInfo(tokenResult.access_token,tokenResult.openid);
-            console.log('userInfo='+JSON.stringify(userInfo));
-            ctx.locals.userInfo = userInfo;
-        }
-    }
-    yield next;
-}

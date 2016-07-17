@@ -48,7 +48,7 @@
          var memberId="1";
          var params={};
          params._ = new Date().getTime();  
-         params.memberId=memberId;
+         params.openid=memberId;
          $scope.lists=[{"name":1,"title":"first","status":"start","signUpStatus":"unsigned"},{"name":1},{"name":1},{"name":1},{"name":1}]
           function getList(){
              $.ajax({

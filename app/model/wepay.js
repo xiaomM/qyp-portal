@@ -49,7 +49,7 @@ module.exports.createUnifiedOrder = function *(signup) {
             spbill_create_ip: signup.remoteIp,
             notify_url: 'http://wxpay_notify_url',
             trade_type: 'JSAPI',
-            openid:signup.memberId,
+            openid:signup.openid,
             product_id: signup.activityId
         }, function(err, result){
             if(err){
@@ -81,7 +81,7 @@ module.exports.getUserInfo = function *(token,openid) {
 module.exports.getJsApiParams = function *(signup) {
     let params = yield new Promise(function (resolve, reject) {
         wxpay.getBrandWCPayRequestParams({
-            openid: signup.memberId,
+            openid: signup.openid,
             body: signup.nickname+'支付活动费用',
             detail: signup.nickname+'支付活动费用',
             out_trade_no: signup._id.toString(),
