@@ -19,6 +19,7 @@ let wrapResult = function (data,sucess) {
 exports.index = function* (next) {
     var ctx = this;
     ctx.locals.activeTab = 'activity';
+    console.log('requst log: url:'+ctx.request.url+JSON.stringify(ctx.params));
     yield next
 };
 
