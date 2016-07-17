@@ -20,6 +20,7 @@ exports.index = function* (next) {
     var ctx = this;
     ctx.locals.activeTab = 'activity';
     console.log('requst log: url:'+ctx.request.url+JSON.stringify(ctx.params));
+    console.log('requst log: url:'+ctx.request.url+JSON.stringify(ctx.query));
     yield next
 };
 
