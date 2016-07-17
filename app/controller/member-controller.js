@@ -39,7 +39,7 @@ exports.oAuth2 = function* (next) {
         }
     }else{
         let openid = ctx.cookies.get('openid');
-        let userInfo =yield MemberModel.getMember(memberId);
+        let userInfo =yield MemberModel.getMember(openid);
         ctx.locals.userInfo = userInfo;
     }
     yield next;
