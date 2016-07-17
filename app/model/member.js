@@ -48,7 +48,7 @@ MemberSchema.statics.saveMember = function* (member) {
 };
 
 MemberSchema.statics.getMember = function* (openid) {
-    let memberEntity =  (yield SignUpModel.findOne({openid:openid}).exec());
+    let memberEntity =  (yield MemberModel.findOne({openid:openid}).exec());
     console.log('memberEntity = '+memberEntity);
     return memberEntity;
 };
