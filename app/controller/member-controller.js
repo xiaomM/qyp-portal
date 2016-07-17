@@ -5,23 +5,10 @@ let MemberModel = require('../model/member');
 let url =require('url');
 let wepay = require('../model/wepay');
 
-exports.readyMember = function* (next) {
-    let ctx = this;
-    if(ctx.locals.userInfo != undefined && ctx.locals.userInfo.openId != undefined){
-        let memberId = ctx.locals.userInfo.openId;
-        let memberEntity = yield MemberModel.getMember(memberId);
-        if(memberEntity == undefined){
-            ctx.locals.member = yield MemberModel.saveMember(new SignUpModel(ctx.locals.userInfo));
-        }else{
-            ctx.locals.member = memberEntity;
-        }
-    }
-    yield next;
-};
 
 exports.oAuth2 = function* (next) {
     let ctx = this;
-    if(ctx.cookies.get('userInfo') == undefined){
+    if(ctx.cookies.get('openid') == undefined){
         if(ctx.locals.userInfo == undefined){
             let code = ctx.request.query.code;
             if(code == undefined){
@@ -43,14 +30,16 @@ exports.oAuth2 = function* (next) {
                 let tokenResult = yield wepay.getTokenByCode(code);
                 console.log('result = '+JSON.stringify(tokenResult));
                 let userInfo = yield wepay.getUserInfo(tokenResult.access_token,tokenResult.openid);
+                yield MemberModel.saveMember(new SignUpModel(ctx.locals.userInfo));
                 console.log('userInfo='+JSON.stringify(userInfo));
                 ctx.locals.userInfo = userInfo;
-                ctx.cookies.set('userInfo',JSON.stringify(userInfo));
+                ctx.cookies.set('openid',userInfo.openid);
             }
         }
     }else{
-        let cookiesUserInfo = JSON.parse(ctx.cookies.get('userInfo'));
-        ctx.locals.userInfo = cookiesUserInfo;
+        let openid = JSON.parse(ctx.cookies.get('openid'));
+        let userInfo =yield MemberModel.getMember(memberId);
+        ctx.locals.userInfo = userInfo;
     }
     yield next;
 }
