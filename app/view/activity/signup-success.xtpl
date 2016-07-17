@@ -38,7 +38,7 @@
         {{{elseif (signup.status === "SUCCESS")}}}
             <p class="weui_msg_desc">报名信息提交成功,请耐心等待管理员审核</p>
             <p class="weui_msg_desc">审核时间1~2个工作日,通过会有邮件通知,请注意查收邮件</p>
-        {{{elseif (signup.status === "USERPAYING"))}}}
+        {{{elseif (signup.status === "USERPAYING")}}}
             <p class="weui_msg_desc">支付进度处理中....请稍后查看</p>
         {{{else}}}
             <p class="weui_msg_desc">已经关闭,具体请联系领队</p>
