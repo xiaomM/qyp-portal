@@ -2,6 +2,7 @@
 
 var _ = require('../model/activity');
 let MemberModel = require('../model/member');
+let SignUpModel = require('../model/signup');
 let url =require('url');
 let wepay = require('../model/wepay');
 
