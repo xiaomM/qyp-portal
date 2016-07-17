@@ -94,6 +94,12 @@ exports.new = function* () {
     });
 };
 
+exports.wxNotify = function* () {
+    var ctx = this;
+    console.log(ctx.request.body);
+    ctx.res.write('FAIL');
+}
+
 exports.createActivity = function* () {
     var ctx = this;
     console.log(ctx.request.body);
