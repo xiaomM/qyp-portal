@@ -31,7 +31,7 @@ exports.oAuth2 = function* (next) {
                 let tokenResult = yield wepay.getTokenByCode(code);
                 console.log('result = '+JSON.stringify(tokenResult));
                 let userInfo = yield wepay.getUserInfo(tokenResult.access_token,tokenResult.openid);
-                yield MemberModel.saveMember(new SignUpModel(ctx.locals.userInfo));
+                yield MemberModel.saveMember(new SignUpModel(userInfo));
                 console.log('userInfo='+JSON.stringify(userInfo));
                 ctx.locals.userInfo = userInfo;
                 ctx.cookies.set('openid',userInfo.openid);
