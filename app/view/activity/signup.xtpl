@@ -1,120 +1,172 @@
 {{extend ("../layout/default-layout") }}
 
 {{#block ("content") }}
-<input type="hidden" id="J_activity_id" value="{{activityDetail.activityId}}">
+<link rel="stylesheet" href="../node_modules/weui/dist/style/weui.css"/>
+<link rel="stylesheet" href="../node_modules/weui/dist/example/example.css"/>
+<div class="container" id="container">
 
-<ol class="breadcrumb">
-    <li>活动</li>
-    <li><a href="/activity/{{activityDetail.activityId}}/detail">{{activityDetail.activityTitle}}</a></li>
-    <li class="active">报名</li>
-</ol>
-<form class="form-horizontal" >
-    <div class="form-group">
-        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 报名活动</label>
-        <div class="col-sm-8">
-            <input type="text" name="activity" class="form-control" value="{{activityDetail.activityTitle}}" disabled="disabled">
-            <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.activityId}}">
-            <input type="hidden" name="openid" class="form-control" value="{{userInfo.openid}}">
-        </div>
-        <div class="col-sm-2 error-container"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 昵称</label>
-        <div class="col-sm-8">
-            <input type="text" name="nickName" class="form-control" placeholder="昵称/花名" data-rule-required="true">
-        </div>
-        <div class="col-sm-2 error-container"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 联系方式</label>
-        <div class="col-sm-8">
-            <input type="text" name="phoneNumber" class="form-control" placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
-        </div>
-        <div class="col-sm-2 error-container"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 邮箱</label>
-        <div class="col-sm-8">
-            <input type="text" name="email" class="form-control" placeholder="邮箱" data-rule-required="true" data-rule-email="true">
-        </div>
-        <div class="col-sm-2 error-container"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 年龄</label>
-        <div class="col-sm-8">
-            <input type="text" name="age" class="form-control" data-rule-required="true" placeholder="年龄">
-        </div>
-        <div class="col-sm-2 error-container"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 性别</label>
-        <div class="col-sm-8">
-            <label class="radio-inline">
-                <input type="radio" name="sex" value="boy" data-rule-required="true"> 帅哥
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="sex" value="girl" data-rule-required="true"> 萌妹子~
-            </label>
-        </div>
-        <div class="col-sm-2 error-container"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 是否单身</label>
-        <div class="col-sm-8">
-            <label class="radio-inline">
-                <input type="radio" name="isSingle" value="1" data-rule-required="true"> 单身狗
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="isSingle" value="0" data-rule-required="true"> 情侣狗
-            </label>
-        </div>
-        <div class="col-sm-2 error-container"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label"><b class="text-danger">*</b> 上车点</label>
-        <div class="col-sm-8">
-            <select class="form-control" name="board" data-rule-required="true">
-                <option value="">请选择</option>
-                {{#each(activityDetail.boardList)}}
-                <option>{{this}}</option>
-                {{/each}}
-            </select>
-        </div>
-        <div class="col-sm-2 error-container"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">才艺特长</label>
-        <div class="col-sm-8">
-            <textarea name="talent" cols="3" class="form-control"></textarea>
-        </div>
-        <div class="col-sm-2 error-container"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">是否愿意承担什么职务</label>
-        <div class="col-sm-8">
-            <select class="form-control" name="duty">
-                <option value="">无</option>
-                {{#each(activityDetail.dutyList)}}
-                <option>{{this}}</option>
-                {{/each}}
-            </select>
-        </div>
-        <div class="col-sm-2 error-container"></div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">备注</label>
-        <div class="col-sm-8">
-            <textarea class="form-control" name="remarks"></textarea>
-        </div>
-        <div class="col-sm-2 error-container"></div>
-    </div>
+            <div class="bd">
+                    <h1 class="page_title">报名活动</h1>
+
+                    <input type="hidden" id="J_activity_id" value="{{activityDetail.activityId}}">
+
+                    <form>
+                         
+                         <div class="weui_cells weui_cells_form">
+                            <div class="weui_cell">
+                                <div class="weui_cell_hd"><label class="weui_label">活动名称</label></div>
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <input class="weui_input" type="text"   name="activity"  value="{{activityDetail.activityTitle}}" disabled="disabled"  placeholder=""/>
+                                    <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.activityId}}">
+                                    <input type="hidden" name="openid" class="form-control" value="{{userInfo.openid}}">
+                                </div>
+                            </div>
+                            <div class="weui_cell">
+                                <div class="weui_cell_hd"><label class="weui_label">昵称</label></div>
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <input type="text" name="nickName" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
+                                </div>
+                            </div>
+
+                            <div class="weui_cell">
+                                <div class="weui_cell_hd"><label class="weui_label">联系方式</label></div>
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <input type="text" name="phoneNumber" class="weui_input" placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
+                                </div>
+                            </div>
+
+                             <div class="weui_cell">
+                                <div class="weui_cell_hd"><label class="weui_label">邮箱</label></div>
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <input type="text" name="email" class="weui_input" placeholder="邮箱" data-rule-required="true" data-rule-email="true">
+                                </div>
+                            </div>
+
+                            <!--<div class="weui_cell">
+                                <div class="weui_cell_hd"><label class="weui_label">身份证号</label></div>
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <input type="text" name="nickName" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
+                                </div>
+                            </div>-->
+
+                           <!-- <div class="weui_cell">
+                                <div class="weui_cell_hd"><label class="weui_label">真实姓名</label></div>
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <input type="text" name="age" class="form-control" data-rule-required="true" placeholder="年龄">
+                                </div>
+                            </div>-->
+
+                            <div class="weui_cell">
+                                <div class="weui_cell_hd"><label class="weui_label">年龄</label></div>
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <input type="text" name="age" class="weui_input" data-rule-required="true" placeholder="年龄">
+                                </div>
+                            </div>
+
+                         </div>
+
+                         <div class="weui_cells_title">性别</div>
+                         <div class="weui_cells weui_cells_radio">
+                            <label class="weui_cell weui_check_label" for="x11">
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <p>男</p>
+                                </div>
+                                <div class="weui_cell_ft">
+                                    <input type="radio" class="weui_check" name="sex" value="boy" data-rule-required="true">
+                                    <span class="weui_icon_checked"></span>
+                                </div>
+                            </label>
+                            <label class="weui_cell weui_check_label" for="x12">
+
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <p>女</p>
+                                </div>
+                                <div class="weui_cell_ft">
+                                    <input type="radio" name="sex" value="girl" data-rule-required="true">
+                                    <span class="weui_icon_checked"></span>
+                                </div>
+                            </label>
+                        </div>
 
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-8">
-            <a href="#" class="btn qyp-btn btn-sm" id="J_sign_up_activity">报名</a>
-        </div>
+                        <div class="weui_cells_title">是否单身</div>
+                         <div class="weui_cells weui_cells_radio">
+                            <label class="weui_cell weui_check_label" for="x11">
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <p>单身狗</p>
+                                </div>
+                                <div class="weui_cell_ft">
+                                    <input type="radio" class="weui_check" name="isSingle" value="1" data-rule-required="true">
+                                    <span class="weui_icon_checked"></span>
+                                </div>
+                            </label>
+                            <label class="weui_cell weui_check_label" for="x12">
+
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <p>情侣狗</p>
+                                </div>
+                                <div class="weui_cell_ft">
+                                    <input type="radio" name="isSingle" value="0" data-rule-required="true">
+                                    <span class="weui_icon_checked"></span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="weui_cells_title">上车地点</div>
+                         <div class="weui_cells weui_cells_radio">
+                            {{#each(activityDetail.boardList)}}
+                            <label class="weui_cell weui_check_label" for="x11">
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <p>{{this}}</p>
+                                </div>
+                                <div class="weui_cell_ft">
+                                    <input type="radio" class="weui_check"  name="board" data-rule-required="true" value="{{this}}">
+                                    <span class="weui_icon_checked"></span>
+                                </div>
+                            </label>
+                            {{/each}}
+                        </div>
+
+                         <div class="weui_cells_title">才艺特长</div>
+                            <div class="weui_cells weui_cells_form">
+                                <div class="weui_cell">
+                                    <div class="weui_cell_bd weui_cell_primary">
+                                        <textarea class="weui_textarea" name="talent" placeholder="" rows="3"></textarea>
+                                        <div class="weui_textarea_counter"><span>0</span>/200</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div class="weui_cells_title">是否愿意承担什么职务</div>
+                         <div class="weui_cells weui_cells_radio">
+                            {{#each(activityDetail.dutyList)}}
+                            <label class="weui_cell weui_check_label" for="x11">
+                                <div class="weui_cell_bd weui_cell_primary">
+                                    <p>{{this}}</p>
+                                </div>
+                                <div class="weui_cell_ft">
+                                    <input type="radio" class="weui_check" name="duty" value="{{this}}">
+                                    <span class="weui_icon_checked"></span>
+                                </div>
+                            </label>
+                            {{/each}}
+                           
+                        </div>
+
+                        <div class="weui_cells_title">备注</div>
+                            <div class="weui_cells weui_cells_form">
+                                <div class="weui_cell">
+                                    <div class="weui_cell_bd weui_cell_primary">
+                                         <textarea class="weui_textarea"placeholder="" rows="3" name="remarks"></textarea>
+                                        <div class="weui_textarea_counter"><span>0</span>/200</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <a href="#" class="weui_btn weui_btn_primary" id="J_sign_up_activity">报名</a>
+                    </form>
+                </div>
+              </div>
     </div>
-</form>
 {{/block}}
 
