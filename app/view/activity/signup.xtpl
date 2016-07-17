@@ -1,5 +1,13 @@
-<link rel="stylesheet" href="/node_modules/weui/dist/style/weui.css"/>
-<link rel="stylesheet" href="/node_modules/weui/dist/example/example.css"/>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <title>穷游派</title>
+        <link rel="stylesheet" href="/node_modules/weui/dist/style/weui.css"/>
+        <link rel="stylesheet" href="/node_modules/weui/dist/example/example.css"/>
+    </head>
+    <body>
 <div class="container" id="container">
 
             <div class="bd">
@@ -165,4 +173,6 @@
                 </div>
               </div>
     </div>
+    </body>
+    </html>
 
