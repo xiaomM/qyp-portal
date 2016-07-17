@@ -44,8 +44,9 @@ var MemberSchema = new Schema({
  */
 
 MemberSchema.statics.saveMember = function* (member) {
-        console.log('member = '+JSON.stringify(member));
-        return yield member.save();
+    console.log('member = '+JSON.stringify(member));
+    let result =  yield member.save();
+    console.log('result = '+JSON.stringify(result));
 };
 
 MemberSchema.statics.getMember = function* (openid) {
