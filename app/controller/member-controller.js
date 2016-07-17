@@ -38,7 +38,7 @@ exports.oAuth2 = function* (next) {
             }
         }
     }else{
-        let openid = JSON.parse(ctx.cookies.get('openid'));
+        let openid = ctx.cookies.get('openid');
         let userInfo =yield MemberModel.getMember(memberId);
         ctx.locals.userInfo = userInfo;
     }
