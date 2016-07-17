@@ -4,7 +4,8 @@ var _ = require('../model/activity');
 let MemberModel = require('../model/member');
 let url =require('url');
 
-exports.readyMember = function* () {
+exports.readyMember = function* (next) {
+    let ctx = this;
     if(ctx.locals.userInfo != undefined && ctx.locals.userInfo.openId != undefined){
         let memberId = ctx.locals.userInfo.openId;
         let memberEntity = yield MemberModel.getMember(memberId);
@@ -14,6 +15,7 @@ exports.readyMember = function* () {
             ctx.locals.member = memberEntity;
         }
     }
+    yield next;
 };
 
 exports.oAuth2 = function* (next) {
