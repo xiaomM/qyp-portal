@@ -17,8 +17,7 @@ exports.readyMember = function* () {
 
 exports.oAuth2 = function* (next) {
     let ctx = this;
-    let cookiesUserInfo = JSON.parse(ctx.cookies.get('userInfo'));
-    if(cookiesUserInfo == undefined){
+    if(ctx.cookies.get('userInfo') == undefined){
         if(ctx.locals.userInfo == undefined){
             let code = ctx.request.query.code;
             if(code == undefined){
@@ -46,6 +45,7 @@ exports.oAuth2 = function* (next) {
             }
         }
     }else{
+        let cookiesUserInfo = JSON.parse(ctx.cookies.get('userInfo'));
         ctx.locals.userInfo = cookiesUserInfo;
     }
     yield next;
