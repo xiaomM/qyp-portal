@@ -2,6 +2,7 @@
 
 var _ = require('../model/activity');
 let MemberModel = require('../model/member');
+let url =require('url');
 
 exports.readyMember = function* () {
     if(ctx.locals.userInfo != undefined && ctx.locals.userInfo.openId != undefined){

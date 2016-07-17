@@ -4,7 +4,7 @@ var _ = require('lodash');
 let wepay = require('../model/wepay');
 let ActivityModel = require('../model/activity');
 let SignUpModel = require('../model/signup');
-let url =require('url');
+
 
 
 let wrapResult = function (data,sucess) {
