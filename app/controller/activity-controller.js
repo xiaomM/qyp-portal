@@ -123,9 +123,6 @@ exports.createActivity = function* () {
     ctx.body = wrapResult(result,result != undefined);
 }
 let isNull = function (str) {
-    if(typeof(o) !== 'string'){
-        return false;
-    }
     if(str == null){
         return true;
     }
@@ -147,7 +144,6 @@ exports.signupActivity = function* () {
         ||isNull(ctx.request.body.email)
         ||isNull(ctx.request.body.age)
         ||isNull(ctx.request.body.sex)
-        ||isNull(ctx.request.body.board)
         ||isNull(ctx.request.body.openid)
     ){
         ctx.body = {
