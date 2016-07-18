@@ -33,8 +33,8 @@ exports.getDetail = function* (next) {
     var dutyList = activityEntity.dutyList.toString();
     if (dutyList) {
         console.log('dutyList='+activityEntity.dutyList);
-        console.log('dutyList='+activityEntity.dutyList.toString());
-        console.log('dutyList='+activityEntity.dutyList.toString().split("我"));
+        console.log('dutyList='+JSON.stringify(activityEntity.dutyList.toString()));
+        console.log('dutyList='+JSON.stringify(activityEntity.dutyList).split("@"));
         activityEntity.dutyList = activityEntity.dutyList.split("@");
         console.log('dutyList='+activityEntity.dutyList);
     }
