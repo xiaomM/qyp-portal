@@ -42,7 +42,7 @@ var SignUpSchema = new Schema({
     nickname: {type:String},// nickname	用户昵称
     phoneNumber: {type:String},
     email: {type:String},
-    age: {type:Number},
+    age: {type:Date},
     sex: {type:String},//sex	用户的性别，值为1时是男性，值为2时是女性，值为0时是未知
     isSingle: {type:Boolean},
     board: {type:String},
