@@ -50,6 +50,6 @@ function isWeiXin(){
 
 window.onload = function(){
     if(!isWeiXin()){
-        window.location.href="/";
+        window.location.href="/activity/not_wechat";
     }
 }
