@@ -5,14 +5,13 @@
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
         <title>穷游派</title>
         <!-- head 中 -->
-        <link rel="stylesheet" href="/node_modules/jquery-weui/dist/lib/weui.css">
-        <link rel="stylesheet" href="/node_modules/jquery-weui/dist/css/jquery-weui.css">
-        <link rel="stylesheet" href="/node_modules/weui/dist/example/example.css"/>
+        <link rel="stylesheet" href="{{config.staticHost}}/lib/weui/weui.css">
+        <link rel="stylesheet" href="{{config.staticHost}}/lib/weui/jquery-weui.css">
+        <link rel="stylesheet" href="{{config.staticHost}}/lib/weui/example.css"/>
     </head>
     <body>
                 {{{block ("content") }}}
-        <script src="/node_modules/jquery-weui/dist/lib/jquery-2.1.4.js"></script>
-        <script src="/node_modules/jquery-weui/dist/js/jquery-weui.js"></script>
-        <script type="text/javascript" src="{{config.staticHost}}/js/qyp.js"></script>
+        <script type="text/javascript" src="{{config.staticHost}}/lib/weui/jquery-2.1.4.js"></script>
+        <script type="text/javascript" src="{{config.staticHost}}/js/my-weui.js"></script>
     </body>
     </html>
