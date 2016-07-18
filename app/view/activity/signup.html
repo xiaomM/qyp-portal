@@ -8,23 +8,25 @@
 
             <div class="bd">
 
+                <form>
+
 
                          <div class="weui_cells_title">基础信息</div>
-                            <div class="weui_cell">
+                            <div class="weui_cell weui_cells_form">
                                 <div class="weui_cell_hd"><label class="weui_label">昵称</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
                                     <input type="text" name="nickName" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
                                 </div>
                             </div>
 
-                            <div class="weui_cell">
+                            <div class="weui_cell weui_cells_form">
                                 <div class="weui_cell_hd"><label class="weui_label">联系方式</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
                                     <input type="text" name="phoneNumber" class="weui_input" type="number" pattern="[0-9]*"  placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
                                 </div>
                             </div>
 
-                             <div class="weui_cell">
+                             <div class="weui_cell weui_cells_form">
                                 <div class="weui_cell_hd"><label class="weui_label">邮箱</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
                                     <input type="text" name="email" class="weui_input" placeholder="邮箱" data-rule-required="true" data-rule-email="true">
@@ -45,7 +47,7 @@
                                 </div>
                             </div>-->
 
-                            <div class="weui_cell">
+                            <div class="weui_cell weui_cells_form">
                                 <div class="weui_cell_hd"><label class="weui_label">出生日期</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
                                     <input type="date" name="age" class="weui_input">
@@ -53,7 +55,7 @@
                             </div>
 
 
-                         <div class="weui_cell weui_cell_select weui_select_after">
+                         <div class="weui_cell weui_cells_form weui_cell_select weui_select_after">
                                      <div class="weui_cell_hd">
                                          <label for="" class="weui_label">性别</label>
                                      </div>
@@ -132,7 +134,8 @@
                     <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.activityId}}">
                     <input type="hidden" name="openid" class="form-control" value="{{userInfo.openid}}">
                         <a href="#" class="weui_btn weui_btn_primary" id="J_sign_up_activity">报名</a>
-                </div>
+                </form>
+            </div>
 </div>
     {{/block}}
 
