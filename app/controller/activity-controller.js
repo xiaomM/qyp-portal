@@ -121,42 +121,30 @@ exports.createActivity = function* () {
     let result = yield ActivityModel.saveActivity(activityEntity);
     ctx.body = wrapResult(result,result != undefined);
 }
+let isNull = function (str) {
+    if(str == null){
+        return true;
+    }
+    if(str == ''){
+        return true;
+    }
+    if(str.replace(/(^s*)|(s*$)/g, "").length ==0){
+        return true;
+    }
+    return false;
+}
 exports.signupActivity = function* () {
     var ctx = this;
     console.log(ctx.request.body);
-    /**
-     * activityObjId:{type:Schema.Types.ObjectId},
-     activityId: {type:Number},
-     nickname: {type:String},// nickname	用户昵称
-     phoneNumber: {type:String},
-     email: {type:String},
-     age: {type:Date},
-     sex: {type:String},//sex	用户的性别，值为1时是男性，值为2时是女性，值为0时是未知
-     isSingle: {type:Boolean},
-     board: {type:String},
-     talent: {type:String},
-     duty: {type:String},
-     deposit: {type:Number},
-     remarks: {type:String},
-     openid: {type:String},//openid	用户的唯一标识
-     remoteIp:{type:String,default:"127.0.0.1"},
-     payOrderId:{type:String},
-     gmtCreate:{type:Date,default:new Date()},
-     province:{type:String},
-     city:{type:String},
-     country:{type:String},
-     headimgurl:{type:String},
-     unionid:{type:String},
-     status:{type:String,default:"NOTPAY"}
-     */
-    if(ctx.request.body.activityId == undefined
-        ||ctx.request.body.nickname == undefined
-        ||ctx.request.body.phoneNumber == undefined
-        ||ctx.request.body.email == undefined
-        ||ctx.request.body.age == undefined
-        ||ctx.request.body.sex == undefined
-        ||ctx.request.body.board == undefined
-        ||ctx.request.body.openid == undefined
+    
+    if(isNull(ctx.request.body.activityId)
+        ||isNull(ctx.request.body.nickname == undefined)
+        ||isNull(ctx.request.body.phoneNumber == undefined)
+        ||isNull(ctx.request.body.email == undefined)
+        ||isNull(ctx.request.body.age == undefined)
+        ||isNull(ctx.request.body.sex == undefined)
+        ||isNull(ctx.request.body.board == undefined)
+        ||isNull(ctx.request.body.openid == undefined)
     ){
         ctx.body = {
             success: false,
