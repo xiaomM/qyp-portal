@@ -142,7 +142,7 @@
                             <!--</div>-->
 
                     <input type="hidden" id="J_activity_id" value="{{activityDetail.activityId}}"/>
-                    <input type="hidden" class="weui_input"  name="activity"  value="{{activityDetail.activityTitle}}" disabled="disabled"  placeholder=""/>
+                    <input type="hidden" name="activity"  value="{{activityDetail.activityTitle}}" />
                     <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.activityId}}"/>
                     <input type="hidden" name="openid" class="form-control" value="{{userInfo.openid}}"/>
                         <div class="weui_cells_tips">请仔细检查报名信息是否有误再报名</div>
