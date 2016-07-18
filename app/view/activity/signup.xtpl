@@ -52,11 +52,10 @@
                             <div class="weui_cell">
                                 <div class="weui_cell_hd"><label class="weui_label">出生日期</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="date" name="age" class="weui_input" data-rule-required="true" placeholder="年龄">
+                                    <input type="date" name="age" class="weui_input">
                                 </div>
                             </div>
 
-                         </div>
 
                          <div class="weui_cell weui_cell_select weui_select_after">
                                      <div class="weui_cell_hd">
