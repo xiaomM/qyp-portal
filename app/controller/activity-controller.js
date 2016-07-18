@@ -138,13 +138,13 @@ exports.signupActivity = function* () {
     console.log(ctx.request.body);
     
     if(isNull(ctx.request.body.activityId)
-        ||isNull(ctx.request.body.nickname == undefined)
-        ||isNull(ctx.request.body.phoneNumber == undefined)
-        ||isNull(ctx.request.body.email == undefined)
-        ||isNull(ctx.request.body.age == undefined)
-        ||isNull(ctx.request.body.sex == undefined)
-        ||isNull(ctx.request.body.board == undefined)
-        ||isNull(ctx.request.body.openid == undefined)
+        ||isNull(ctx.request.body.nickname)
+        ||isNull(ctx.request.body.phoneNumber)
+        ||isNull(ctx.request.body.email)
+        ||isNull(ctx.request.body.age)
+        ||isNull(ctx.request.body.sex)
+        ||isNull(ctx.request.body.board)
+        ||isNull(ctx.request.body.openid)
     ){
         ctx.body = {
             success: false,
