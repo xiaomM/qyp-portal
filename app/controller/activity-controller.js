@@ -33,10 +33,12 @@ exports.getDetail = function* (next) {
     var dutyList = activityEntity.dutyList;
     if (dutyList) {
         activityEntity.dutyList = dutyList.split('|');
+        console.log('dutyList='+activityEntity.dutyList);
     }
     var boardList = activityEntity.boardList;
     if (boardList) {
         activityEntity.boardList = boardList.split('|');
+        console.log('boardList='+activityEntity.boardList);
     }
     ctx.locals.activityDetail = activityEntity;
     yield next
