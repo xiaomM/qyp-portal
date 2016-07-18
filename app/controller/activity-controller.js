@@ -34,8 +34,8 @@ exports.getDetail = function* (next) {
     if (dutyList) {
         console.log('dutyList='+activityEntity.dutyList);
         console.log('dutyList='+activityEntity.dutyList.toString());
-        console.log('dutyList='+activityEntity.dutyList.toString().split('@'));
-        activityEntity.dutyList = activityEntity.dutyList.split('@');
+        console.log('dutyList='+activityEntity.dutyList.toString().split("@"));
+        activityEntity.dutyList = activityEntity.dutyList.split("@");
         console.log('dutyList='+activityEntity.dutyList);
     }
     var boardList = activityEntity.boardList.toString();
