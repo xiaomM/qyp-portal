@@ -107,12 +107,12 @@
                         <div class="weui_cells_title">上车地点</div>
                          <div class="weui_cells weui_cells_radio">
                             {{#each(activityDetail.boardList)}}
-                            <label class="weui_cell weui_check_label" for="x11">
+                            <label class="weui_cell weui_check_label" for="board_{{this}}">
                                 <div class="weui_cell_bd weui_cell_primary">
                                     <p>{{this}}</p>
                                 </div>
                                 <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check"  name="board" data-rule-required="true" value="{{this}}">
+                                    <input type="radio" class="weui_check"  name="board" id="board_{{this}}" data-rule-required="true" value="{{this}}">
                                     <span class="weui_icon_checked"></span>
                                 </div>
                             </label>
@@ -132,12 +132,12 @@
                         <div class="weui_cells_title">是否愿意承担什么职务</div>
                          <div class="weui_cells weui_cells_radio">
                             {{#each(activityDetail.dutyList)}}
-                            <label class="weui_cell weui_check_label" for="x11">
+                            <label class="weui_cell weui_check_label" for="duty_{{this}}">
                                 <div class="weui_cell_bd weui_cell_primary">
                                     <p>{{this}}</p>
                                 </div>
                                 <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check" name="duty" value="{{this}}">
+                                    <input type="radio" class="weui_check" name="duty" id="duty_{{this}}" value="{{this}}">
                                     <span class="weui_icon_checked"></span>
                                 </div>
                             </label>
