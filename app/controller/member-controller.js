@@ -38,7 +38,7 @@ exports.oAuth2 = function* (next) {
                 let tokenResult = yield wepay.getTokenByCode(code);
                 console.log('result = ' + JSON.stringify(tokenResult));
                 let userInfo = yield wepay.getUserInfo(tokenResult.access_token, tokenResult.openid);
-                let dbUserInfo = yield MemberModel.getMember(openid);
+                let dbUserInfo = yield MemberModel.getMember(userInfo.openid);
                 if (dbUserInfo == undefined) {
                     yield MemberModel.saveMember(new MemberModel(userInfo));
                 }else{
