@@ -26,16 +26,11 @@ exports.oAuth2 = function* (next) {
                     'scope=snsapi_userinfo&state=1#wechat_redirect';
                 console.log('redirectTo:'+urlTemplate);
                 ctx.response.redirect(urlTemplate);
-                return;
             }else{
                 console.log('code='+code);
                 let tokenResult = yield wepay.getTokenByCode(code);
                 console.log('result = '+JSON.stringify(tokenResult));
                 let userInfo = yield wepay.getUserInfo(tokenResult.access_token,tokenResult.openid);
-                if(userInfo.openid == undefined){
-                    ctx.response.redirect('/activity/not_wechat');
-                    return;
-                }
                 yield MemberModel.saveMember(new MemberModel(userInfo));
                 console.log('userInfo='+JSON.stringify(userInfo));
                 ctx.locals.userInfo = userInfo;
