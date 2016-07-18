@@ -35,6 +35,7 @@ exports.getDetail = function* (next) {
         console.log('dutyList='+activityEntity.dutyList);
         console.log('dutyList='+JSON.stringify(activityEntity.dutyList.toString()));
         console.log('dutyList='+JSON.stringify(activityEntity.dutyList).split("@"));
+        console.log("协助组织者@摄影师@其他杂物".split("@"));
         activityEntity.dutyList = activityEntity.dutyList.split("@");
         console.log('dutyList='+activityEntity.dutyList);
     }
