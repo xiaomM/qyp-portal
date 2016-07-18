@@ -32,12 +32,12 @@ exports.getDetail = function* (next) {
     //console.log(data)
     var dutyList = activityEntity.dutyList.toString();
     if (dutyList) {
-        activityEntity.dutyList = dutyList.split('|');
+        activityEntity.dutyList = activityEntity.dutyList.split('|');
         console.log('dutyList='+activityEntity.dutyList);
     }
     var boardList = activityEntity.boardList.toString();
     if (boardList) {
-        activityEntity.boardList = boardList.split('|');
+        activityEntity.boardList = activityEntity.boardList.split('|');
         console.log('boardList='+activityEntity.boardList);
     }
     ctx.locals.activityDetail = activityEntity;
