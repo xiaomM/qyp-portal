@@ -113,11 +113,11 @@ exports.createActivity = function* () {
     console.log(ctx.request.body);
     var dutyList = ctx.request.body.dutyList;
     if (dutyList) {
-        ctx.request.body.dutyList = JSON.parse((activityEntity.dutyList).split("|"));
+        ctx.request.body.dutyList = JSON.parse((ctx.request.body.dutyList).split("|"));
     }
     var boardList = activityEntity.boardList;
     if (boardList) {
-        ctx.request.body.boardList = JSON.parse((activityEntity.boardList).split('|'));
+        ctx.request.body.boardList = JSON.parse((ctx.request.body.boardList).split('|'));
     }
     let activityEntity = new ActivityModel(ctx.request.body);
     let result = yield ActivityModel.saveActivity(activityEntity);
