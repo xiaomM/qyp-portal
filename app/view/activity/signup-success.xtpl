@@ -16,7 +16,6 @@
             });
         }
 
-                {{#if (signup.status === "NOTPAY")}}
 
         if (typeof WeixinJSBridge == "undefined"){
            if( document.addEventListener ){
