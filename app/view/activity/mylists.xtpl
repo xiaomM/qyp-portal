@@ -1,180 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-        <title>穷游派</title>
-        <link rel="stylesheet" href="/node_modules/weui/dist/style/weui.css"/>
-        <link rel="stylesheet" href="/node_modules/weui/dist/example/example.css"/>
-        <script type="text/javascript" src="http://g.tbcdn.cn/platform/static/lib/jquery.min.js"></script>
-        <script type="text/javascript" src="{{config.staticHost}}/js/qyp.js"></script>
-    </head>
-    <body>
+{{extend ("../layout/weui-layout") }}
+        {{#block ("content") }}
 <div class="container" id="container">
-
-            <div class="bd">
-                    <h1 class="page_title">报名活动</h1>
-
-                    <input type="hidden" id="J_activity_id" value="{{activityDetail.activityId}}">
-
-                    <form>
-
-                         <div class="weui_cells weui_cells_form">
-                            <div class="weui_cell">
-                                <div class="weui_cell_hd"><label class="weui_label">活动名称</label></div>
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <input class="weui_input" type="text"   name="activity"  value="{{activityDetail.activityTitle}}" disabled="disabled"  placeholder=""/>
-                                    <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.activityId}}">
-                                    <input type="hidden" name="openid" class="form-control" value="{{userInfo.openid}}">
-                                </div>
-                            </div>
-                            <div class="weui_cell">
-                                <div class="weui_cell_hd"><label class="weui_label">昵称</label></div>
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" name="nickName" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
-                                </div>
-                            </div>
-
-                            <div class="weui_cell">
-                                <div class="weui_cell_hd"><label class="weui_label">联系方式</label></div>
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" name="phoneNumber" class="weui_input" placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
-                                </div>
-                            </div>
-
-                             <div class="weui_cell">
-                                <div class="weui_cell_hd"><label class="weui_label">邮箱</label></div>
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" name="email" class="weui_input" placeholder="邮箱" data-rule-required="true" data-rule-email="true">
-                                </div>
-                            </div>
-
-                            <!--<div class="weui_cell">
-                                <div class="weui_cell_hd"><label class="weui_label">身份证号</label></div>
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" name="nickName" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
-                                </div>
-                            </div>-->
-
-                           <!-- <div class="weui_cell">
-                                <div class="weui_cell_hd"><label class="weui_label">真实姓名</label></div>
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" name="age" class="form-control" data-rule-required="true" placeholder="年龄">
-                                </div>
-                            </div>-->
-
-                            <div class="weui_cell">
-                                <div class="weui_cell_hd"><label class="weui_label">年龄</label></div>
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" name="age" class="weui_input" data-rule-required="true" placeholder="年龄">
-                                </div>
-                            </div>
-
-                         </div>
-
-                         <div class="weui_cells_title">性别</div>
-                         <div class="weui_cells weui_cells_radio">
-                            <label class="weui_cell weui_check_label" for="x11">
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p>男</p>
-                                </div>
-                                <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check" name="sex" value="boy" data-rule-required="true">
-                                    <span class="weui_icon_checked"></span>
-                                </div>
-                            </label>
-                            <label class="weui_cell weui_check_label" for="x12">
-
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p>女</p>
-                                </div>
-                                <div class="weui_cell_ft">
-                                    <input type="radio" name="sex" value="girl" data-rule-required="true">
-                                    <span class="weui_icon_checked"></span>
-                                </div>
-                            </label>
-                        </div>
-
-
-                        <div class="weui_cells_title">是否单身</div>
-                         <div class="weui_cells weui_cells_radio">
-                            <label class="weui_cell weui_check_label" for="x11">
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p>单身狗</p>
-                                </div>
-                                <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check" name="isSingle" value="1" data-rule-required="true">
-                                    <span class="weui_icon_checked"></span>
-                                </div>
-                            </label>
-                            <label class="weui_cell weui_check_label" for="x12">
-
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p>情侣狗</p>
-                                </div>
-                                <div class="weui_cell_ft">
-                                    <input type="radio" name="isSingle" value="0" data-rule-required="true">
-                                    <span class="weui_icon_checked"></span>
-                                </div>
-                            </label>
-                        </div>
-
-                        <div class="weui_cells_title">上车地点</div>
-                         <div class="weui_cells weui_cells_radio">
-                            {{#each(activityDetail.boardList)}}
-                            <label class="weui_cell weui_check_label" for="x11">
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p>{{this}}</p>
-                                </div>
-                                <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check"  name="board" data-rule-required="true" value="{{this}}">
-                                    <span class="weui_icon_checked"></span>
-                                </div>
-                            </label>
-                            {{/each}}
-                        </div>
-
-                         <div class="weui_cells_title">才艺特长</div>
-                            <div class="weui_cells weui_cells_form">
-                                <div class="weui_cell">
-                                    <div class="weui_cell_bd weui_cell_primary">
-                                        <textarea class="weui_textarea" name="talent" placeholder="" rows="3"></textarea>
-                                        <div class="weui_textarea_counter"><span>0</span>/200</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        <div class="weui_cells_title">是否愿意承担什么职务</div>
-                         <div class="weui_cells weui_cells_radio">
-                            {{#each(activityDetail.dutyList)}}
-                            <label class="weui_cell weui_check_label" for="x11">
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p>{{this}}</p>
-                                </div>
-                                <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check" name="duty" value="{{this}}">
-                                    <span class="weui_icon_checked"></span>
-                                </div>
-                            </label>
-                            {{/each}}
-
-                        </div>
-
-                        <div class="weui_cells_title">备注</div>
-                            <div class="weui_cells weui_cells_form">
-                                <div class="weui_cell">
-                                    <div class="weui_cell_bd weui_cell_primary">
-                                         <textarea class="weui_textarea"placeholder="" rows="3" name="remarks"></textarea>
-                                        <div class="weui_textarea_counter"><span>0</span>/200</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        <a href="#" class="weui_btn weui_btn_primary" id="J_sign_up_activity">报名</a>
-                    </form>
-                </div>
-              </div>
+    <div class="hd">
+        <h1 class="page_title">穷游派</h1>
+        <p class="page_desc">{{activityDetail.activityTitle}}</p>
     </div>
-    </body>
-    </html>
+
+    <div class="bd">
+
+        <div class="weui_panel weui_panel_access">
+            <div class="weui_panel_hd">我报名的活动</div>
+            <div class="weui_panel_bd">
+                {{#each(signList)}}
+                <a href="#">
+                    <div class="weui_media_box weui_media_text">
+                        <h4 class="weui_media_title">{{this.activity}}</h4>
+                        <p class="weui_media_desc">活动状态:{{this.status}}</p>
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+        {{/block}}
 

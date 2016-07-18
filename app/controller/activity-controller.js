@@ -72,7 +72,7 @@ exports.lists = function* () {
 
 exports.mylists = function* () {
     var ctx = this;
-    yield SignUpModel.getSignUpListByOpenId(ctx.locals.userInfo.openid);
+    ctx.locals.signList = yield SignUpModel.getSignUpListByOpenId(ctx.locals.userInfo.openid);
     yield this.render('activity/mylists', {});
 };
 
