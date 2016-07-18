@@ -11,6 +11,11 @@
         <div class="weui_panel weui_panel_access">
             <div class="weui_panel_hd">我报名的活动</div>
             <div class="weui_panel_bd">
+                {{#if (signList === undefined)}}
+                <div class="weui_media_box weui_media_text">
+                    <p class="weui_media_desc">暂时还没有您的报名记录哦~</p>
+                </div>
+                {{/if}}
                 {{#each(signList)}}
                 <a href="/activity/success/{{this._id}}" class="weui_media_box weui_media_appmsg">
                     <div class="weui_media_box weui_media_text">
