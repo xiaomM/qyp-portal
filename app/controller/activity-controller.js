@@ -32,16 +32,12 @@ exports.getDetail = function* (next) {
     //console.log(data)
     var dutyList = activityEntity.dutyList.toString();
     if (dutyList) {
-        console.log(activityEntity.dutyList);
-        console.log(JSON.stringify(activityEntity.dutyList.toString()));
-        console.log((activityEntity.dutyList).split("@"));
-        console.log("协助组织者@摄影师@其他杂物".split("@"));
-        activityEntity.dutyList = activityEntity.dutyList.split("@");
+        activityEntity.dutyList = (activityEntity.dutyList).split("|");
         console.log('dutyList='+activityEntity.dutyList);
     }
     var boardList = activityEntity.boardList.toString();
     if (boardList) {
-        activityEntity.boardList = activityEntity.boardList.split('@');
+        activityEntity.boardList = (activityEntity.boardList).split('|');
         console.log('boardList='+activityEntity.boardList);
     }
     ctx.locals.activityDetail = activityEntity;
