@@ -145,10 +145,11 @@
                     <input type="hidden" name="activity"  value="{{activityDetail.activityTitle}}" />
                     <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.activityId}}"/>
                     <input type="hidden" name="openid" class="form-control" value="{{userInfo.openid}}"/>
-                        <div class="weui_cells_tips">请仔细检查报名信息是否有误再报名</div>
+                        <div class="weui_cells_tips">
+                            <p>请仔细检查报名信息是否有误再报名</p>
+                            <p>系统还存在很多问题,请勿刷bug</p>
+                        </div>
                             <div class="weui_btn_area">
-                        <input class="btn btn-primary btn-lg" type="submit" value="提交" />
-
                         <a href="#" class="weui_btn weui_btn_primary" id="J_sign_up_activity">报名</a>
                         </div>
                 </form>
