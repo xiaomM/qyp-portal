@@ -30,12 +30,12 @@ exports.getDetail = function* (next) {
 
     var activityEntity = yield ActivityModel.getActivityByActivityId(activityId);
     //console.log(data)
-    var dutyList = activityEntity.dutyList;
+    var dutyList = activityEntity.dutyList.toString();
     if (dutyList) {
         activityEntity.dutyList = dutyList.split('|');
         console.log('dutyList='+activityEntity.dutyList);
     }
-    var boardList = activityEntity.boardList;
+    var boardList = activityEntity.boardList.toString();
     if (boardList) {
         activityEntity.boardList = boardList.split('|');
         console.log('boardList='+activityEntity.boardList);
