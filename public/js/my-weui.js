@@ -6,12 +6,6 @@ $(document)
         var $target = $(this);
         var $form = $target.closest('form');
 
-        $form.validate();
-
-        if (!$form.valid()) {
-            return false;
-        }
-
         var params = $form.serializeObject();
         $.ajax({
             url: '/ajax/activity/signup',
