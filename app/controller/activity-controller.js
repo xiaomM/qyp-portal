@@ -32,6 +32,7 @@ exports.getDetail = function* (next) {
     //console.log(data)
     var dutyList = activityEntity.dutyList.toString();
     if (dutyList) {
+        console.log('dutyList='+activityEntity.dutyList);
         console.log('dutyList='+activityEntity.dutyList.split('|'));
         activityEntity.dutyList = activityEntity.dutyList.split('|');
         console.log('dutyList='+activityEntity.dutyList);
