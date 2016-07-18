@@ -156,17 +156,17 @@ exports.signupActivity = function* () {
     }
     let signUpEntity = new SignUpModel(ctx.request.body);
     let result = yield SignUpModel.saveSignUp(signUpEntity);
-    if(result != undefined) {
-        if (ctx.request.body.saveAsDefault == "1") {
-            let openId = result.openid;
-            let dbMemberEntity = yield MemberModel.getMember(openId);
-            if (dbMemberEntity != undefined) {
-                let memberEntity = new MemberModel(ctx.request.body);
-                memberEntity._id = dbMemberEntity._id;
-                yield MemberModel.saveMember(memberEntity);
-            }
-        }
-    }
+    // if(result != undefined) {
+    //     if (ctx.request.body.saveAsDefault == "1") {
+    //         let openId = result.openid;
+    //         let dbMemberEntity = yield MemberModel.getMember(openId);
+    //         if (dbMemberEntity != undefined) {
+    //             let memberEntity = new MemberModel(ctx.request.body);
+    //             memberEntity._id = dbMemberEntity._id;
+    //             yield MemberModel.saveMember(memberEntity);
+    //         }
+    //     }
+    // }
     console.log("result = "+result);
     ctx.body = wrapResult(result,result != undefined);
 }

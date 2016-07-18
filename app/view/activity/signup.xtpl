@@ -131,15 +131,15 @@
                                 </div>
                             </div>
 
-                        <div class="weui_cells_title">保存信息</div>
-                            <div class="weui_cells weui_cells_form">
-                                <div class="weui_cell weui_cell_switch">
-                                    <div class="weui_cell_hd weui_cell_primary">本次报名信息为我的默认信息</div>
-                                    <div class="weui_cell_ft">
-                                        <input class="weui_switch" name="saveAsDefault" value="1" type="checkbox" checked="checked"/>
-                                    </div>
-                                </div>
-                            </div>
+                        <!--<div class="weui_cells_title">保存信息</div>-->
+                            <!--<div class="weui_cells weui_cells_form">-->
+                                <!--<div class="weui_cell weui_cell_switch">-->
+                                    <!--<div class="weui_cell_hd weui_cell_primary">本次报名信息为我的默认信息</div>-->
+                                    <!--<div class="weui_cell_ft">-->
+                                        <!--<input class="weui_switch" name="saveAsDefault" value="1" type="checkbox" checked="checked"/>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
 
                     <input type="hidden" id="J_activity_id" value="{{activityDetail.activityId}}"/>
                     <input type="hidden" class="weui_input"  name="activity"  value="{{activityDetail.activityTitle}}" disabled="disabled"  placeholder=""/>
