@@ -49,8 +49,8 @@ var ActivitySchema = new Schema({
     maxPeopleSize:{type:Number},
     budget: {type:String},
     deposit: {type:Number},
-    dutyList: {type:String},
-    boardList: {type:String},
+    dutyList: {type:{}},
+    boardList: {type:{}},
     paymentUrl: {type:String},
     wxPageUrl:{type:String}//微信图文消息URL
 });
@@ -114,14 +114,6 @@ ActivitySchema.static({
  * Register
  */
 
-ActivitySchema.virtual('boardList').get(function(){
-    return this.boardList.split('|');
-});
-
-
-ActivitySchema.virtual('dutyList').get(function(){
-    return this.dutyList.split('|');
-});
 
 
 mongoose.model('Activity', ActivitySchema);

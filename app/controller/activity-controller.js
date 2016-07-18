@@ -29,7 +29,8 @@ exports.getDetail = function* (next) {
     var activityId = ctx.params.activityId;
 
     var activityEntity = yield ActivityModel.getActivityByActivityId(activityId);
-    console.log("activityEntity="+activityEntity)
+    //console.log(data)
+    
     ctx.locals.activityDetail = activityEntity;
     yield next
 };
@@ -110,6 +111,14 @@ exports.wxNotify = function* () {
 exports.createActivity = function* () {
     var ctx = this;
     console.log(ctx.request.body);
+    var dutyList = ctx.request.body.dutyList;
+    if (dutyList) {
+        ctx.request.body.dutyList = JSON.parse((activityEntity.dutyList).split("|"));
+    }
+    var boardList = activityEntity.boardList;
+    if (boardList) {
+        ctx.request.body.boardList = JSON.parse((activityEntity.boardList).split('|'));
+    }
     let activityEntity = new ActivityModel(ctx.request.body);
     let result = yield ActivityModel.saveActivity(activityEntity);
     ctx.body = wrapResult(result,result != undefined);
