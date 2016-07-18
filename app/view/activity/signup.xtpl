@@ -8,7 +8,7 @@
 
             <div class="bd">
 
-                <form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
+                <form name="myForm" >
 
 
                          <div class="weui_cells_title">基础信息</div>
@@ -16,18 +16,14 @@
                             <div class="weui_cell">
                                 <div class="weui_cell_hd"><label class="weui_label">昵称</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text"  ng-model="nickName" required name="nickName" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
+                                    <input type="text"  required="required" name="nickName" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
                                 </div>
-                                <span style="color:red" ng-show="myForm.nickName.$dirty && myForm.nickName.$invalid">
-                                <span ng-show="myForm.email.$error.required"><div class="weui_cell_ft"> <i class="weui_icon_warn"></i> </div></span>
-                                </span>
-
                             </div>
 
                             <div class="weui_cell">
                                 <div class="weui_cell_hd"><label class="weui_label">联系方式</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" name="phoneNumber" required="required" class="weui_input" type="number" pattern="[0-9]*"  placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
+                                    <input name="phoneNumber" required="required" class="weui_input" type="number" pattern="[0-9]*"  placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
                                 </div>
                             </div>
 
@@ -87,7 +83,7 @@
                         <div class="weui_cells_title">上车地点</div>
                          <div class="weui_cells weui_cells_radio">
                             {{#each(activityDetail.boardList)}}
-                            <label class="weui_cell weui_check_label" for="board_{{this}}">
+                            <label class="weui_cell weui_check_label" for="board_{{this}}"/>
                                 <div class="weui_cell_bd weui_cell_primary">
                                     <p>{{this}}</p>
                                 </div>
@@ -95,14 +91,13 @@
                                     <input type="radio" class="weui_check"  name="board" id="board_{{this}}" data-rule-required="true" value="{{this}}">
                                     <span class="weui_icon_checked"></span>
                                 </div>
-                            </label>
                             {{/each}}
                         </div>
 
                         <div class="weui_cells_title">是否有意愿承担如下职务</div>
                             <div class="weui_cells weui_cells_checkbox">
                               {{#each(activityDetail.dutyList)}}
-                                <label class="weui_cell weui_check_label" for="duty_{{this}}">
+                                <label class="weui_cell weui_check_label" for="duty_{{this}}"/>
                                     <div class="weui_cell_hd">
                                         <input type="checkbox" class="weui_check" name="duty" value="{{this}}" id="duty_{{this}}" checked="checked">
                                         <i class="weui_icon_checked"></i>
@@ -110,7 +105,6 @@
                                     <div class="weui_cell_bd weui_cell_primary">
                                         <p>{{this}}</p>
                                     </div>
-                                </label>
                               {{/each}}
                             </div>
 
@@ -145,10 +139,10 @@
                                 </div>
                             </div>
 
-                    <input type="hidden" id="J_activity_id" value="{{activityDetail.activityId}}">
-                    <input type="hidden" class="weui_input" type="text"   name="activity"  value="{{activityDetail.activityTitle}}" disabled="disabled"  placeholder=""/>
-                    <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.activityId}}">
-                    <input type="hidden" name="openid" class="form-control" value="{{userInfo.openid}}">
+                    <input type="hidden" id="J_activity_id" value="{{activityDetail.activityId}}"/>
+                    <input type="hidden" class="weui_input"  name="activity"  value="{{activityDetail.activityTitle}}" disabled="disabled"  placeholder=""/>
+                    <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.activityId}}"/>
+                    <input type="hidden" name="openid" class="form-control" value="{{userInfo.openid}}"/>
                         <div class="weui_cells_tips">请仔细检查报名信息是否有误再报名</div>
                             <div class="weui_btn_area">
                         <input class="btn btn-primary btn-lg" type="submit" value="提交" />
