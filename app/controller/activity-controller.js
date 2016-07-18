@@ -112,11 +112,10 @@ exports.createActivity = function* () {
     var ctx = this;
     console.log(ctx.request.body);
     var dutyList = ctx.request.body.dutyList;
-    if (dutyList) {
+    if (ctx.request.body.dutyList) {
         ctx.request.body.dutyList = JSON.parse((ctx.request.body.dutyList).split("|"));
     }
-    var boardList = activityEntity.boardList;
-    if (boardList) {
+    if (ctx.request.body.boardList) {
         ctx.request.body.boardList = JSON.parse((ctx.request.body.boardList).split('|'));
     }
     let activityEntity = new ActivityModel(ctx.request.body);
