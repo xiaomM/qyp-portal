@@ -1,18 +1,17 @@
 {{extend ("../layout/weui-layout") }}
 {{#block ("content") }}
 <div class="container" id="container">
+            <div class="hd">
+                <h1 class="page_title">穷游派</h1>
+                <p class="page_desc">{{activityDetail.activityTitle}}</p>
+            </div>
 
             <div class="bd">
-                    <h1 class="page_title">{{activityDetail.activityTitle}}</h1>
-
                     <input type="hidden" id="J_activity_id" value="{{activityDetail.activityId}}">
                     <input type="hidden" class="weui_input" type="text"   name="activity"  value="{{activityDetail.activityTitle}}" disabled="disabled"  placeholder=""/>
                     <input type="hidden" name="activityId" class="form-control" value="{{activityDetail.activityId}}">
                     <input type="hidden" name="openid" class="form-control" value="{{userInfo.openid}}">
 
-                    <form>
-                         
-                         <div class="weui_cells weui_cells_form">
                          <div class="weui_cells_title">基础信息</div>
                             <div class="weui_cell">
                                 <div class="weui_cell_hd"><label class="weui_label">昵称</label></div>
@@ -132,9 +131,7 @@
                             </div>
 
                         <a href="#" class="weui_btn weui_btn_primary" id="J_sign_up_activity">报名</a>
-                    </form>
                 </div>
-              </div>
-    </div>
+</div>
     {{/block}}
 
