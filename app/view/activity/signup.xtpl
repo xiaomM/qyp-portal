@@ -58,51 +58,28 @@
 
                          </div>
 
-                        <div class="weui_cells_title">性别</div>
-                         <div class="weui_cells weui_cells_radio">
-                            <label class="weui_cell weui_check_label" for="i_boy">
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p>男</p>
-                                </div>
-                                <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check" name="sex" value="boy" id="i_boy" data-rule-required="true">
-                                    <span class="weui_icon_checked"></span>
-                                </div>
-                            </label>
-                            <label class="weui_cell weui_check_label" for="i_girl">
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p>女</p>
-                                </div>
-                                <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check"  name="girl" value="girl" id="i_girl" data-rule-required="true" checked="checked">
-                                    <span class="weui_icon_checked"></span>
-                                </div>
-                            </label>
-                        </div>
-
+                         <div class="weui_cell weui_cell_select weui_select_after">
+                                     <div class="weui_cell_hd">
+                                         <label for="" class="weui_label">性别</label>
+                                     </div>
+                                     <div class="weui_cell_bd weui_cell_primary">
+                                         <select class="weui_select" name="sex">
+                                             <option value="boy">男</option>
+                                             <option value="girl">女</option>
+                                         </select>
+                                     </div>
+                         </div>
 
                         <div class="weui_cells_title">是否单身</div>
-                         <div class="weui_cells weui_cells_radio">
-                            <label class="weui_cell weui_check_label" for="i_isSingle_1">
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p>单身狗</p>
+                            <div class="weui_cells weui_cells_form">
+                                <div class="weui_cell weui_cell_switch">
+                                    <div class="weui_cell_hd weui_cell_primary">来这儿就是撩(bei)妹(liao)的</div>
+                                    <div class="weui_cell_ft">
+                                        <input class="weui_switch" name="isSingle" value="1" type="checkbox"/>
+                                    </div>
                                 </div>
-                                <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check" name="isSingle" value="1" id="i_isSingle_1" data-rule-required="true" checked="checked" >
-                                    <span class="weui_icon_checked"></span>
-                                </div>
-                            </label>
-                            <label class="weui_cell weui_check_label" for="i_isSingle_0">
+                            </div>
 
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p>情侣狗</p>
-                                </div>
-                                <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check"  name="isSingle" value="0" id="i_isSingle_0" data-rule-required="true">
-                                    <span class="weui_icon_checked"></span>
-                                </div>
-                            </label>
-                        </div>
 
                         <div class="weui_cells_title">上车地点</div>
                          <div class="weui_cells weui_cells_radio">
@@ -119,20 +96,21 @@
                             {{/each}}
                         </div>
 
-                        <div class="weui_cells_title">是否愿意承担什么职务</div>
-                         <div class="weui_cells weui_cells_radio">
-                            {{#each(activityDetail.dutyList)}}
-                            <label class="weui_cell weui_check_label" for="duty_{{this}}">
-                                <div class="weui_cell_bd weui_cell_primary">
-                                    <p>{{this}}</p>
-                                </div>
-                                <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check" name="duty" id="duty_{{this}}" value="{{this}}">
-                                    <span class="weui_icon_checked"></span>
-                                </div>
-                            </label>
-                            {{/each}}
-                        </div>
+                        <div class="weui_cells_title">是否有意愿承担如下职务</div>
+                            <div class="weui_cells weui_cells_checkbox">
+                              {{#each(activityDetail.dutyList)}}
+                                <label class="weui_cell weui_check_label" for="duty_{{this}}">
+                                    <div class="weui_cell_hd">
+                                        <input type="checkbox" class="weui_check" name="duty" value="{{this}}" id="duty_{{this}} checked="checked">
+                                        <i class="weui_icon_checked"></i>
+                                    </div>
+                                    <div class="weui_cell_bd weui_cell_primary">
+                                        <p>standard is dealt for u.</p>
+                                    </div>
+                                </label>
+                              {{/each}}
+                            </div>
+
 
                          <div class="weui_cells_title">才艺特长</div>
                             <div class="weui_cells weui_cells_form">
