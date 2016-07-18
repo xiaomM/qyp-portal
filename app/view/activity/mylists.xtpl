@@ -12,7 +12,7 @@
             <div class="weui_panel_hd">我报名的活动</div>
             <div class="weui_panel_bd">
                 {{#each(signList)}}
-                <a href="#" class="weui_media_box weui_media_appmsg">
+                <a href="/activity/success/{{this._id}}" class="weui_media_box weui_media_appmsg">
                     <div class="weui_media_box weui_media_text">
                         <h4 class="weui_media_title">{{this.activity}}</h4>
                         <p class="weui_media_desc">活动状态:{{this.status}}</p>
