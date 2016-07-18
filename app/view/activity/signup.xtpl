@@ -16,21 +16,21 @@
                             <div class="weui_cell">
                                 <div class="weui_cell_hd"><label class="weui_label">昵称</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" name="nickName" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
+                                    <input type="text" required="required" name="nickName" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
                                 </div>
                             </div>
 
                             <div class="weui_cell">
                                 <div class="weui_cell_hd"><label class="weui_label">联系方式</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" name="phoneNumber" class="weui_input" type="number" pattern="[0-9]*"  placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
+                                    <input type="text" name="phoneNumber" required="required" class="weui_input" type="number" pattern="[0-9]*"  placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
                                 </div>
                             </div>
 
                              <div class="weui_cell">
                                 <div class="weui_cell_hd"><label class="weui_label">邮箱</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" name="email" class="weui_input" placeholder="邮箱" data-rule-required="true" data-rule-email="true">
+                                    <input type="text" name="email" required="required" class="weui_input" placeholder="邮箱" data-rule-required="true" data-rule-email="true">
                                 </div>
                             </div>
 
