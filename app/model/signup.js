@@ -85,7 +85,9 @@ SignUpSchema.statics.saveSignUp = function* (signup) {
     //console.log("ctx="+ctx);
     signup.deposit = activity.deposit;
     signup.activity = activity.activityTitle;
-    signup.status = "NOTPAY";
+    if(signup.status == undefined){
+        signup.status = "NOTPAY";
+    }
     console.log('signup = ' + JSON.stringify(signup));
     // let payOrder = yield wepay.createUnifiedOrder(signup);
     // console.log(payOrder.return_msg == "OK");
