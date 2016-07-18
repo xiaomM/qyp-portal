@@ -23,6 +23,15 @@ $(document)
         var $target = $(this);
         var $form = $target.closest('form');
 
+        $form.validate();
+
+        if (!$form.valid()) {
+            $.toast('报名失败',"forbidden")
+            return false;
+        }else{
+            $.toast('报名成功',"forbidden")
+        }
+
         var params = $form.serializeObject();
         $.ajax({
             url: '/ajax/activity/signup',
