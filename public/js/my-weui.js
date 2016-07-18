@@ -2,7 +2,7 @@ var weuiQyp = {};
 
 alertOptions = ['Danger','Default','Success','Primary','Warning','Info'];
 for (var i = 0; i < alertOptions.length; i++) {
-    Qyp['alert'+alertOptions[i]] = (function(index){
+    weuiQyp['alert'+alertOptions[i]] = (function(index){
         return function(text) {
             $.toast(text, alertOptions[index].toLowerCase(), "top center");
         };
