@@ -32,6 +32,7 @@ exports.oAuth2 = function* (next) {
                     'scope=snsapi_userinfo&state=1#wechat_redirect';
                 console.log('redirectTo:'+urlTemplate);
                 ctx.response.redirect(urlTemplate);
+                return;
             }else {
                 console.log('code=' + code);
                 let tokenResult = yield wepay.getTokenByCode(code);
