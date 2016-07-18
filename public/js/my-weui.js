@@ -33,7 +33,7 @@ $(document)
                 if (result.success) {
                     location.href = '/activity/success/'+result.data._id
                 } else {
-                    $.toast(result.errorMsg || '报名失败',"forbidden")
+                    $.toptip(result.errorMsg || '报名失败',"error")
                 }
             }
         });
