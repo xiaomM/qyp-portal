@@ -104,7 +104,7 @@
                                         <i class="weui_icon_checked"></i>
                                     </div>
                                     <div class="weui_cell_bd weui_cell_primary">
-                                        <p>standard is dealt for u.</p>
+                                        <p>{{this}}</p>
                                     </div>
                                 </label>
                               {{/each}}
