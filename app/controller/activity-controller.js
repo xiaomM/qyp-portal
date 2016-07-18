@@ -56,6 +56,7 @@ exports.getPayOrder = function* (next) {
     var signupId = ctx.params.signupId;
     let signUpEntity  = ctx.locals.signup;
     var payOrder = yield wepay.queryOrder(signupId);
+    console.log("payOrder="+JSON.stringify(payOrder));
     if(payOrder.return_code != "SUCCESS"){
         signUpEntity.status = "NOTPAY";
     }else{
