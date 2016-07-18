@@ -126,7 +126,7 @@ exports.signupActivity = function* () {
     let signUpEntity = new SignUpModel(ctx.request.body);
     let result = yield SignUpModel.saveSignUp(signUpEntity);
     if(result != undefined) {
-        if (ctx.request.body.saveAsDefault != undefined) {
+        if (ctx.request.body.saveAsDefault == "1") {
             let openId = result.openid;
             let dbMemberEntity = yield MemberModel.getMember(openId);
             if (dbMemberEntity != undefined) {
