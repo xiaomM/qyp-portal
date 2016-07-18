@@ -30,6 +30,17 @@ exports.getDetail = function* (next) {
 
     var activityEntity = yield ActivityModel.getActivityByActivityId(activityId);
     //console.log(data)
+    var dutyList = activityEntity.dutyList.toString();
+    if (dutyList) {
+        console.log('dutyList='+activityEntity.dutyList.split('|'));
+        activityEntity.dutyList = activityEntity.dutyList.split('|');
+        console.log('dutyList='+activityEntity.dutyList);
+    }
+    var boardList = activityEntity.boardList.toString();
+    if (boardList) {
+        activityEntity.boardList = activityEntity.boardList.split('|');
+        console.log('boardList='+activityEntity.boardList);
+    }
     ctx.locals.activityDetail = activityEntity;
     yield next
 };
