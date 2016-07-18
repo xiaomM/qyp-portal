@@ -13,6 +13,7 @@ exports.oAuth2 = function* (next) {
         let openid = ctx.cookies.get('openid');
         let userInfo =yield MemberModel.getMember(openid);
         ctx.locals.userInfo = userInfo;
+        console.log('userInfo = '+userInfo);
     }
     if(ctx.locals.userInfo == undefined){
         if(ctx.locals.userInfo == undefined){
