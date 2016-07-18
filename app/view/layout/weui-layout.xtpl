@@ -12,7 +12,7 @@
     <body>
                 {{{block ("content") }}}
         <script type="text/javascript" src="{{config.staticHost}}/lib/weui/jquery-2.1.4.js"></script>
-        <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+        <script type="text/javascript" src="{{config.staticHost}}/lib/weui/jquery-weui.js"></script>
         <script type="text/javascript" src="{{config.staticHost}}/js/my-weui.js"></script>
     </body>
     </html>
