@@ -34,7 +34,7 @@ exports.getDetail = function* (next) {
     if (dutyList) {
         console.log('dutyList='+activityEntity.dutyList);
         console.log('dutyList='+activityEntity.dutyList.toString());
-        console.log('dutyList='+activityEntity.dutyList.toString().split("@"));
+        console.log('dutyList='+activityEntity.dutyList.toString().split("我"));
         activityEntity.dutyList = activityEntity.dutyList.split("@");
         console.log('dutyList='+activityEntity.dutyList);
     }
