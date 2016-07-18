@@ -29,17 +29,7 @@ exports.getDetail = function* (next) {
     var activityId = ctx.params.activityId;
 
     var activityEntity = yield ActivityModel.getActivityByActivityId(activityId);
-    //console.log(data)
-    var dutyList = activityEntity.dutyList.toString();
-    if (dutyList) {
-        activityEntity.dutyList = (activityEntity.dutyList).split("|");
-        console.log('dutyList='+activityEntity.dutyList);
-    }
-    var boardList = activityEntity.boardList.toString();
-    if (boardList) {
-        activityEntity.boardList = (activityEntity.boardList).split('|');
-        console.log('boardList='+activityEntity.boardList);
-    }
+    console.log("activityEntity="+activityEntity)
     ctx.locals.activityDetail = activityEntity;
     yield next
 };

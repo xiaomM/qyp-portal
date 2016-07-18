@@ -114,6 +114,16 @@ ActivitySchema.static({
  * Register
  */
 
+ActivitySchema.virtual('boardList').get(function(){
+    return this.boardList.split('|');
+});
+
+
+ActivitySchema.virtual('dutyList').get(function(){
+    return this.dutyList.split('|');
+});
+
+
 mongoose.model('Activity', ActivitySchema);
 
 let ActivityModel = mongoose.model('Activity');
