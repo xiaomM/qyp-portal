@@ -113,10 +113,10 @@ exports.createActivity = function* () {
     console.log(ctx.request.body);
     var dutyList = ctx.request.body.dutyList;
     if (ctx.request.body.dutyList) {
-        ctx.request.body.dutyList = JSON.parse((ctx.request.body.dutyList).split("|"));
+        ctx.request.body.dutyList = (ctx.request.body.dutyList).split("|");
     }
     if (ctx.request.body.boardList) {
-        ctx.request.body.boardList = JSON.parse((ctx.request.body.boardList).split('|'));
+        ctx.request.body.boardList = (ctx.request.body.boardList).split('|');
     }
     let activityEntity = new ActivityModel(ctx.request.body);
     let result = yield ActivityModel.saveActivity(activityEntity);
