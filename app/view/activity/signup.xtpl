@@ -24,7 +24,7 @@
                             <div class="weui_cell">
                                 <div class="weui_cell_hd"><label class="weui_label">联系方式</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text" name="phoneNumber" class="weui_input" placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
+                                    <input type="text" name="phoneNumber" class="weui_input" type="tel" placeholder="手机号" data-rule-required="true" data-rule-digits="true" data-rule-rangelength='[11,11]'>
                                 </div>
                             </div>
 
@@ -60,22 +60,22 @@
 
                         <div class="weui_cells_title">性别</div>
                          <div class="weui_cells weui_cells_radio">
-                            <label class="weui_cell weui_check_label" for="x11">
+                            <label class="weui_cell weui_check_label" for="i_boy">
                                 <div class="weui_cell_bd weui_cell_primary">
                                     <p>男</p>
                                 </div>
                                 <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check" name="sex" value="boy" data-rule-required="true">
+                                    <input type="radio" class="weui_check" name="sex" value="boy" id="i_boy" data-rule-required="true">
                                     <span class="weui_icon_checked"></span>
                                 </div>
                             </label>
-                            <label class="weui_cell weui_check_label" for="x12">
+                            <label class="weui_cell weui_check_label" for="i_girl">
 
                                 <div class="weui_cell_bd weui_cell_primary">
                                     <p>女</p>
                                 </div>
                                 <div class="weui_cell_ft">
-                                    <input type="radio" name="sex" value="girl" data-rule-required="true">
+                                    <input type="radio" name="girl" value="girl" id="i_girl" data-rule-required="true" checked="checked">
                                     <span class="weui_icon_checked"></span>
                                 </div>
                             </label>
@@ -84,22 +84,22 @@
 
                         <div class="weui_cells_title">是否单身</div>
                          <div class="weui_cells weui_cells_radio">
-                            <label class="weui_cell weui_check_label" for="x11">
+                            <label class="weui_cell weui_check_label" for="i_isSingle_1">
                                 <div class="weui_cell_bd weui_cell_primary">
                                     <p>单身狗</p>
                                 </div>
                                 <div class="weui_cell_ft">
-                                    <input type="radio" class="weui_check" name="isSingle" value="1" data-rule-required="true">
+                                    <input type="radio" class="weui_check" name="isSingle" value="1" id="i_isSingle_1" data-rule-required="true" checked="checked" >
                                     <span class="weui_icon_checked"></span>
                                 </div>
                             </label>
-                            <label class="weui_cell weui_check_label" for="x12">
+                            <label class="weui_cell weui_check_label" for="i_isSingle_0">
 
                                 <div class="weui_cell_bd weui_cell_primary">
                                     <p>情侣狗</p>
                                 </div>
                                 <div class="weui_cell_ft">
-                                    <input type="radio" name="isSingle" value="0" data-rule-required="true">
+                                    <input type="radio" name="isSingle" value="0" id="i_isSingle_0" data-rule-required="true">
                                     <span class="weui_icon_checked"></span>
                                 </div>
                             </label>
