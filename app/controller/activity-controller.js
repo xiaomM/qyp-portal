@@ -123,6 +123,9 @@ exports.createActivity = function* () {
     ctx.body = wrapResult(result,result != undefined);
 }
 let isNull = function (str) {
+    if(typeof(o) !== 'string'){
+        return false;
+    }
     if(str == null){
         return true;
     }
