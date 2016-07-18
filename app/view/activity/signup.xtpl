@@ -100,7 +100,7 @@
                               {{#each(activityDetail.dutyList)}}
                                 <label class="weui_cell weui_check_label" for="duty_{{this}}">
                                     <div class="weui_cell_hd">
-                                        <input type="checkbox" class="weui_check" name="duty" value="{{this}}" id="duty_{{this}} checked="checked">
+                                        <input type="checkbox" class="weui_check" name="duty" value="{{this}}" id="duty_{{this}}" checked="checked">
                                         <i class="weui_icon_checked"></i>
                                     </div>
                                     <div class="weui_cell_bd weui_cell_primary">
