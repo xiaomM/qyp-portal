@@ -28,8 +28,6 @@
            onBridgeReady();
         }
 
-        {{/if}}
-
         </script>
     </head>
     <body>
