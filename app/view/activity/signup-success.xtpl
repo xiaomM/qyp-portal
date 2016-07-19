@@ -61,7 +61,7 @@
         </div>
         {{/if}}
         <div class="weui_extra_area">
-            <a href="/activity/{{activityDetail.activityId}}/detail">查看活动详情</a>
+            <a href="{{activityDetail.wxPageUrl}}">查看活动详情</a>
         </div>
     </div>
 
