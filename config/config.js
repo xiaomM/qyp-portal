@@ -18,8 +18,8 @@ var config = {
 
     // 后端域名
     "backendHost": 'http://127.0.0.1:8091',
-    "staticHost": '/public/',
-    //"staticHost": 'http://g.tbcdn.cn/platform/static',
+    // "staticHost": '/public/',
+    "staticHost": 'http://g.tbcdn.cn/platform/static',
 
     wepay:{
         appid: 'wxaedc01e46d43b9ba',
