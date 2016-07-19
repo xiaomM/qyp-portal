@@ -9,20 +9,6 @@ let wepay = require('../model/wepay');
 
 exports.oAuth2 = function* (next) {
     let ctx = this;
-    console.log('enter oAuth2');
-    if(ctx.cookies.get('openid') == undefined){
-        let openid = ctx.cookies.get('openid');
-        let userInfo =yield MemberModel.getMember(openid);
-        if(userInfo == null){
-            ctx.cookies.delete('openid');
-        }else{
-            ctx.locals.userInfo = userInfo;
-        }
-        console.log('userInfo = '+userInfo);
-    }
-    console.log('before userInfo = '+ctx.locals.userInfo);
-    if(ctx.cookies.get('openid') == undefined) {
-        if(ctx.locals.userInfo == undefined){
             let code = ctx.request.query.code;
             if(code == undefined){
                 console.log(ctx.request);
@@ -52,9 +38,6 @@ exports.oAuth2 = function* (next) {
                 }
                 console.log('userInfo='+JSON.stringify(userInfo));
                 ctx.locals.userInfo = userInfo;
-                ctx.cookies.set('openid',userInfo.openid);
             }
-        }
-    }
     yield next;
 }
