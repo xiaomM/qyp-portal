@@ -9,14 +9,19 @@ let wepay = require('../model/wepay');
 
 exports.oAuth2 = function* (next) {
     let ctx = this;
+    console.log('enter oAuth2');
     if(ctx.cookies.get('openid') == undefined){
         let openid = ctx.cookies.get('openid');
         let userInfo =yield MemberModel.getMember(openid);
-        ctx.locals.userInfo = userInfo;
+        if(userInfo == null){
+            ctx.cookies.delete('openid');
+        }else{
+            ctx.locals.userInfo = userInfo;
+        }
         console.log('userInfo = '+userInfo);
     }
-    console.log('18 userInfo = '+ctx.locals.userInfo);
-    if(ctx.locals.userInfo == undefined){
+    console.log('before userInfo = '+ctx.locals.userInfo);
+    if(ctx.cookies.get('openid') == undefined) {
         if(ctx.locals.userInfo == undefined){
             let code = ctx.request.query.code;
             if(code == undefined){
