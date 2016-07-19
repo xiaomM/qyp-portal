@@ -15,6 +15,7 @@ exports.oAuth2 = function* (next) {
         ctx.locals.userInfo = userInfo;
         console.log('userInfo = '+userInfo);
     }
+    console.log('18 userInfo = '+ctx.locals.userInfo);
     if(ctx.locals.userInfo == undefined){
         if(ctx.locals.userInfo == undefined){
             let code = ctx.request.query.code;
