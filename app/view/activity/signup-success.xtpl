@@ -44,6 +44,7 @@
                 <div class="weui_icon_area"><i class="weui_icon_msg weui_icon_success"></i></div>
             <p class="weui_msg_desc">报名信息提交成功,请耐心等待管理员审核</p>
             <p class="weui_msg_desc">审核时间1~2个工作日,通过会有邮件通知,请注意查收邮件</p>
+            <p class="weui_msg_desc">可以在公众号 我的活动 查看你的报名的活动结果</p>
         {{elseif (signup.status === "USERPAYING")}}
                 <div class="weui_icon_area"><i class="weui_icon_msg weui_icon_warn"></i></div>
             <p class="weui_msg_desc">支付进度处理中....请稍后查看</p>
