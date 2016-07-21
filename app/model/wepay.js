@@ -47,7 +47,7 @@ module.exports.createUnifiedOrder = function *(signup) {
             out_trade_no: signup._id.toString(),
             total_fee: signup.deposit,
             spbill_create_ip: signup.remoteIp,
-            notify_url: 'http://www.dream623.com/activity/jspay/notify_url'
+            notify_url: 'http://www.dream623.com/activity/jspay/notify_url',
             trade_type: 'JSAPI',
             openid:signup.openid,
             product_id: signup.activityId
