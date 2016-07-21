@@ -14,6 +14,7 @@ exports.oAuth2 = function* (next) {
                 console.log(ctx.request);
                 const redirect_uri = url.format({
                     protocol: 'http',
+                    port:ctx.request.header.port,
                     host: ctx.request.header.host,
                     pathname: ctx.request.url,
                     search: ''
