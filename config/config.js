@@ -36,7 +36,7 @@ var config = {
 
 //当NODE_ENV环境变量值为local时
 //本地调试环境
-console.log('productconfig='JSON.stringify(config));
+console.log('productconfig='+JSON.stringify(config));
 if(process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'development'){
     config = _.extend(config,local);
     console.log('developconfig='+JSON.stringify(config));
