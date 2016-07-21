@@ -8,7 +8,7 @@ var config = {
     "env":"production",
     "appName": "book",
     //端口号配置
-    "port": 8080,
+    "port": 8088,
     //模板所在的目录
     "viewDir": path.join(__dirname,'..','app/view'),
     //log所在的目录
