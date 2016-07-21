@@ -6,7 +6,7 @@ var config = {
     "title":"",
     //默认生产环境
     "env":"production",
-    "appName": "book",
+    "appName": "qyp",
     //端口号配置
     "port": 80,
     //模板所在的目录
@@ -21,11 +21,15 @@ var config = {
     // "staticHost": '/public/',
     "staticHost": 'http://g.tbcdn.cn/platform/static',
 
+    db:{
+         uri: 'mongodb://127.0.0.1:27017/qyp'
+    },
+
     wepay:{
         appid: 'wxaedc01e46d43b9ba',
         mch_id: '1357284002',
         partner_key: 'D9A79001650CBA0D826614E6EB38832E', //微信商户平台API密钥
-        pfxPath: './apiclient_cert.p12' //微信商户平台证书
+        pfxPath: '/qyp/keys/apiclient_cert.p12' //微信商户平台证书
     }
 
 };
