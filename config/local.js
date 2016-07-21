@@ -4,7 +4,7 @@ module.exports = {
     "env":"dev",
     "debug": true,
     "backendHost": '',
-    "port": 8080,
+    "port": 8081,
     db:{
         uri: 'mongodb://127.0.0.1:27017/qyp-dev'
     },
