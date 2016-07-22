@@ -20,6 +20,8 @@ var config = {
     "backendHost": 'http://127.0.0.1:8091',
     // "staticHost": '/public/',
     "staticHost": 'http://g.tbcdn.cn/platform/static',
+    
+    prefix:"",
 
     db:{
          uri: 'mongodb://127.0.0.1:27017/qyp'
@@ -27,6 +29,7 @@ var config = {
 
     wepay:{
         appid: 'wxaedc01e46d43b9ba',
+        secret:'9dccfeb60d96bf823b435d14a0fc6937',
         mch_id: '1357284002',
         partner_key: 'D9A79001650CBA0D826614E6EB38832E', //微信商户平台API密钥
         pfxPath: '/qyp/keys/apiclient_cert.p12' //微信商户平台证书
