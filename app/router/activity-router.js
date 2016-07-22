@@ -4,7 +4,7 @@ var Controller = require('../controller/activity-controller');
 var MemberController = require('../controller/member-controller');
 let config = require('../../config/config');
 
-var prefix = '/activity';
+var prefix = config.prefix+'/activity';
 var ajaxPerfix = '/ajax' + prefix;
 
 module.exports = function(app){
