@@ -40,7 +40,7 @@ var SignUpSchema = new Schema({
     activityObjId:{type:Schema.Types.ObjectId},
     activityId:{type:Number},
     activity:{type:String},
-    signname:{type,String}, //报名参加活动的用户,
+    signname:{type:String}, //报名参加活动的用户,
     nickname: {type:String},// nickname	用户昵称
     phoneNumber: {type:String},
     email: {type:String},
