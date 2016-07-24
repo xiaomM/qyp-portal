@@ -110,6 +110,11 @@ SignUpSchema.statics.getSignUpListByOpenId = function* (openid) {
     console.log('signUpList = '+signUpList);
     return signUpList;
 };
+SignUpSchema.statics.getSignUpListByActivityId = function* (activityId) {
+    let signUpList =  (yield SignUpModel.find({activityId:activityId}).exec());
+    console.log('signUpList = '+signUpList);
+    return signUpList;
+};
 
 /**
  * Statics

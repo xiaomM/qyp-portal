@@ -41,3 +41,36 @@ exports.oAuth2 = function* (next) {
             }
     yield next;
 }
+
+exports.adminAuth = function *(next) {
+    let adminList = ['oNhOfwaLwXzNsKv880bBc9ZccpLo',
+        'oNhOfwXVoHymdNYauxLYMb14hYTM',
+        'oNhOfwT-Ip-5rrWrkR-ITIFIxECk',
+        'oNhOfwfWx4OZ-faxO5eXc8udEKW8',
+        'oNhOfwe0QYY_ndO2dV8l9CmcfO2U',
+        'oNhOfwdsYwHZKyaDyUU6w7n2Q52s',
+        'oNhOfwbqAI63ZrV21NLAmUwbYy-4',
+        'oNhOfwbtOumBFwc3EUxyDEMdP41s',
+    ];
+    if(this.locals.userInfo == undefined
+    ||this.locals.userInfo.openid == undefined){
+        this.redirect('/need_wechat');
+        return;
+    }
+    let openid = this.locals.userInfo.openid;
+    if(contains(openid,adminList)){
+        yield next;
+    }
+    this.redirect('/no_permission');
+    return;
+}
+
+function contains(arr, str) {
+    var i = arr.length;
+    while (i--) {
+        if (arr[i] === str) {
+            return true;
+        }
+    }
+    return false;
+}

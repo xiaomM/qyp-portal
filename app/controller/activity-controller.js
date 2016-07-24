@@ -70,6 +70,12 @@ exports.mylists = function* () {
     yield this.render('activity/mylists', {});
 };
 
+exports.activitySignupList = function* () {
+    var ctx = this;
+    ctx.locals.signList = yield SignUpModel.getSignUpListByActivityId(ctx.params.activityId);
+    yield this.render('activity/signupList', {});
+};
+
 exports.check = function* () {
     yield this.render('activity/check', {});
 };
