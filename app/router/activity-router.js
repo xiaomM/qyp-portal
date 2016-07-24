@@ -17,7 +17,7 @@ module.exports = function(app){
     app.get(prefix + '/lists',MemberController.oAuth2, Controller.lists);
     app.get(prefix + '/mylists', MemberController.oAuth2,Controller.mylists);
     //TODO  activitySignupList
-    app.get(prefix + '/mylists', MemberController.oAuth2,MemberController.adminAuth,Controller.activitySignupList);
+    app.get(prefix + '/:activityId/signupLists', MemberController.oAuth2,MemberController.adminAuth,Controller.activitySignupList);
     app.get(prefix + '/aboutus', Controller.aboutus);
     app.get(prefix + '/jspay/notify_url',Controller.index, Controller.wxNotify);
     
