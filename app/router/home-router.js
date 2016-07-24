@@ -1,6 +1,7 @@
 'use strict';
 
 var Controller = require('../controller/home-controller');
+let config = require('../../config/config');
 
 var prefix = config.prefix;
 
