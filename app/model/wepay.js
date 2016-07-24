@@ -65,8 +65,8 @@ module.exports.createUnifiedOrder = function *(signup) {
 
 module.exports.getTokenByCode = function *(code) {
     let url='https://api.weixin.qq.com/sns/oauth2/access_token?' +
-        'appid=' + config.wepay.appid
-        '&secret=' + config.wepay.secret
+        'appid=' + config.wepay.appid+
+        '&secret=' + config.wepay.secret+
         '&code='+code+'&grant_type=authorization_code';
     return yield getHttps(url);
 }
