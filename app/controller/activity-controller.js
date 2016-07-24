@@ -72,7 +72,8 @@ exports.mylists = function* () {
 
 exports.activitySignupList = function* () {
     var ctx = this;
-    ctx.locals.signList = yield SignUpModel.getSignUpListByActivityId(ctx.params.activityId);
+    ctx.locals.signList = yield SignUpModel.getSignUpListByCondition(
+        {activityId:ctx.params.activityId,status:"SUCCESS"});
     yield this.render('activity/signupList', {});
 };
 

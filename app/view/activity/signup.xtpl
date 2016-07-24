@@ -16,7 +16,7 @@
                             <div class="weui_cell">
                                 <div class="weui_cell_hd"><label class="weui_label">昵称</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text"  required="required" name="nickname" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
+                                    <input type="text"  required="required" name="signname" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
                                 </div>
                             </div>
 

@@ -16,7 +16,12 @@
                 </div>
                 <div class="weui_media_bd">
                     <h4 class="weui_media_title">{{this.nickname}}</h4>
-                    <p class="weui_media_desc">{{this.info}}</p>
+                    <p class="weui_media_desc">sex:{{this.sex}},duty:{{this.duty}}</p>
+                    {{#if (this.remarks !== undefined && this.remarks.length !== 0)}}
+                        <p class="weui_media_desc">备注:{{this.remarks}}</p>
+                    {{/if}}
+                    <p class="weui_media_desc">报名时间:{{this.gmtCreate}}</p>
+
                 </div>
                 <div class="weui_btn_area">
                     <a class="weui_btn weui_btn_warn" href="javascript:" id="">退款</a>
