@@ -10,13 +10,9 @@ module.exports = function(app){
     app.get(prefix+'/', Controller.index);
     app.get(prefix+'/activity/list', Controller.index);
     app.get(prefix+'/need_wechat', function *(next) {
-        this.res.write('请使用微信浏览器浏览');
-        this.res.end();
-        return;
+        yield this.render('home/error', {errorMsg:'请使用微信浏览器浏览'});
     });
     app.get(prefix+'/no_permission', function *(next) {
-        this.res.write('您没有权限浏览此页面');
-        this.res.end();
-        return;
+        yield this.render('home/error', {errorMsg:'您没有权限浏览此页面'});
     });
 };
