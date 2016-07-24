@@ -2,11 +2,12 @@
         {{#block ("content") }}
 <div class="container" id="container">
     <div class="weui_panel weui_panel_access">
-        <div class="weui_panel_hd">图文组合列表</div>
+        {{#if (signList === undefined || signList.length === 0)}}
+        <div class="weui_panel_hd">已经付款的列表({{signList.length}})人</div>
+        {{#else}}
+        <div class="weui_panel_hd">暂时还没有报名记录</div>
+        {{/if}}
         <div class="weui_panel_bd">
-            {{#if (signList === undefined || signList.length === 0)}}
-                <p class="weui_media_desc">暂时还没有报名记录~</p>
-            {{/if}}
             {{#each(signList)}}
             <a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
                 <form>
@@ -16,14 +17,13 @@
                 </div>
                 <div class="weui_media_bd">
                     <h4 class="weui_media_title">{{this.nickname}}</h4>
-                    <p class="weui_media_desc">sex:{{this.sex}},duty:{{this.duty}}</p>
+                    <p class="weui_media_desc">性别:{{this.sex}}&amp;nbsp;&amp;nbsp;&amp;nbsp;职责:{{this.duty}}</p>
                     {{#if (this.remarks !== undefined && this.remarks.length !== 0)}}
                         <p class="weui_media_desc">备注:{{this.remarks}}</p>
                     {{/if}}
                     <p class="weui_media_desc">报名时间:{{this.gmtCreate}}</p>
-
                 </div>
-                <div class="weui_btn_area">
+                <div class="weui_media_fd">
                     <a class="weui_btn weui_btn_warn" href="javascript:" id="">退款</a>
                 </div>
                 </form>
