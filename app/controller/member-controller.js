@@ -54,14 +54,14 @@ exports.adminAuth = function *(next) {
     ];
     if(this.locals.userInfo == undefined
     ||this.locals.userInfo.openid == undefined){
-        this.redirect('/need_wechat');
+        this.redirect(this.config.prefix+'/need_wechat');
         return;
     }
     let openid = this.locals.userInfo.openid;
-    if(contains(openid,adminList)){
+    if(contains(adminList,openid)){
         yield next;
     }
-    this.redirect('/no_permission');
+    this.redirect(this.config.prefix+'/no_permission');
     return;
 }
 
