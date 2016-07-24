@@ -12,10 +12,14 @@ exports.oAuth2 = function* (next) {
             let code = ctx.request.query.code;
             if(code == undefined){
                 console.log(ctx.request);
+                let prefix = '';
+                if(ctx.request.header.host === 'test.dream623.com'){
+                    prefix = '/development';
+                }
                 const redirect_uri = url.format({
                     protocol: 'http',
-                    host: ctx.request.header.host,
-                    pathname: ctx.request.url,
+                    host: 'www.dream623.com',
+                    pathname: prefix+ctx.request.url,
                     search: ''
                 });
 
