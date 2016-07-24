@@ -13,7 +13,7 @@ exports.oAuth2 = function* (next) {
             if(code == undefined){
                 console.log(ctx.request);
                 let prefix = '';
-                if(ctx.request.header.host === 'test.dream623.com'){
+                if(ctx.config.env === "dev"){
                     prefix = '/development';
                 }
                 const redirect_uri = url.format({
