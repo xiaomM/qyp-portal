@@ -60,9 +60,10 @@ exports.adminAuth = function *(next) {
     let openid = this.locals.userInfo.openid;
     if(contains(adminList,openid)){
         yield next;
+    }else{
+        this.redirect(this.config.prefix+'/no_permission');
+        return;
     }
-    this.redirect(this.config.prefix+'/no_permission');
-    return;
 }
 
 function contains(arr, str) {
