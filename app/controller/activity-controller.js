@@ -161,6 +161,7 @@ exports.signupActivity = function* () {
         return;
     }
     let signUpEntity = new SignUpModel(ctx.request.body);
+    signUpEntity = _.extend(signUpEntity,ctx.locals.userInfo);
     let result = yield SignUpModel.saveSignUp(signUpEntity);
     // if(result != undefined) {
     //     if (ctx.request.body.saveAsDefault == "1") {
