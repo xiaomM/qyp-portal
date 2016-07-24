@@ -3,9 +3,9 @@
 <div class="container" id="container">
     <div class="weui_panel weui_panel_access">
         {{#if (signList === undefined || signList.length === 0)}}
-        <div class="weui_panel_hd">已经付款的列表({{signList.length}})人</div>
-        {{else}}
         <div class="weui_panel_hd">暂时还没有报名记录</div>
+        {{else}}
+        <div class="weui_panel_hd">已经付款的列表({{signList.length}})人</div>
         {{/if}}
         <div class="weui_panel_bd">
             {{#each(signList)}}
