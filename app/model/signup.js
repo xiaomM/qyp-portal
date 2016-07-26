@@ -82,9 +82,8 @@ var SignUpSchema = new Schema({
 
 
 SignUpSchema.statics.saveSignUp = function* (signup) {
-    if (signup.activity == undefined) {
+    if (signup.activity == undefined || signup.deposit == undefined) {
         let activity = yield ActivityModel.getActivityByActivityId(signup.activityId);
-        //console.log("ctx="+ctx);
         signup.deposit = activity.deposit;
         signup.activity = activity.activityTitle;
     }
