@@ -87,9 +87,9 @@ SignUpSchema.statics.saveSignUp = function* (signup) {
         //console.log("ctx="+ctx);
         signup.deposit = activity.deposit;
         signup.activity = activity.activityTitle;
-        if (signup.status == undefined) {
-            signup.status = "NOTPAY";
-        }
+    }
+    if (signup.status == undefined) {
+        signup.status = "NOTPAY";
     }
     console.log('signup = ' + JSON.stringify(signup));
     return yield signup.save();
