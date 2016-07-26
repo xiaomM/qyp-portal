@@ -90,7 +90,7 @@ SignUpSchema.statics.saveSignUp = function* (signup) {
     if (signup.status == undefined) {
         signup.status = "NOTPAY";
     }
-    console.log('signup = ' + JSON.stringify(signup));
+
     return yield signup.save();
 };
 

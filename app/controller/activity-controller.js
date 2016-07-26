@@ -192,10 +192,9 @@ exports.signupRefund = function* () {
         return;
     }
     let result = yield wepay.refund(signUpEntity);
-    console.log("result_code :"+result.result_code +","+(result.result_code === "SUCCESS"));
     if(result.result_code === "SUCCESS"){
-        signUpEntity.status = "REFUND";
-        SignUpModel.saveSignUp(signUpEntity);
+        console.log("result_code :"+result.result_code +","+(result.result_code === "SUCCESS"));
+        yield SignUpModel.saveSignUp(signUpEntity);
     }
     ctx.body = wrapResult(result,result.result_code === "SUCCESS");
 }
