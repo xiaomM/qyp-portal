@@ -117,10 +117,10 @@ module.exports.getJsApiParams = function *(signup) {
             notify_url: 'http://www.dream623.com/activity/jspay/notify_url'
         }, function(err, result){
             if(err){
-                console.log('统一下单接口失败:'+err);
+                console.log('统一下单接口失败:'+JSON.stringify(err));
                 reject(err);
             }else{
-                console.log('统一下单接口返回:'+result);
+                console.log('统一下单接口返回:'+JSON.stringify(result));
                 resolve(result);
             }
         });
