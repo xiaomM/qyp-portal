@@ -192,11 +192,11 @@ exports.signupRefund = function* () {
         return;
     }
     let result = yield wepay.refund(signUpEntity);
-    if(result != undefined && result.return_code == "SUCCESS" && result.result_code == "SUCCESS"){
+    if(result != undefined && result.return_code === "SUCCESS" && result.result_code === "SUCCESS"){
         signUpEntity.status = "REFUND";
         SignUpModel.saveSignUp(signUpEntity);
     }
-    ctx.body = wrapResult(result,result != undefined);
+    ctx.body = wrapResult(result,result.result_code === "SUCCESS");
 }
 
 exports.detailActivity = function* () {
