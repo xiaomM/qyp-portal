@@ -146,7 +146,7 @@ exports.signupActivity = function* () {
     console.log(ctx.request.body);
     
     if(isNull(ctx.request.body.activityId)
-        ||isNull(ctx.request.body.nickname)
+        ||isNull(ctx.request.body.signname)
         ||isNull(ctx.request.body.phoneNumber)
         ||isNull(ctx.request.body.email)
         ||isNull(ctx.request.body.sex)
