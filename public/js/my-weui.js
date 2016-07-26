@@ -51,7 +51,8 @@ $(document)
             success: function (result) {
                 if (result.success) {
                     //
-                    $("#signup_"+params.signupId).remove();
+                    $.toptip("#signup_"+params.signupId+"");
+                    $("#signup_"+params.signupId+"").remove();
                 } else {
                     $.toptip(result.errorMsg || '退款失败',"error")
                 }
