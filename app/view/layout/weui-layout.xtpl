@@ -21,6 +21,11 @@
         <script type="text/javascript" src="{{config.staticHost}}/lib/weui/jquery-2.1.4.js"></script>
         <script type="text/javascript" src="{{config.staticHost}}/lib/weui/jquery-weui.js"></script>
         <script type="text/javascript" src="{{config.staticHost}}/js/my-weui.js"></script>
-    <script type="text/javascript">$(document.body).pullToRefresh();</script>
+    <script type="text/javascript">
+        $(document.body).pullToRefresh();
+    $(document.body).on("pull-to-refresh", function() {
+        window.location.reload(true);
+    });
+    </script>
     </body>
     </html>
