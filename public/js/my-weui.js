@@ -50,7 +50,8 @@ $(document)
             data: params,
             success: function (result) {
                 if (result.success) {
-                    window.location.reload(true);
+                    //
+                    $("#signup_"+params.signupId).remove();
                 } else {
                     $.toptip(result.errorMsg || '退款失败',"error")
                 }
