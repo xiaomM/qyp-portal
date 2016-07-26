@@ -168,7 +168,7 @@ exports.signupActivity = function* () {
     ctx.body = wrapResult(result,result != undefined);
 }
 
-exports.signupActivity = function* () {
+exports.signupRefund = function* () {
     var ctx = this;
     console.log(ctx.request.body);
 
