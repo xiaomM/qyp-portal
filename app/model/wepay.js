@@ -120,7 +120,7 @@ module.exports.getJsApiParams = function *(signup) {
                 console.log('统一下单接口失败:'+err);
                 reject(err);
             }else{
-                console.log('统一下单接口返回:'+err);
+                console.log('统一下单接口返回:'+result);
                 resolve(result);
             }
         });
