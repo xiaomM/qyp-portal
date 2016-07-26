@@ -105,6 +105,7 @@ module.exports.getUserInfo = function *(token,openid) {
 }
 
 module.exports.getJsApiParams = function *(signup) {
+    console.log('getJsApiParams: signup = '+JSON.stringify(signup));
     let params = yield new Promise(function (resolve, reject) {
         wxpay.getBrandWCPayRequestParams({
             openid: signup.openid,
@@ -119,6 +120,7 @@ module.exports.getJsApiParams = function *(signup) {
                 console.log('统一下单接口失败:'+err);
                 reject(err);
             }else{
+                console.log('统一下单接口返回:'+err);
                 resolve(result);
             }
         });
