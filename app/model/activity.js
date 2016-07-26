@@ -52,7 +52,8 @@ var ActivitySchema = new Schema({
     dutyList: {type:{}},
     boardList: {type:{}},
     paymentUrl: {type:String},
-    wxPageUrl:{type:String}//微信图文消息URL
+    wxPageUrl:{type:String},//微信图文消息URL
+    needIdCards:{type:String}
 });
 
 /**

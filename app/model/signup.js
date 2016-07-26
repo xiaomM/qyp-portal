@@ -61,7 +61,9 @@ var SignUpSchema = new Schema({
     country:{type:String},
     headimgurl:{type:String},
     unionid:{type:String},
-    status:{type:String,default:"NOTPAY"}
+    status:{type:String,default:"NOTPAY"},
+    idCardNum:{type:String},
+    realName:{type:String},
 });
 
 /**
