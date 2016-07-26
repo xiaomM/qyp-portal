@@ -1,7 +1,7 @@
 'use strict';
 
 var fs = require('fs');
-var WXPay = require('weixin-pay');
+var WXPay = require('./wxpay');
 const https = require('https');
 let config = require('../../config/config');
 
