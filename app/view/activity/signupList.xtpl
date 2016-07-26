@@ -9,8 +9,8 @@
         {{/if}}
         <div class="weui_panel_bd">
             {{#each(signList)}}
-            <a href="javascript:void(0);" id="signup_{{this._id}}" class="weui_media_box weui_media_appmsg">
-                <form>
+            <form id="signup_{{this._id}}">
+            <a href="javascript:void(0);" class="weui_media_box weui_media_appmsg">
                     <input type="hidden" name="signupId" value="{{this._id}}"/>
                 <div class="weui_media_hd">
                     <img class="weui_media_appmsg_thumb" src="{{this.headimgurl}}">
@@ -26,8 +26,8 @@
                 <div class="weui_media_fd">
                     <a class="weui_btn weui_btn_warn" href="javascript:" id="J_sign_up_refund">退款</a>
                 </div>
-                </form>
             </a>
+            </form>
             {{/each}}
 
         </div>

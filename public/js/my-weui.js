@@ -50,9 +50,7 @@ $(document)
             data: params,
             success: function (result) {
                 if (result.success) {
-                    //
-                    $.toptip("#signup_"+params.signupId+"");
-                    $("#signup_"+params.signupId+"").remove();
+                    $form.remove();
                 } else {
                     $.toptip(result.errorMsg || '退款失败',"error")
                 }
