@@ -71,6 +71,32 @@ module.exports.getTokenByCode = function *(code) {
     return yield getHttps(url);
 }
 
+module.exports.refund = function *(signup) {
+    var params = {
+        appid: config.wepay.appid,
+        mch_id: config.wepay.mch_id,
+        op_user_id: config.wepay.mch_id,
+        out_refund_no: signup._id.toString(),
+        total_fee: signup.deposit, //原支付金额
+        refund_fee: signup.deposit, //退款金额
+        out_trade_no: signup._id.toString()
+    };
+
+    var data = yield new Promise(function(resolve, reject) {
+        wxpay.refund(params, function (err, result) {
+            if(err){
+                reject(err);
+            }else{
+                resolve(result);
+            }
+            console.log(result);
+        });
+    });
+    return data;
+}
+
+
+
 module.exports.getUserInfo = function *(token,openid) {
     let url = 'https://api.weixin.qq.com/sns/userinfo?access_token='+token+'&openid='+openid+'&lang=zh_CN';
     //https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN

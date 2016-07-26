@@ -24,7 +24,7 @@
                     <p class="weui_media_desc">报名时间:{{this.gmtCreate}}</p>
                 </div>
                 <div class="weui_media_fd">
-                    <a class="weui_btn weui_btn_warn" href="javascript:" id="">退款</a>
+                    <a class="weui_btn weui_btn_warn" href="javascript:" id="J_sign_up_refund">退款</a>
                 </div>
                 </form>
             </a>
