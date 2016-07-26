@@ -79,6 +79,7 @@ WXPay.mix('createUnifiedOrder', function(opts, fn){
 
 WXPay.mix('getBrandWCPayRequestParams', function(order, fn){
 
+    console.log('getBrandWCPayRequestParams order = '+JSON.stringify(order));
     order.trade_type = "JSAPI";
     var _this = this;
     this.createUnifiedOrder(order, function(err, data){
