@@ -82,22 +82,17 @@ var SignUpSchema = new Schema({
 
 
 SignUpSchema.statics.saveSignUp = function* (signup) {
-    let activity = yield ActivityModel.getActivityByActivityId(signup.activityId);
-    //console.log("ctx="+ctx);
-    signup.deposit = activity.deposit;
-    signup.activity = activity.activityTitle;
-    if(signup.status == undefined){
-        signup.status = "NOTPAY";
+    if (signup.activity == undefined) {
+        let activity = yield ActivityModel.getActivityByActivityId(signup.activityId);
+        //console.log("ctx="+ctx);
+        signup.deposit = activity.deposit;
+        signup.activity = activity.activityTitle;
+        if (signup.status == undefined) {
+            signup.status = "NOTPAY";
+        }
     }
     console.log('signup = ' + JSON.stringify(signup));
-    // let payOrder = yield wepay.createUnifiedOrder(signup);
-    // console.log(payOrder.return_msg == "OK");
-    // if(payOrder.return_code == "SUCCESS" && payOrder.return_msg == "OK"){
-    //     signup.payOrderId = payOrder.prepay_id;
-        return yield signup.save();
-    // }else{
-    //     return undefined;
-    // }
+    return yield signup.save();
 };
 
 SignUpSchema.statics.getSignUp = function* (signupId) {
