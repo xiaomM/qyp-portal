@@ -11,7 +11,8 @@
                 "getBrandWCPayRequest", {{{payargs}}}, function(res){
                     if(res.err_msg == "get_brand_wcpay_request:ok" ) {
                         window.location.reload(true);
-                    // success
+                        // success
+                    }else if(res.err_msg !== "get_brand_wcpay_request:cancel"){
                     }else{
                         window.location.reload(true);
                     }
