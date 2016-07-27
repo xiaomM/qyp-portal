@@ -26,7 +26,7 @@ module.exports = function(app){
      * Ajax
      */
     app.post(ajaxPerfix + '/new', Controller.createActivity);
-    app.post(ajaxPerfix + '/signup', Controller.signupActivity);
+    app.post(ajaxPerfix + '/signup', MemberController.oAuth2,Controller.signupActivity);
     app.post(ajaxPerfix + '/signupRefund', Controller.signupRefund);
     app.get(ajaxPerfix + '/getDetail', Controller.detailActivity);
 
