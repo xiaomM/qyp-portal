@@ -109,8 +109,8 @@ module.exports.getJsApiParams = function *(signup) {
     let params = yield new Promise(function (resolve, reject) {
         wxpay.getBrandWCPayRequestParams({
             openid: signup.openid,
-            body: signup.nickname+'支付活动费用',
-            detail: signup.nickname+'支付活动费用',
+            body: signup.signname+'支付活动费用',
+            detail: signup.signname+'支付活动费用',
             out_trade_no: signup._id.toString(),
             total_fee: signup.deposit,
             spbill_create_ip: signup.remoteIp,
