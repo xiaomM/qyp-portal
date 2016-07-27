@@ -17,7 +17,7 @@
                 </div>
                 <div class="weui_media_bd">
                     <h4 class="weui_media_title">{{this.nickname}}</h4>
-                    <p class="weui_media_desc">性别:{{this.sex}}&amp;nbsp;&amp;nbsp;&amp;nbsp;职责:{{this.duty}}</p>
+                    <p class="weui_media_desc">性别:{{this.sex}}    职责:{{this.duty}}</p>
                     {{#if (this.remarks !== undefined && this.remarks.length !== 0)}}
                         <p class="weui_media_desc">备注:{{this.remarks}}</p>
                     {{/if}}
