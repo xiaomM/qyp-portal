@@ -60,6 +60,7 @@ exports.adminAuth = function *(next) {
         'oNhOfwdsYwHZKyaDyUU6w7n2Q52s',
         'oNhOfwbqAI63ZrV21NLAmUwbYy-4',
         'oNhOfwbtOumBFwc3EUxyDEMdP41s',
+        'oNhOfwXwrUWcgWXxah9Z2zOxfLJQ',
     ];
     if(this.locals.userInfo == undefined
     ||this.locals.userInfo.openid == undefined){
