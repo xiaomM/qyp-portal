@@ -43,7 +43,7 @@ module.exports.createUnifiedOrder = function *(signup) {
     var data = yield new Promise(function(resolve, reject){
         //console.log(signup.nickname+signup._id+signup.deposit+signup.remoteIp+"==============");
         wxpay.createUnifiedOrder({
-            body: '穷游派报名-'+signup.nickname,
+            body: '穷游派报名'+signup.signname,
             out_trade_no: signup._id.toString(),
             total_fee: signup.deposit,
             spbill_create_ip: signup.remoteIp,
