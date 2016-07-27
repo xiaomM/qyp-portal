@@ -1,7 +1,7 @@
 'use strict';
 
 var fs = require('fs');
-var WXPay = require('weixin-pay');
+var WXPay = require('./wxpay');
 const https = require('https');
 let config = require('../../config/config');
 
@@ -47,7 +47,7 @@ module.exports.createUnifiedOrder = function *(signup) {
             out_trade_no: signup._id.toString(),
             total_fee: signup.deposit,
             spbill_create_ip: signup.remoteIp,
-            notify_url: 'http://wxpay_notify_url',
+            notify_url: 'http://www.dream623.com/activity/jspay/notify_url',
             trade_type: 'JSAPI',
             openid:signup.openid,
             product_id: signup.activityId
@@ -65,11 +65,37 @@ module.exports.createUnifiedOrder = function *(signup) {
 
 module.exports.getTokenByCode = function *(code) {
     let url='https://api.weixin.qq.com/sns/oauth2/access_token?' +
-        'appid=wxaedc01e46d43b9ba' +
-        '&secret=9dccfeb60d96bf823b435d14a0fc6937' +
+        'appid=' + config.wepay.appid+
+        '&secret=' + config.wepay.secret+
         '&code='+code+'&grant_type=authorization_code';
     return yield getHttps(url);
 }
+
+module.exports.refund = function *(signup) {
+    var params = {
+        appid: config.wepay.appid,
+        mch_id: config.wepay.mch_id,
+        op_user_id: config.wepay.mch_id,
+        out_refund_no: signup._id.toString(),
+        total_fee: signup.deposit, //原支付金额
+        refund_fee: signup.deposit, //退款金额
+        out_trade_no: signup._id.toString()
+    };
+
+    var data = yield new Promise(function(resolve, reject) {
+        wxpay.refund(params, function (err, result) {
+            if(err){
+                reject(err);
+            }else{
+                resolve(result);
+            }
+            console.log(result);
+        });
+    });
+    return data;
+}
+
+
 
 module.exports.getUserInfo = function *(token,openid) {
     let url = 'https://api.weixin.qq.com/sns/userinfo?access_token='+token+'&openid='+openid+'&lang=zh_CN';
@@ -79,6 +105,7 @@ module.exports.getUserInfo = function *(token,openid) {
 }
 
 module.exports.getJsApiParams = function *(signup) {
+    console.log('getJsApiParams: signup = '+JSON.stringify(signup));
     let params = yield new Promise(function (resolve, reject) {
         wxpay.getBrandWCPayRequestParams({
             openid: signup.openid,
@@ -90,8 +117,10 @@ module.exports.getJsApiParams = function *(signup) {
             notify_url: 'http://www.dream623.com/activity/jspay/notify_url'
         }, function(err, result){
             if(err){
+                console.log('统一下单接口失败:'+JSON.stringify(err));
                 reject(err);
             }else{
+                console.log('统一下单接口返回:'+JSON.stringify(result));
                 resolve(result);
             }
         });

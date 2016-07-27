@@ -16,7 +16,7 @@
                             <div class="weui_cell">
                                 <div class="weui_cell_hd"><label class="weui_label">昵称</label></div>
                                 <div class="weui_cell_bd weui_cell_primary">
-                                    <input type="text"  required="required" name="nickname" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
+                                    <input type="text"  required="required" name="signname" class="weui_input" placeholder="昵称/花名" data-rule-required="true">
                                 </div>
                             </div>
 
@@ -33,6 +33,21 @@
                                     <input type="text" name="email" required="required" class="weui_input" placeholder="邮箱" data-rule-required="true" data-rule-email="true">
                                 </div>
                             </div>
+
+                              {{{#if (activityDetail.needIdCards === "true")}}}
+                              <div class="weui_cell">
+                                  <div class="weui_cell_hd"><label class="weui_label">身份证</label></div>
+                                  <div class="weui_cell_bd weui_cell_primary">
+                                      <input type="text" name="idCardNum" required="required" class="weui_input" placeholder="身份证号码" data-rule-required="true" data-rule-email="true">
+                                  </div>
+                              </div>
+                              <div class="weui_cell">
+                                  <div class="weui_cell_hd"><label class="weui_label">真名</label></div>
+                                  <div class="weui_cell_bd weui_cell_primary">
+                                      <input type="text" name="realName" required="required" class="weui_input" placeholder="身份证名称" data-rule-required="true" data-rule-email="true">
+                                  </div>
+                              </div>
+                              {{{/if}}}
 
                             <!--<div class="weui_cell">
                                 <div class="weui_cell_hd"><label class="weui_label">身份证号</label></div>

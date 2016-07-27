@@ -38,3 +38,22 @@ $(document)
             }
         });
     })
+    .on('click', '#J_sign_up_refund', function (e) {
+        e.preventDefault();
+        var $target = $(this);
+        var $form = $target.closest('form');
+
+        var params = $form.serializeObject();
+        $.ajax({
+            url: '/ajax/activity/signupRefund',
+            type: 'POST',
+            data: params,
+            success: function (result) {
+                if (result.success) {
+                    $form.remove();
+                } else {
+                    $.toptip(result.errorMsg || '退款失败',"error")
+                }
+            }
+        });
+    })

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+        <title>WeUI</title>
+        <link rel="stylesheet" href="/node_modules/weui/dist/style/weui.min.css"/>
+    </head>
+    <body>
+
+    <div class="weui_msg">
+
+        <div class="weui_text_area">
+            <div class="weui_icon_area"><i class="weui_icon_safe weui_icon_safe_warn"></i></div>
+            <p class="weui_msg_desc">{{errorMsg}}</p>
+        </div>
+    </div>
+
+    </body>
+</html>
+
+

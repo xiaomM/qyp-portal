@@ -70,6 +70,13 @@ exports.mylists = function* () {
     yield this.render('activity/mylists', {});
 };
 
+exports.activitySignupList = function* () {
+    var ctx = this;
+    ctx.locals.signList = yield SignUpModel.getSignUpListByCondition(
+        {activityId:ctx.params.activityId,status:"SUCCESS"});
+    yield this.render('activity/signupList', {});
+};
+
 exports.check = function* () {
     yield this.render('activity/check', {});
 };
@@ -139,10 +146,9 @@ exports.signupActivity = function* () {
     console.log(ctx.request.body);
     
     if(isNull(ctx.request.body.activityId)
-        ||isNull(ctx.request.body.nickname)
+        ||isNull(ctx.request.body.signname)
         ||isNull(ctx.request.body.phoneNumber)
         ||isNull(ctx.request.body.email)
-        ||isNull(ctx.request.body.age)
         ||isNull(ctx.request.body.sex)
         ||isNull(ctx.request.body.openid)
     ){
@@ -155,20 +161,43 @@ exports.signupActivity = function* () {
         return;
     }
     let signUpEntity = new SignUpModel(ctx.request.body);
+    signUpEntity = _.extend(signUpEntity,ctx.locals.userInfo);
     let result = yield SignUpModel.saveSignUp(signUpEntity);
-    // if(result != undefined) {
-    //     if (ctx.request.body.saveAsDefault == "1") {
-    //         let openId = result.openid;
-    //         let dbMemberEntity = yield MemberModel.getMember(openId);
-    //         if (dbMemberEntity != undefined) {
-    //             let memberEntity = new MemberModel(ctx.request.body);
-    //             memberEntity._id = dbMemberEntity._id;
-    //             yield MemberModel.saveMember(memberEntity);
-    //         }
-    //     }
-    // }
+    
     console.log("result = "+result);
     ctx.body = wrapResult(result,result != undefined);
+}
+
+exports.signupRefund = function* () {
+    var ctx = this;
+    console.log(ctx.request.body);
+
+    if(isNull(ctx.request.body.signupId)){
+        ctx.body = {
+            success: false,
+            errorCode:-1,
+            errorMsg: '没有对应报名信息',
+            data:''
+        }
+        return;
+    }
+    let signUpEntity = yield SignUpModel.getSignUp(ctx.request.body.signupId);
+    if(typeof signUpEntity === "undefined"){
+        ctx.body = {
+            success: false,
+            errorCode:-1,
+            errorMsg: '没有对应报名信息',
+            data:''
+        }
+        return;
+    }
+    let result = yield wepay.refund(signUpEntity);
+    if(result.result_code === "SUCCESS"){
+        signUpEntity.status = "REFUND";
+        let updateReulst = yield SignUpModel.saveSignUp(signUpEntity);
+        console.log("updateResult = "+JSON.stringify(updateReulst));
+    }
+    ctx.body = wrapResult(result,result.result_code === "SUCCESS");
 }
 
 exports.detailActivity = function* () {

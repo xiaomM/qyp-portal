@@ -37,7 +37,9 @@ var MemberSchema = new Schema({
     city:{type:String},
     country:{type:String},
     headimgurl:{type:String},
-    unionid:{type:String}
+    unionid:{type:String},
+    idCardNum:{type:String},
+    realName:{type:String},
 });
 
 /**

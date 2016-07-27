@@ -48,6 +48,7 @@ xtplApp(app,{
 
 
 var session = require('koa-session');
+app.keys = ['qiongyoupai_secret'];
 app.use(session(app));
 
 

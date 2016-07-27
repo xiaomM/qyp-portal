@@ -40,6 +40,7 @@ var SignUpSchema = new Schema({
     activityObjId:{type:Schema.Types.ObjectId},
     activityId:{type:Number},
     activity:{type:String},
+    signname:{type:String}, //报名参加活动的用户,
     nickname: {type:String},// nickname	用户昵称
     phoneNumber: {type:String},
     email: {type:String},
@@ -60,7 +61,9 @@ var SignUpSchema = new Schema({
     country:{type:String},
     headimgurl:{type:String},
     unionid:{type:String},
-    status:{type:String,default:"NOTPAY"}
+    status:{type:String,default:"NOTPAY"},
+    idCardNum:{type:String},
+    realName:{type:String},
 });
 
 /**
@@ -81,22 +84,16 @@ var SignUpSchema = new Schema({
 
 
 SignUpSchema.statics.saveSignUp = function* (signup) {
-    let activity = yield ActivityModel.getActivityByActivityId(signup.activityId);
-    //console.log("ctx="+ctx);
-    signup.deposit = activity.deposit;
-    signup.activity = activity.activityTitle;
-    if(signup.status == undefined){
+    if (signup.activity == undefined || signup.deposit == undefined) {
+        let activity = yield ActivityModel.getActivityByActivityId(signup.activityId);
+        signup.deposit = activity.deposit;
+        signup.activity = activity.activityTitle;
+    }
+    if (signup.status == undefined) {
         signup.status = "NOTPAY";
     }
-    console.log('signup = ' + JSON.stringify(signup));
-    // let payOrder = yield wepay.createUnifiedOrder(signup);
-    // console.log(payOrder.return_msg == "OK");
-    // if(payOrder.return_code == "SUCCESS" && payOrder.return_msg == "OK"){
-    //     signup.payOrderId = payOrder.prepay_id;
-        return yield signup.save();
-    // }else{
-    //     return undefined;
-    // }
+
+    return yield signup.save();
 };
 
 SignUpSchema.statics.getSignUp = function* (signupId) {
@@ -110,6 +107,18 @@ SignUpSchema.statics.getSignUpListByOpenId = function* (openid) {
     console.log('signUpList = '+signUpList);
     return signUpList;
 };
+SignUpSchema.statics.getSignUpListByActivityId = function* (activityId) {
+    let signUpList =  (yield SignUpModel.find({activityId:activityId}).exec());
+    console.log('signUpList = '+signUpList);
+    return signUpList;
+};
+
+SignUpSchema.statics.getSignUpListByCondition = function* (condition) {
+    let signUpList =  (yield SignUpModel.find(condition).exec());
+    console.log('signUpList = '+signUpList);
+    return signUpList;
+};
+
 
 /**
  * Statics
