@@ -12,9 +12,9 @@
                     if(res.err_msg == "get_brand_wcpay_request:ok" ) {
                         window.location.reload(true);
                         // success
-                    }else if(res.err_msg !== "get_brand_wcpay_request:cancel"){
-                    }else{
+                    }else if(res.err_msg !== "get_brand_wcpay_request:fail"){
                         window.location.reload(true);
+                    }else{
                     }
             });
         }
