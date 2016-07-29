@@ -17,10 +17,10 @@ module.exports = function(app){
     });
     app.get(prefix+'/wechatEvent', function *(next) {
         let ctx = this;
-        console.log('requst log: url:'+ctx.request.url+JSON.stringify(ctx.params)+"queryString:"+ctx.req.queryString);
-        if(ctx.req.query.echostr != undefined){
+        console.log('requst log: url:'+ctx.request.url+JSON.stringify(ctx.params)+"queryString:"+ctx.request.queryString);
+        if(ctx.request.query.echostr != undefined){
             ctx.res.writeHead(200, {"Content-Type": "text/plain"});
-            ctx.res.write(ctx.req.query.echostr);
+            ctx.res.write(ctx.req.request.echostr);
             ctx.res.end();
         }else{
             ctx.res.writeHead(200, {"Content-Type": "text/plain"});
