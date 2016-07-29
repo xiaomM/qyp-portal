@@ -24,7 +24,6 @@ module.exports = function(app){
             ctx.res.end();
         }else{
             ctx.res.writeHead(200, {"Content-Type": "text/plain"});
-            ctx.res.write("ok");
             ctx.res.end();
         }
     });
