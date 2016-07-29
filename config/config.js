@@ -8,7 +8,7 @@ var config = {
     "env":"production",
     "appName": "qyp",
     //端口号配置
-    "port": 80,
+    "port": 8080,
     //模板所在的目录
     "viewDir": path.join(__dirname,'..','app/view'),
     //log所在的目录
