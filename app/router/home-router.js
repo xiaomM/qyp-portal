@@ -16,8 +16,8 @@ module.exports = function(app){
         yield this.render('home/error', {errorMsg:'您没有权限浏览此页面'});
     });
     app.get(prefix+'/wechatEvent', function *(next) {
-        console.log('requst log: url:'+ctx.request.url+JSON.stringify(ctx.params));
         let ctx = this;
+        console.log('requst log: url:'+ctx.request.url+JSON.stringify(ctx.params));
         if(req.query.echostr != undefined){
             ctx.res.writeHead(200, {"Content-Type": "text/plain"});
             ctx.res.write(req.query.echostr);
