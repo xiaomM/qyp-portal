@@ -18,9 +18,9 @@ module.exports = function(app){
     app.get(prefix+'/wechatEvent', function *(next) {
         let ctx = this;
         console.log('requst log: url:'+ctx.request.url+JSON.stringify(ctx.params));
-        if(req.query.echostr != undefined){
+        if(ctx.req.query.echostr != undefined){
             ctx.res.writeHead(200, {"Content-Type": "text/plain"});
-            ctx.res.write(req.query.echostr);
+            ctx.res.write(ctx.req.query.echostr);
             ctx.res.end();
         }else{
             ctx.res.writeHead(200, {"Content-Type": "text/plain"});
