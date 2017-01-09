@@ -9,7 +9,7 @@ let wepay = require('../model/wepay');
 
 exports.oAuth2 = function* (next) {
     let ctx = this;
-    if(ctx.session.userInfo == undefined) {
+    // if(ctx.session.userInfo == undefined) {
         let code = ctx.request.query.code;
         if (code == undefined) {
             console.log(ctx.request);
@@ -45,9 +45,9 @@ exports.oAuth2 = function* (next) {
             ctx.locals.userInfo = userInfo;
             ctx.session.userInfo = userInfo;
         }
-    }else{
-        ctx.locals.userInfo = ctx.session.userInfo;
-    }
+    // }else{
+    //     ctx.locals.userInfo = ctx.session.userInfo;
+    // }
     yield next;
 }
 
