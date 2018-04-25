@@ -15,4 +15,16 @@ module.exports = function(app){
     app.get(prefix+'/no_permission', function *(next) {
         yield this.render('home/error', {errorMsg:'您没有权限浏览此页面'});
     });
+    app.all(prefix+'/wechatEvent', function *(next) {
+        let ctx = this;
+        console.log('requst log: url:'+ctx.request.url+JSON.stringify(ctx.params)+"queryString:"+JSON.stringify(ctx.query));
+        if(ctx.query.echostr != undefined){
+            ctx.res.writeHead(200, {"Content-Type": "text/plain"});
+            ctx.res.write(ctx.query.echostr);
+            ctx.res.end();
+        }else{
+            ctx.res.writeHead(200, {"Content-Type": "text/plain"});
+            ctx.res.end();
+        }
+    });
 };
